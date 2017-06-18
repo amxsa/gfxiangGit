@@ -1,0 +1,273 @@
+[INFO] 2016-10-18 11:13:17.750 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-10-18 11:13:17.753 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-10-18 11:13:17.754 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-10-18 11:13:17.856 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-10-18 11:13:17.860 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:17 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:13:17.861 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-10-18 11:13:18.239 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:17 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:13:18.293 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:17 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:13:18.387 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/easyui/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:13:18.390 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+
+[INFO] 2016-10-18 11:13:18.393 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+
+[INFO] 2016-10-18 11:13:18.395 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/upload/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+
+[INFO] 2016-10-18 11:13:18.397 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+
+[INFO] 2016-10-18 11:13:18.399 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#5'
+
+[INFO] 2016-10-18 11:13:18.401 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#6'
+
+[INFO] 2016-10-18 11:13:18.403 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/bin/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#7'
+
+[INFO] 2016-10-18 11:13:18.409 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:13:18.522 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 666 ms
+
+[INFO] 2016-10-18 11:13:18.536 [org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:982)]
+Closing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:17 CST 2016]; parent: Root WebApplicationContext
+
+[WARN] 2016-10-18 11:13:18.541 [com.gf.ims.common.listener.GlobalListener.contextDestroyed(GlobalListener.java:19)]
+-----------------容器开始销毁-----------------
+
+[WARN] 2016-10-18 11:13:18.541 [com.gf.ims.common.listener.GlobalListener.contextDestroyed(GlobalListener.java:20)]
+*****************容器完成销毁*****************
+
+[INFO] 2016-10-18 11:13:23.605 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-10-18 11:13:23.608 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-10-18 11:13:23.609 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-10-18 11:13:23.692 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-10-18 11:13:23.696 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:23 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:13:23.698 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-10-18 11:13:24.138 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:23 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:13:24.194 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:13:23 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:13:24.317 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/easyui/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:13:24.321 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+
+[INFO] 2016-10-18 11:13:24.323 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+
+[INFO] 2016-10-18 11:13:24.325 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/upload/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+
+[INFO] 2016-10-18 11:13:24.327 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+
+[INFO] 2016-10-18 11:13:24.329 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#5'
+
+[INFO] 2016-10-18 11:13:24.341 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#6'
+
+[INFO] 2016-10-18 11:13:24.344 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/bin/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#7'
+
+[INFO] 2016-10-18 11:13:24.354 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:13:24.489 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 797 ms
+
+[INFO] 2016-10-18 11:15:42.813 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-10-18 11:15:42.818 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-10-18 11:15:42.823 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-10-18 11:15:42.906 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-10-18 11:15:42.910 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:15:42 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:15:42.912 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-10-18 11:15:43.341 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:15:42 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:15:43.402 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:15:42 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:15:43.492 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/easyui/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:15:43.494 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+
+[INFO] 2016-10-18 11:15:43.497 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+
+[INFO] 2016-10-18 11:15:43.506 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/upload/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+
+[INFO] 2016-10-18 11:15:43.508 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+
+[INFO] 2016-10-18 11:15:43.511 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#5'
+
+[INFO] 2016-10-18 11:15:43.512 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#6'
+
+[INFO] 2016-10-18 11:15:43.515 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/bin/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#7'
+
+[INFO] 2016-10-18 11:15:43.524 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:15:43.641 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 735 ms
+
+[INFO] 2016-10-18 11:26:03.723 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-10-18 11:26:03.726 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-10-18 11:26:03.727 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-10-18 11:26:03.810 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-10-18 11:26:03.814 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:26:03 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:26:03.815 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-10-18 11:26:04.197 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/base/goURL/{folder1}/{folder2}/{file}]}" onto public java.lang.String com.gf.ims.web.acion.BaseAction.goURL(java.lang.String,java.lang.String,java.lang.String)
+
+[INFO] 2016-10-18 11:26:04.200 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/test/test]}" onto public java.lang.Object com.gf.ims.web.acion.TestAction.Test()
+
+[INFO] 2016-10-18 11:26:04.267 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:26:03 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:26:04.328 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:26:03 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:26:04.441 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/easyui/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:26:04.444 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+
+[INFO] 2016-10-18 11:26:04.446 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+
+[INFO] 2016-10-18 11:26:04.448 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/upload/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+
+[INFO] 2016-10-18 11:26:04.450 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+
+[INFO] 2016-10-18 11:26:04.451 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#5'
+
+[INFO] 2016-10-18 11:26:04.454 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#6'
+
+[INFO] 2016-10-18 11:26:04.456 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/bin/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#7'
+
+[INFO] 2016-10-18 11:26:04.465 [org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:354)]
+Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+
+[INFO] 2016-10-18 11:26:04.599 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 789 ms
+
+[INFO] 2016-10-18 11:27:53.251 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-10-18 11:27:53.254 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-10-18 11:27:53.256 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-10-18 11:27:53.347 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-10-18 11:27:53.351 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:27:53 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:27:53.352 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-10-18 11:27:53.834 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/base/goURL/{folder1}/{folder2}/{file}]}" onto public java.lang.String com.gf.ims.web.acion.BaseAction.goURL(java.lang.String,java.lang.String,java.lang.String)
+
+[INFO] 2016-10-18 11:27:53.841 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/test/test]}" onto public java.lang.Object com.gf.ims.web.acion.TestAction.Test()
+
+[INFO] 2016-10-18 11:27:53.921 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:27:53 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:27:54.020 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 11:27:53 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-10-18 11:27:54.246 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 898 ms
+
+[INFO] 2016-10-18 11:32:25.402 [common.DB.ConnConf.<init>(ConnConf.java:47)]
+JDBC初始化配置完毕
+
+[INFO] 2016-10-18 11:32:25.476 [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager(AbstractPoolBackedDataSource.java:462)]
+Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge12l9j1nbwd4z1lcghzy|309bd6a2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge12l9j1nbwd4z1lcghzy|309bd6a2, idleConnectionTestPeriod -> 18000, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 25, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> SELECT id FROM menu where id='1', properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+[INFO] 2016-10-18 11:32:25.970 [common.DB.JDBC.query(JDBC.java:944)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:select * from t_emp where 1=1  花费6ms 
+

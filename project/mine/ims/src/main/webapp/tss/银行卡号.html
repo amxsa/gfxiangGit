@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">  
+<head>  
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">  
+    <title>Document</title>  
+    <script src="jquery.js"></script>  
+</head>  
+<body>  
+    <script>  
+    var num = 0;  
+    function inputAccount(){  
+        
+      var str = $('#bankCard').val();  
+        
+      var elem = document.getElementById("bankCard");  
+        
+      console.log(elem);  
+        
+      if(str.length > num){  
+          var c = str.replace(/\s/g,  "");   
+            
+          if(str != "" && c.length > 4 && c.length % 4 == 1){  
+            $('#bankCard').val(str.substring(0, str.length - 1)+ " " + str.substring(str.length - 1, str.length));  
+                
+          }  
+      }  
+        
+      if(elem.setSelectionRange){//W3C  
+            setTimeout(function(){  
+                elem.setSelectionRange(elem.value.length,elem.value.length);  
+                elem.focus();  
+            },0);  
+        }else if(elem.createTextRange){//IE  
+            var textRange=elem.createTextRange();  
+            textRange.moveStart("character",elem.value.length);  
+            textRange.moveEnd("character",0);  
+            textRange.select();  
+        }  
+        
+      num = str.length;  
+        
+  }  
+  
+    </script>  
+  
+  
+    <input type="text" name="" oninput="inputAccount()" id="bankCard" />  
+</body>  
+</html>

@@ -1,0 +1,71 @@
+body{width: 100%;height: 100%;background: #FBF6F6;}
+#main-wrapper{width: 100%;}
+.top_header{width: 100%;height: 40px;line-height: 40px;text-align: center;color: #fff;background: #50A57E;}
+.main_content{width: 95%;margin: 0 auto;background: #fff;background: #FBF6F6;}
+.form_text{margin-top: 30px;}
+.text-fill{margin-bottom: 10px;}
+/*核心公共代码===================开始*/
+.item{border-bottom: 1px solid #ccc;background: #fff;display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;}
+/*表单左边的名字*/
+.left_name{display: inline-block;min-width: 75px;text-align: left;padding: 0 10px 0;line-height: 40px;height: 40px;}
+/*右边flex为1的盒子*/
+.sel_div{
+    width: 100%; -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;position: relative;}
+/*select样式*/
+.sel_div select{height: 40px;width: 100%;-webkit-appearance: none;font-size: 18px;font-family: "微软雅黑"; padding: 0 25px 0 20px;}
+/*input样式*/
+.item input.ipt{width: 100%;height: 40px; -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;line-height: 40px;padding-left: 10px;box-sizing: border-box;font-family: "微软雅黑";}
+/*核心公共代码======================结束*/
+/*获取验证码*/
+.item a{display: inline-block;height: 40px;line-height: 40px;padding-right: 10px;}
+/*确认按钮*/
+.confirm_btn{width: 100%;height: 40px;line-height: 40px;background:#50A57E;text-align: center;color: #fff;border-radius: 5px;margin-top: 30px;}
+/*单选框*/
+.p1,.p2{display: inline-block;min-width: 73px;}
+.p2{margin-left: 10px;}
+
+
+/*左右结构的图片*/
+.item_left{width: 60px;height: 60px;margin-right:0.8rem;}
+.item_left img{width: 100%;height: 100%;}
+.item_right{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;}
+.pd{padding: 10px 0;}
+
+
+.pic_left{width: 50px;height: 50px;margin-right:0.8rem;vertical-align: top;}
+.pic_right{-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;}
+.pic_right img{width: 60px;height: 60px;}
+.add_pic{width: 50px;height: 50px;background:url(../img/add.png);overflow: hidden;background-size:100% auto;float: left;}
+.add_pic input{opacity: 0;width: 100%;height: 100%;display: inline-block;float: left;}
+
+.photo{display: inline-block;float: left;position: relative;}
+.photo img{width: 50px;height: 50px;margin-right: 10px;margin-bottom: 10px;}
+.close_btn{position: absolute;right: 3px;top: -5px;background: pink;width: 20px;height: 20px;z-index: 222;}
+/*星星评分*/
+.star ul{overflow: hidden;}
+.star li{width:27px;height:27px;background: url(../img/star.gif) no-repeat; float: left;cursor: pointer;}
+.star li.on{background-position: 0 -29px;}

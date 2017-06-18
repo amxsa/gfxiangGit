@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flownodes>
+	<flownode name="agree" isSameAsCurrentDept="" roles="9"
+		propertyStatus="ZCK2ZXK" applicationStatus="N">
+		<conditionExpression><![CDATA[status=='Y']]></conditionExpression>
+	</flownode>
+	<flownode name="disagree" isSameAsCurrentDept="" roles=""
+		propertyStatus="ZCK" applicationStatus="F">
+		<conditionExpression><![CDATA[status=='N']]></conditionExpression>
+	</flownode>
+</flownodes>

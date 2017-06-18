@@ -1,0 +1,113 @@
+.layer {
+	width: 500px;
+	margin-left: -250px;
+}
+
+.input_box {
+	line-height: 30px;
+}
+
+.input_box label {
+	vertical-align: top;
+	width: 110px;
+	text-align: right;
+	padding-right: 15px;
+}
+
+.input_box span {
+	margin-right: 20px;
+}
+
+.input_box p {
+	height: 30px;
+	line-height: 30px;
+	margin: 0;
+}
+
+.input_box .content {
+	display: inline-block;
+	word-wrap: break-word;
+	word-break: break-all;
+	width: 365PX;
+}
+
+.input_box .content span {
+	width: 40px;
+}
+
+.img_box,
+.video_box,
+.audio_box {
+	border: 1px solid #D9E0F2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 302px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.img_box img,
+.video_box video {
+	width: 280px;
+	height: 150px;
+}
+
+.audio_box audio {
+	width: 280px;
+}
+
+.flex_box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.flex_box label {
+	width: 70px;
+}
+
+.flex_box .content {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.card_box {
+	border: 1px solid #D9E0F2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width: 280px;
+	box-sizing: border-box;
+	margin: 6px 0;
+}
+
+.card_box .card_title {
+	background-color: #1db7ff;
+	height: 100px;
+	color: #FFFFFF;
+	font-size: 18px;
+	padding-top: 30px;
+	padding-left: 10px;
+	word-wrap: break-word;
+	word-break: break-all;
+	box-sizing: border-box;
+}
+
+.card_box .card_line {
+	height: 5px;
+	background: url(../img/card_tpl_deco.png) repeat #1db7ff;
+}
+
+.card_box .card_type {
+	height: 30px;
+	padding-left: 10px;
+}
+.imgtex_box{
+	line-height: 34px;
+}

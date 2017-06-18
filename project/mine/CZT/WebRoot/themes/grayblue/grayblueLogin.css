@@ -1,0 +1,307 @@
+@charset "utf-8";
+*{
+    font-family: 宋体;
+    font-size: 12px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    list-style-type: none;
+}
+ 
+#maindiv #indexbg ul {
+    list-style-type: none;
+    padding: 0px;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+.hg {
+    font-family: "宋体";
+    font-size: 12px;
+}
+#maindiv {
+    position:absolute;
+    width:100%;
+    z-index:1;
+    padding-top: 12%;
+    height: 100%;
+}
+#indexbg {
+    position:relative;
+    width:797px;
+    height:304px;
+    z-index:1;
+    left: auto;
+    top: auto;
+    clear: both;
+    float: none;
+    background-image: url(../images/images2/index-bg2.gif);
+    background-repeat: repeat-x;
+    margin-right: auto;
+    margin-left: auto;
+    right: auto;
+    bottom: auto;
+    overflow: visible;
+    
+}
+#bg-z {
+    position:relative;
+    width:6px;
+    height:100%;
+    z-index:1;
+    float: left;
+    clear: none;
+    overflow: auto;
+    background-image: url(../images/images2/index-bg1.gif);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+#bg-main {
+    position:relative;
+    z-index:1;
+    float: left;
+    clear: none;
+    overflow: visible;
+    width: 785px;
+    height: 100%;
+}
+#bg-y {
+    position:relative;
+    width:6px;
+    height:100%;
+    z-index:1;
+    float: right;
+    clear: none;
+    overflow: auto;
+    background-image: url(../images/images2/index-bg3.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+    right: 0px;
+    left: auto;
+    top: auto;
+    bottom: auto;
+}
+.logo {
+    position:relative;
+    width:154px;
+    height:76px;
+    z-index:1;
+    float: left;
+    clear: none;
+    overflow: auto;
+    background-image: url(../images/images2/logo.gif);
+    background-repeat: no-repeat;
+    left: 5px;
+    top: 15px;
+}
+
+.logo114 {
+    position:relative;
+    width:294px;
+    height:54px;
+    z-index:1;
+    float: right;
+    clear: none;
+    overflow: auto;
+    background-image: url(../images/images2/114-system.gif);
+    background-repeat: no-repeat;
+    top: 15px;
+    right: 6px;
+}
+
+
+#biaodan1 {
+    position:relative;
+    clear: both;
+    font-family: "宋体";
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: right;
+    letter-spacing: 2px;
+    overflow: visible;
+    z-index: auto;
+    float: none;
+    top: 70px;
+    background-image: url(../images/images2/line-h.gif);
+    background-repeat: repeat-x;
+    background-position: left top;
+    height: 30px;
+    width: 580px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 30px;
+}
+
+#biaodan {
+    position:relative;
+    float: left;
+    clear: both;
+    font-family: "宋体";
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: right;
+    top: 50px;
+    letter-spacing: 2px;
+    overflow: visible;
+    z-index: auto;
+    line-height: 22px;
+    margin-top: 10px;
+    width: 680px;
+}
+
+#biaodan a:link,#biaodan a:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-image: url(../images/images2/h-ny2.gif);
+    background-repeat: no-repeat;
+    display: block;
+    height: 22px;
+    width: 80px;
+    float: right;
+    clear: none;
+    background-position: center center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 22px;
+    margin-left: 22px;
+}
+#biaodan a:hover {
+    text-decoration: none;
+    background-image: url(../images/images2/h-ny1.gif);
+    background-repeat: no-repeat;
+    display: block;
+    height: 22px;
+    width: 80px;
+    float: right;
+    clear: none;
+    background-position: center center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 22px;
+    margin-left: 22px;
+}
+.textfie {
+    font-family: Arial, Helvetica, sans-serif, "宋体";
+    font-size: 12px;
+    color: #333333;
+    text-decoration: blink;
+    border: 1px solid #B2B2B2;
+    width: 140px;
+    height: 15px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+.textfie1 {
+    font-family: Arial, Helvetica, sans-serif, "宋体";
+    font-size: 12px;
+    color: #333333;
+    text-decoration: blink;
+    border: 1px solid #B2B2B2;
+    width: 80px;
+    height: 15px;
+}
+#dy {
+    position:relative;
+    width:797px;
+    height:92px;
+    z-index:1;
+    left: auto;
+    top: auto;
+    clear: both;
+    float: none;
+    background-image: url(../images/images2/index-bgyy2.gif);
+    background-repeat: repeat-x;
+    right: auto;
+    bottom: auto;
+    overflow: visible;
+    margin: auto;
+    background-position: bottom;
+    padding-top: 4px;
+}
+#dy-z {
+    position:relative;
+    width:6px;
+    height:100%;
+    z-index:1;
+    float: left;
+    clear: none;
+    overflow: auto;
+    background-image: url(../images/images2/index-bgyy1.gif);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+#dy-y {
+    position:relative;
+    width:6px;
+    height:100%;
+    z-index:1;
+    float: right;
+    clear: none;
+    overflow: auto;
+    background-image: url(../images/images2/index-bgyy3.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+#info {
+    position:relative;
+    width:797px;
+    height:25px;
+    z-index:1;
+    left: auto;
+    top: auto;
+    clear: both;
+    float: none;
+    right: auto;
+    bottom: auto;
+    overflow: visible;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
+#info ul{
+    list-style-type: none;
+    padding: 0px;
+}
+#info li {
+    list-style-type: none;
+    clear: both;
+    float: left;
+    padding: 0px;
+    font-family: "宋体";
+    font-size: 12px;
+    text-align: left;
+    color: #a7a7a7;
+}
+#info li.lift{
+    list-style-type: none;
+    clear: none;
+    float: left;
+    height: 20px;
+    padding-top: 6px;
+}
+#info li.right{
+    list-style-type: none;
+    clear: none;
+    float: right;
+    height: 20px;
+    padding-top: 6px;
+}
+#info li.color{
+    list-style-type: none;
+    clear: none;
+    float: left;
+    padding-top: 7px;
+    padding-left: 8px;
+    cursor: hand;
+}

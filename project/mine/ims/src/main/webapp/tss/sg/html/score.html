@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end --> 
+    <title>客户回访评价</title>
+    <link rel="stylesheet" type="text/css" href="css/bath.css" />
+    <link rel="stylesheet" type="text/css" href="css/score.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        // 星星评分
+    $(function(){
+        var fenshu = 1;                             // 全局
+        $('.star li').click(function(event) {   
+            var index = $(this).index()             // 获取当前索引值，和分数相关
+            fenshu = index+1                        // 索引值和分数的关系，分数比索引值多1
+            $('.star span').html(fenshu)            // 改变文字
+            $('.star li').removeClass()                 // 先清空，再点亮
+            $('.star li:lt('+fenshu+')').addClass('on') 
+        })
+        .mouseenter(function(event) { 
+            var index = $(this).index()
+            var fenshu = index+1                        // 相对
+            $('.star li').removeClass()                 // 先清空，再点亮
+            $('.star li:lt('+fenshu+')').addClass('on') 
+        })
+        .mouseleave(function(event) {                   // 鼠标离开的时候，回到真正的分数
+            $('.star li').removeClass()                 // 先清空，再点亮
+            $('.star li:lt('+fenshu+')').addClass('on') 
+        });
+    })
+    </script>
+</head>
+    <body>
+    <div class="box main_pd">
+        <div class="thanks_box">
+            <p class="top_p">尊敬的<em>杜先生</em>：</p>
+            <p class="details_p">您好！感谢您对我们客户回访工作的支持，请您对这次服务进行评价，并提出您的宝贵意见和建议，祝工作顺利！</p>
+        </div>
+        <div class="item pd" style="border:0;">
+            <div class="item_left">
+                <img src="img/pic.png" alt="" />
+            </div>
+            <div class="item_right">
+                <p>客户经理：<em>肖啊哈</em></p>
+                <p>部门：<em>天河</em><i>网点客户经理</i></p>
+                <p>得分：<em class="star_in"></em><em class="star_in"></em><em class="star_in"></em><em class="star_in"></em><em class="star_in"></em></p>
+            </div>  
+        </div> 
+        <p class="phone_num">联系电话：<em>13958658855</em>
+        <a href="tel:18688888888" class="call"></a> </p>     
+    </div>
+    <div class="box main_pd">
+        <p class="mark">请为本次服务评分</p>
+        <div class="star_box">
+            <ul class="star">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>   
+        </div>
+        <textarea name="scoreInfo" id="scoreInfo" cols="30" rows="10" placeholder="请留下您的宝贵意见" class="area_box"></textarea>
+        <div class="confirm_btn">提交</div>
+        
+    </div>
+    </body>
+</html>

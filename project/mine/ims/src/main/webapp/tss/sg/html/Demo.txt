@@ -1,0 +1,28 @@
+﻿通过jquery的 $.getJSON方法能很方便的读取：代码如下。 
+
+
+var areadata ={ 
+    province : [], 
+    city: [], 
+    district: [] 
+    }
+function initAreaData(){ 
+var dataroot="/scripts/area/areas.json"; 
+
+$.getJSON(dataroot, function(data){ 
+
+	areadata.province=data.province; 
+
+	areadata.city=data.city; 
+areadata.district=data.district;
+ 
+}); 
+
+
+} 
+
+areas.json是json格式的数据文件： 
+示例如下: 
+{"province":[{"name":"安徽省", "code":"340000"},{"name":"北京市", "code":"110000"}], 
+"city":[{"name":"安庆市", "code":"340800"},{"name":"蚌埠市", "code":"340300"}], 
+"district":[{"name":"埇桥区", "code":"341302"},{"name":"浉河区", "code":"411502"}]}

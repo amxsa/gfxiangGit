@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jlit.xms.mapper.EmpMapper" >
+  <resultMap id="empBaseResultMap" type="com.jlit.xms.model.Emp" >
+    <id column="id" property="id" />
+    <result column="name" property="name"  />
+    <result column="id_card" property="idCard" />
+    <result column="phone" property="phone"  />
+    <result column="birthday" property="birthday" />
+    <result column="age" property="age"  />
+    <result column="info" property="info" />
+    <association property="dept" column="deptId" javaType="Dept" select="getDeptForEmp"></association>
+  </resultMap>
+  <sql id="pageSql">
+  		select distinct e.*,e.dept_id deptId from t_emp e left join t_dept d on d.id=e.dept_id
+  		<where>
+  		<![CDATA[	]]>
+			<if test="paramModel.name!=null and paramModel.name!=''"> and e.name like CONCAT('%',#{paramModel.name},'%') </if>
+			<if test="keyWord.queryBean.idCard!=null and keyWord.queryBean.idCard!=''"> and e.id_card like CONCAT('%',#{keyWord.queryBean.idCard},'%') </if>
+			<if test="keyWord.queryBean.startTime!=null and keyWord.queryBean.startTime!=''">
+				<![CDATA[ and e.birthday>#{keyWord.queryBean.startTime}]]>
+			 </if>
+			<if test="keyWord.queryBean.endTime!=null and keyWord.queryBean.endTime!=''">
+				<![CDATA[ and e.birthday<#{keyWord.queryBean.endTime}]]>
+			 </if>
+			<if test="keyWord.queryBean.deptIds!=null and keyWord.queryBean.deptIds!=''">
+				 and d.id in
+				 <foreach collection="keyWord.queryBean.deptIdList" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+			</if>
+		</where>
+  </sql>
+  <select id="selectPageList" parameterType="pageData"	resultMap="empBaseResultMap">
+		<include refid="pageSql"></include>
+		limit #{start},#{pageSize}
+	</select>
+	<select id="selectRecords" parameterType="pageData" resultType="integer">
+		select  count(1) from (<include refid="pageSql"></include>) a
+	</select>
+	<select id="getDeptForEmp" resultType="Dept">
+  		select * from t_dept where id=#{value}
+  </select>
+   <select id="getByName" parameterType="string"  resultMap="empBaseResultMap">
+  	select * from t_emp where name=#{value}
+  </select>
+  <insert id="insert" parameterType="Emp" >
+    insert into t_emp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null and id!=''"> id,</if>
+     <if test="name != null and name!=''" >name, </if>
+      <if test="idCard != null and idCard!=''" >id_card, </if>
+      <if test="phone != null and phone!=''" > phone, </if>
+      <if test="birthday != null and birthday!=''" > birthday, </if>
+      <if test="info != null and info!=''" >info, </if>
+      <if test="age != null and age!=''"  >age,</if>
+      <if test="dept!= null " >dept_id,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null and id!=''">#{id,jdbcType=VARCHAR},</if>
+      <if test="name != null and name!=''" >#{name,jdbcType=VARCHAR}, </if>
+      <if test="idCard != null and idCard!=''" >#{idCard,jdbcType=VARCHAR},</if>
+      <if test="phone != null and phone!=''" > #{phone,jdbcType=VARCHAR},</if>
+      <if test="birthday != null and birthday!=''" > #{birthday,jdbcType=DATE}, </if>
+      <if test="info != null and info!=''" > #{info,jdbcType=VARCHAR}, </if>
+      <if test="age != null and age!=''" >#{age,jdbcType=INTEGER},</if>
+      <if test="dept!= null" >#{dept.id,jdbcType=VARCHAR},</if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="emp" > 
+    update t_emp
+    <set >
+      <if test="name != null and name!=''" >name=#{name,jdbcType=VARCHAR}, </if>
+      <if test="idCard != null and idCard!=''" >id_card=#{idCard,jdbcType=VARCHAR},</if>
+      <if test="phone != null and phone!=''" >phone= #{phone,jdbcType=VARCHAR},</if>
+      <if test="birthday != null and birthday!=''" >birthday= #{birthday,jdbcType=DATE}, </if>
+      <if test="info != null and info!=''" >info= #{info,jdbcType=VARCHAR}, </if>
+       <if test="age != null and age!=''" >age=#{age,jdbcType=INTEGER},</if>
+      <if test="dept!= null" >dept_id=#{dept.id,jdbcType=VARCHAR},</if>
+    </set>
+    where id=#{id}
+  </update>
+  <delete id="deleteById" parameterType="string">
+  		delete from t_emp where id=#{value}
+  </delete>
+  <select id="getById" parameterType="string" resultMap="empBaseResultMap">
+		select e.*,e.dept_id deptId from t_emp e where id=#{id}
+	</select>
+</mapper>

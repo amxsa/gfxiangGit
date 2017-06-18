@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<flownodes>
+    <flownode name="agree" isSameAsCurrentDept="false" roles="" propertyStatus="YRZXK" actualPosition="ZXK" applicationStatus="S">
+        <conditionExpression>status=='Y'</conditionExpression>
+    </flownode>
+    <flownode name="disagree" isSameAsCurrentDept="false" roles="" propertyStatus="YCZXK" actualPosition="BAMJ" applicationStatus="F">
+        <conditionExpression>status=='N'</conditionExpression>
+    </flownode>
+</flownodes>

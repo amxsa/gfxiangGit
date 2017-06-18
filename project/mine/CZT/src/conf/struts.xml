@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->
+    <!--    
+        该属性指定需要Struts 2处理的请求后缀，该属性的默认值是action，即所有匹配*.action的请求都由Struts2处理。
+        如果用户需要指定多个请求后缀，则多个后缀之间以英文逗号（,）隔开
+    -->
+    <constant name="struts.action.extension" value="action,do,php" />
+    <!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="false" />
+    <!-- 设置是否可以在action中使用斜线，默认为false不可以，想使用需设置为true. -->
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <!-- spring 托管 -->
+    <constant name="struts.objectFactory" value="spring" />
+    <!-- 上传文件大小闲置，最大12M -->
+    <constant name="struts.multipart.maxSize" value="12582912"/>
+     <!-- 文件上传存放 -->
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 基础包配置，配置全局属性 -->
+    
+	
+	<package name="pkg" extends="struts-default" namespace="/manager" abstract="true">
+		<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="MyInterceptor"  class="cn.cellcom.web.struts.MyInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="MyInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 设置全局拦截器 -->
+		<default-interceptor-ref name="myStack"/>
+		<global-results>
+			<result name="error">/common/error.jsp</result>
+			<result name="success">/common/success.jsp</result>
+			<result name="timeout">/common/timeout.jsp</result>
+		</global-results>
+		
+	</package>
+	
+	<package name="manager" extends="pkg"  namespace="/manager">
+		<action name="TDCodeManagerAction_*" class="TDCodeManagerAction" method="{1}" >
+			<result name="showTDCode">/manager/showTDCode.jsp</result>
+			<result name="addTDCode">/manager/addTDCode.jsp</result>
+			<result name="showTDCodeHistory">/manager/showTDCodeHistory.jsp</result>
+			<result name="showTDCodeGroup">/manager/showTDCodeGroup.jsp</result>
+			<result name="showSyncTDCode">/manager/showSyncTDCode.jsp</result>
+			<result name="updateTDCodeGroupBatch">/manager/updateTDCodeGroupBatch.jsp</result>
+			<result name="jump">/common/jump.jsp</result>
+		</action>
+		<action name="LoginManagerAction_*" class="LoginManagerAction" method="{1}" >
+			<result name="main">/manager/index.jsp</result>
+			<result name="login">/manager/logon.jsp</result>
+			<result name="updatePassword">/manager/updatePassword.jsp</result>
+			<result name="updateManager">/manager/updateManager.jsp</result>
+		</action>
+		<action name="OrderManagerAction_*" class="OrderManagerAction" method="{1}" >
+			<result name="addOrder">/manager/addOrder.jsp</result>
+			<result name="showReviewOrder">/manager/showReviewOrder.jsp</result>
+			<result name="showOutOrder">/manager/showOutOrder.jsp</result>
+			<result name="showSendOrder">/manager/showSendOrder.jsp</result>
+			<result name="showEndOrder">/manager/showEndOrder.jsp</result>
+			<result name="showHGObdOrder">/manager/showHGObdOrder.jsp</result>
+			<result name="showOrder">/manager/showOrder.jsp</result>
+			<result name="orderDetail">/manager/orderDetail.jsp</result>
+			<result name="showOrderDetail">/manager/showOrderDetail.jsp</result>
+			<result name="checkOrder">/manager/checkOrder.jsp</result>
+			<result name="updateOrder">/manager/updateOrder.jsp</result>
+			<result name="showHBReviewOrder">/manager/showHBReviewOrder.jsp</result>
+			<result name="updateHBReviewOrder">/manager/updateHBReviewOrder.jsp</result>
+		</action>
+		<action name="DeviceManagerAction_*" class="DeviceManagerAction" method="{1}" >
+			<result name="showDevice">/manager/showDevice.jsp</result>
+			<result name="checkDevice">/manager/checkDevice.jsp</result>
+		</action>
+		<action name="FluxCardManagerAction_*" class="FluxCardManagerAction" method="{1}" >
+			<result name="showFluxCard">/manager/showFluxCard.jsp</result>
+			<result name="checkFluxCard">/manager/checkFluxCard.jsp</result>
+		</action>
+		<action name="BindManagerAction_*" class="BindManagerAction" method="{1}" >
+			
+			<result name="showBind">/manager/showBind.jsp</result>
+			<result name="showLimiteBind">/manager/showLimiteBind.jsp</result>
+		</action>
+		<action name="LinkmanManagerAction_*" class="LinkmanManagerAction" method="{1}" >
+			<result name="showLinkman">/manager/showLinkman.jsp</result>
+		</action>
+		<action name="TotalManagerAction_*" class="TotalManagerAction" method="{1}" >
+			<result name="main">/manager/main.jsp</result>
+		</action>
+		<action name="OrderAlipayManagerAction_*" class="OrderAlipayManagerAction" method="{1}" >
+			
+			
+			
+		</action>
+		<action name="FluxIdcardManagerAction_*" class="FluxIdcardManagerAction" method="{1}" >
+			<result name="showYuxianFluxIdcard">/manager/showYuxianFluxIdcard.jsp</result>
+			<result name="showHouxuFluxIdcard">/manager/showHouxuFluxIdcard.jsp</result>
+			<result name="updateHouxuFluxIdcard">/manager/updateHouxuFluxIdcard.jsp</result>
+			<result name="showHouxuFluxIdcardDetail">/manager/showHouxuFluxIdcardDetail.jsp</result>
+		</action>
+		<!-- 订单结算 -->
+		<action name="SettleAccountsManagerAction_*" class="SettleAccountsManagerAction" method="{1}" >
+			<result name="showReviewSettleAccounts">/manager/settleAccounts/showReviewSettleAccounts.jsp</result>
+			<result name="showSettleAccountsVerify">/manager/settleAccounts/showSettleAccountsVerify.jsp</result>
+			<result name="showHaveSettle">/manager/settleAccounts/showHaveSettle.jsp</result>
+			<result name="settleAccountsDetail">/manager/settleAccounts/settleAccountsDetail.jsp</result>
+			<result name="verifyDetail">/manager/settleAccounts/verifyDetail.jsp</result>
+		</action>
+	</package>	
+	
+	<!-- 权限管理 -->
+	<package name="permission" extends="pkg"  namespace="/permission">
+		<action name="MenuAction_*" class="MenuAction" method="{1}" >
+	
+		</action>
+		<action name="PermissionAction_*" class="PermissionAction" method="{1}" >
+	
+		</action>
+		<action name="ManagerAction_*" class="cn.cellcom.czt.action.permission.ManagerAction" method="{1}" >
+			<result name="showManager">/manager/permission/showManager.jsp</result>
+			<result name="addManager">/manager/permission/addManager.jsp</result>
+			<result name="updateManager">/manager/permission/updateManager.jsp</result>
+		</action>
+		<action name="RoleAction_*" class="cn.cellcom.czt.action.permission.RoleAction" method="{1}">
+			<result name="showRole">/manager/permission/showRole.jsp</result>
+			<result name="addRole">/manager/permission/addRole.jsp</result>
+			<result name="updateRole">/manager/permission/updateRole.jsp</result>
+		</action>
+		<action name="DepartmentAction_*" class="cn.cellcom.czt.action.permission.DepartmentAction" method="{1}">
+			<result name="showDepartment">/manager/permission/showDepartment.jsp</result>
+			<result name="addDepartment">/manager/permission/addDepartment.jsp</result>
+			<result name="updateDepartment">/manager/permission/updateDepartment.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 提供后台的辅助功能，查询SQL，上传下载文件 -->
+	<package name="workhelp" extends="pkg"  namespace="/workhelp">
+		<action name="SQLAction_*" class="cn.cellcom.workhelp.action.SQLAction" method="{1}" >
+			<result name="success">/workhelp/sql.jsp</result>
+			<result name="fail">/util.jsp</result>
+			<result name="util">/util.jsp</result>
+		</action>
+		<action name="FileAction_*" class="cn.cellcom.workhelp.action.FileAction" method="{1}" >
+			<result name="left">/workhelp/left.jsp</result>
+			<result name="util">/util.jsp</result>
+			<result name="load">/workhelp/load.jsp</result>
+			<result name="show">/workhelp/view.jsp</result>
+			<result name="preUpload">/workhelp/upload.jsp</result>
+			<result name="right">/workhelp/right.jsp</result>
+		</action>
+	</package>	
+	<!-- 提供APP接口 -->
+	<package name="service" extends="struts-default"  namespace="/">
+		<action  name="index"  class="LoginServiceAction" method="execMethod"></action>
+		<action name="IdCardServiceAction_*" class="cn.cellcom.czt.service.IdCardServiceAction" method="{1}" />
+		<action name="PnServiceAction_*" class="cn.cellcom.czt.service.PnServiceAction" method="{1}" />
+	</package>	
+	<!-- 数据割接到亿讯平台 -->
+	<package name="db_transfer" extends="struts-default"  namespace="/transfer">
+		<action name="DataTransferAction_*" class="cn.cellcom.czt.service.DataTransferAction" method="{1}" />
+	</package>
+	<!-- 提供厂家接口 -->
+	<package name="service2" extends="struts-default"  namespace="/service">
+		<action name="TDCodeServcieAction_*" class="cn.cellcom.czt.service.TDCodeServiceAction" method="{1}" />
+		<action name="WeatherServiceAction_*" class="cn.cellcom.czt.service.WeatherServiceAction" method="{1}" />
+		<action name="OrderServiceAction_*" class="cn.cellcom.czt.service.OrderServiceAction" method="{1}" />
+		<action name="OrderAlipayAction_*" class="cn.cellcom.czt.service.OrderAlipayAction" method="{1}" >
+			<result name="addTdCodeOrder">/alipay/addTdCodeOrder.jsp</result>
+			<result name="pay">/alipay/pay.jsp</result>
+			<result name="paySuccess">/alipay/paySuccess.jsp</result>
+			<result name="error">/alipay/error.jsp</result>
+		</action>
+		<action name="OrderWXPayAction_*" class="cn.cellcom.czt.service.OrderWXPayAction" method="{1}" >
+		</action>
+		<action name="OrderPayAction_*" class="cn.cellcom.czt.service.OrderPayAction" method="{1}" >
+			<result name="addTdCodeOrder">/alipay/addTdCodeOrder1.jsp</result>
+			<result name="pay">/alipay/pay.jsp</result>
+			<result name="paySuccess">/alipay/paySuccess.jsp</result>
+			<result name="error">/alipay/error.jsp</result>
+		</action>
+	</package>	
+	
+	<constant name="struts.custom.i18n.resources"
+		value="messageResource" />
+</struts>

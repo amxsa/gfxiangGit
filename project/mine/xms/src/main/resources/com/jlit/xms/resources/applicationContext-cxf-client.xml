@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  xmlns="http://www.springframework.org/schema/beans"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+        xmlns:jaxws="http://cxf.apache.org/jaxws"  
+        xsi:schemaLocation="    
+            http://www.springframework.org/schema/beans     
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd    
+            http://cxf.apache.org/jaxws    
+            http://cxf.apache.org/schemas/jaxws.xsd">  
+    <!-- Import apache CXF bean definition -->  
+    <import resource="classpath:META-INF/cxf/cxf.xml" />  
+      
+    <!-- CXF webservices 客户端配置 -->  
+    <!-- 挂号预约信息service -->
+   <!--  <jaxws:client id="iRegRecordService" serviceClass="com.jlit.hrs.webservice.IRegRecordService"   
+            address="${hrs_server_address}/ws/regRecordWebService">  
+    </jaxws:client>  -->
+   
+</beans> 

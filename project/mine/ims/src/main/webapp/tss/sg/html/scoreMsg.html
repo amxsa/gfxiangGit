@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end --> 
+    <title>申请通过</title>
+    <link rel="stylesheet" type="text/css" href="css/bath.css" />
+    <link rel="stylesheet" type="text/css" href="css/scoreMsg.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.confirm_btn').click(function(event) {
+            $('.layer').fadeIn(100);        
+            $('.layer-bg').fadeTo(100,0)  // 半透明
+            $(".box,.confirm_btn").hide();
+        });
+
+    });
+    </script>
+    
+</head>
+    <body>
+    <div class="box main_pd">
+        <textarea name="" id="" cols="30" rows="10" placeholder="请留下您的宝贵意见" class="area_box">
+         尊敬的杜先生您申请的额度为50万的住房贷款，已经预审核通过，请在10个工作日内，携带如下资料到
+        </textarea>
+        
+        
+    </div>
+    <div class="confirm_btn">确认并通知用户</div>
+    </body>
+     <!-- 模态窗口 -->
+        <div class="layer">
+            <p>申请成功，请等待核查</p>
+        </div>
+        <div class="layer-bg"></div>   
+</html>

@@ -1,0 +1,26 @@
+.setparam .input_box label {
+	width: 100px;
+}
+
+
+/*排名区间里的数字内边距*/
+
+.rank_num span {
+	margin: 0 10px;
+}
+
+
+/*添加奖项*/
+
+.layer_addprize {
+	width: 500px;
+	margin-left: -250px;
+}
+
+.layer_addprize .input_box label {
+	width: 140px;
+}
+
+.layer_addprize em {
+	display: none;
+}

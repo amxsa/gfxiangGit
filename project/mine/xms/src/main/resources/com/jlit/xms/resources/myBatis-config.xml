@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<!-- <typeAlias type="com.jlit.xms.model.TestCommodity" alias="TestCommodity"/> -->
+		<package name="com.jlit.xms.model"/>
+	</typeAliases>
+	<!-- <mappers>
+		<mapper resource="/com/jlit/xms/mapper/CommodityMapper.xml" />
+	</mappers> -->
+
+</configuration>

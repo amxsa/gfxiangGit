@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end --> 
+    <title>经理查看申请的信息</title>
+    <link rel="stylesheet" type="text/css" href="css/bath.css" />
+    <link rel="stylesheet" type="text/css" href="css/informationReade.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+	function GetURLParameter(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]);
+		return null;
+	}
+    $(function(){
+		var status=GetURLParameter("status");
+		
+        
+        $('.confirm_btn').click(function(event) {
+			$('.layer').fadeIn(100);        
+			$('.layer-bg').fadeTo(100,0.5)  // 半透明
+		});
+		if(status=="1"){
+        
+
+        }else if(status=="2"){
+			$(".confirm_btn").css({'background':"#d7d7d7","color":"#525252"});
+			$(".confirm_btn").html("已完成核查");
+			$(".confirm_btn").unbind("click");
+		}else{
+
+		}
+    // 点击关闭按钮，关闭窗口，     点击背景也关闭  
+    // 用了并集选择器
+    $('.layer .yes_btn,.layer-bg,.no_btn').click(function(event) {
+        $('.layer,.layer-bg').fadeOut(100)      
+        // fadeOut淡出最终 display:none
+    });
+    })
+    </script>
+</head>
+<body>
+    <!-- 申请人信息 -->
+    <div class="box">
+        <div class="box_hd main_pd">
+            申请人信息
+        </div>
+        <div class="box_bd main_pd2 ">
+            <p>
+                <span>申请人：</span>
+                <em>杜海</em>
+            </p>
+            <p>
+                <span>意　向：</span>
+                <em>住房贷款</em>
+            </p>
+            <p>
+                <span>金　额：</span>
+                <em>50万</em>
+            </p>
+            <p>
+                <span>电　话：</span>
+                <em>13956985586</em>
+            </p>
+            <p>
+                <span>证　件：</span>
+                <em>身份证</em>
+            </p>
+            <p class="bb">
+                <span>　　　　</span>
+                <em>4299999999999999999</em>
+            </p> 
+            <!-- 照片 -->
+            <div class="pic_box">
+                <img src="img/cilent.png" alt="" class="cilent" />
+                <p><em></em>VIP</p>
+            </div>
+        </div> 
+        <div class="box_foot main_pd2">
+            <div>
+                <span>职　业：</span>
+                <p class="radio_box">
+                    <input type="radio" name="chosezy" class="get_chose" disabled="disabled" />
+                    <label for="">企业主</label>
+                </p>
+                <p class="radio_box">
+                    <input type="radio" name="chosezy" class="get_chose" disabled="disabled"/>
+                    <label for="">职员</label>
+                </p>
+            </div>
+            <div>
+                <span>资　产：</span>
+                <p class="radio_box">
+                    <input type="radio" name="chosemomey" class="get_chose" disabled="disabled" />
+                    <label for="">有</label>
+                </p>
+                <p class="radio_box">
+                    <input type="radio" name="chosemoney" class="get_chose" disabled="disabled" />
+                    <label for="">无</label>
+                </p>
+            </div>
+            <div class="box_list">
+                <span>月收入：</span>
+                <em class="momey_num">1000</em>元
+            </div>
+            <div class="box_list">
+                <span>是否已经同意《信贷征信协议》：</span>
+                <em>同意</em>
+            </div>   
+        </div>
+    </div>
+    <!-- 客户留言 -->
+    <div class="box">
+        <div class="box_hd main_pd">
+            客户留言
+        </div>
+        <div class="box_bd main_pd2">
+            <p class="leave_p">您好！因为时间比较紧急，请尽快审核，谢谢！</p>
+        </div> 
+    </div>
+    <!-- 审核 -->
+    <div class="box">
+        <div class="box_hd main_pd">
+            审核
+        </div>
+        <div class="box_bd main_pd2">
+            <div class="box_list">
+                <span>是否通过审核：</span>
+                <p class="radio_box mw">
+                    <input type="radio" name="tongguo" class="get_chose"  />
+                    <label for="">是</label>
+                </p>
+                <p class="radio_box">
+                    <input type="radio" name="tongguo" class="get_chose" />
+                    <label for="">否</label>
+                </p>
+            </div>
+            <textarea name="checkDataInfo" id="checkDataInfo" sg_json="*" cols="30" rows="10" class="txt_area" placeholder="审核意见：例如所交材料齐全，已经核实均为真实材料。"></textarea>    
+        </div> 
+    </div>
+    <!-- 信息补录 -->
+    <div class="box">
+        <div class="box_hd main_pd">
+            信息补录
+        </div>
+        <div class="box_bd main_pd2 nb">
+            <textarea name="addInfo" id="addInfo" sg_json="*" cols="30" rows="10" class="txt_area" placeholder="该客户属于我行钻石VIP客户，在我行信用良好。"></textarea>   
+        </div> 
+        <div class="confirm_btn ">确认审核</div> 
+    </div>
+     <!-- 模态窗口 -->
+        <div class="layer">
+            <p>是否进入现场核查？</p>
+            <div class="no_btn" onclick="javascript:location.href='scoreMsg.html'">否</div>
+            <div class="yes_btn" onclick="javascript:location.href='sceneVisit.html'">是</div>
+        </div>
+        <div class="layer-bg"></div>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+<chart caption="血压统计表" numberSuffix="mmHg" xAxisName="时间" yAxisName="血压" baseFontSize="12" divLineAlpha="20" divLineColor="000000" rotateYAxisName="0" 
+
+divLineIsDashed="1" alternateHGridAlpha="5" alternateHGridColor="99CCFF" chartRightMargin="35" bgColor="FFFFFF,99CCFF" bgAngle="270" bgAlpha="50,50">
+<categories>
+<category label="2013-04-01"/>
+<category label="2013-04-03"/>
+<category label="2013-04-05"/>
+</categories>
+<dataset seriesName="收缩压" color="1D8BD1" anchorBorderColor="1D8BD1" anchorBgColor="anchorBgColor">
+<set value="80"/>
+<set value="90"/>
+<set value="70"/>
+</dataset>
+<dataset seriesName="舒张压" color="F1683C" anchorBorderColor="F1683C" anchorBgColor="F1683C">
+<set value="100"/>
+<set value="106"/>
+<set value="95"/>
+</dataset>
+</chart>

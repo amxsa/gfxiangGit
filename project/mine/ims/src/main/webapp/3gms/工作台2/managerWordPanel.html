@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>客户经理工作台</title>
+		<!-- 引入整个平台公共样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="css/wordPanel.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/operationWordPanel.css" />-->
+		<link rel="stylesheet" type="text/css" href="css/managerWordPanel.css" />
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				// 点击切换页签
+				$(".tab_btn li").click(function(event) {
+					var index = $(this).index();
+					$(this).addClass('now_status').siblings('li').removeClass('now_status');
+					$(this).parents(".tab_btn").siblings(".main_center").children(".show_tab").eq(index).addClass('show_now').siblings('.show_tab').removeClass('show_now');
+//					$(".show_tab").eq(index).addClass('show_now').siblings('.show_tab').removeClass('show_now');
+
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<div class="wrap_main_bd" style="padding-bottom: 10px;">
+				<ul class="panels_three clearfix">
+					<li style="min-width: 320px;">
+						<div class="panel">
+							<div class="panel_hd">
+								<p>平台交互次数统计</p>
+								<div class="panel_select">
+									<select name="">
+										<option value="">选择一</option>
+									</select>
+								</div>
+							</div>
+							<div class="panel_bd" style="height: 260px;">
+								<div class="panel_chart">这里放图表</div>
+							</div>
+						</div>
+					</li>
+					<li style="min-width: 320px;">
+						<div class="panel">
+							<div class="panel_hd">
+								<p>事实排队情况</p>
+								<div class="more_box"></div>
+							</div>
+				
+							<div class="panel_bd" style="height: 260px;">
+								<ul class="user_list">
+									<li class="clearfix">
+										<em>1</em>
+										<span class="">张丽莎</span>
+										<span class="">123456</span>
+										<i class="up"></i>
+									</li>
+									<li class="clearfix">
+										<em>2</em>
+										<span class="">张丽莎</span>
+										<span class="">123456</span>
+										<i class="down"></i>
+									</li>
+									<li class="clearfix">
+										<em>3</em>
+										<span class="">张丽莎</span>
+										<span class="">123456</span>
+										<i class="flat"></i>
+									</li>
+									<li class="clearfix">
+										<em>1</em>
+										<span class="">张丽莎</span>
+										<span class="">123456</span>
+										<i class="up"></i>
+									</li>
+									<li class="clearfix">
+										<em>2</em>
+										<span class="">张丽莎</span>
+										<span class="">123456</span>
+										<i class="down"></i>
+									</li>
+									<li class="clearfix">
+										<em>3</em>
+										<span class="">张丽莎</span>
+										<span class="">123456</span>
+										<i class="flat"></i>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</li>
+					<li style="min-width: 320px;">
+						<div class="panel">
+							<div class="panel_hd">
+								<p>网点客流量统计</p>
+								<div class="more_box"></div>
+							</div>
+							<div class="panel_bd" style="height: 260px;">
+								<ul class="remind_list">
+									<li class="clearfix">
+										<span>莫小贝转出20万元</span>
+										<div class="right_time">
+											<em>2017-10-10</em>
+										</div>
+									</li>
+									<li class="clearfix">
+										<span>秀故障处理</span>
+										<div class="right_time">
+											<em>2017-10-10</em>
+										</div>
+
+									</li>
+									<li class="clearfix">
+										<span>秀故障处理</span>
+										<div class="right_time">
+											<em>2017-10-10</em>
+										</div>
+									</li>
+									<li class="clearfix">
+										<span>故障处理</span>
+										<div class="right_time">
+											<em>2017-10-10</em>
+										</div>
+									</li>
+									<li class="clearfix">
+										<span>秀故障处理</span>
+										<div class="right_time">
+											<em>2017-10-10</em>
+										</div>
+									</li>
+									<li class="clearfix">
+										<span>秀故障处理</span>
+										<div class="right_time">
+											<em>2017-10-10</em>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+
+				<div class="tab_content" style="margin-bottom: 20px;">
+					<ul class="tab_btn">
+						<li title="最新事项" class="now_status">最新事项</li>
+						<li title="投诉建议">投诉建议</li>
+						<li title="预约留言">预约留言</li>
+						<li title="VIP预约">VIP预约</li>
+						<div class="more_box"></div>
+					</ul>
+
+					<div class="main_center">
+
+						<div class="show_tab show_now">
+							<ul class="new_list">
+								<li class="clearfix">
+									<i></i>
+									<em>1</em>、
+									<span>最新事项</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>
+								<li class="clearfix">
+									<i></i>
+									<em>2</em>、
+									<span>这里最多只能放5条消息</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>
+								<li class="clearfix">
+									<i></i>
+									<em>3</em>、
+									<span>这里最多只能放5条消息</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>
+								<li class="clearfix">
+									<i></i>
+									<em>4</em>、
+									<span>这里最多只能放5条消息</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>
+								<li class="clearfix">
+									<i></i>
+									<em>5</em>、
+									<span>这里最多只能放5条消息</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+						<div class="show_tab">
+							<ul class="new_list">
+								<li class="clearfix">
+									<i></i>
+									<em>1</em>、
+									<span>秀米制作工具</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>	
+							</ul>
+						</div>
+					
+						<div class="show_tab">
+							<ul class="new_list">
+								<li class="clearfix">
+									<i></i>
+									<em>1</em>、
+									<span>故障处理</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+								</li>
+							
+								<li class="clearfix">
+									<i></i>
+									<em>3</em>、
+									<span>秀故障处理</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>
+						
+								
+							</ul>
+						</div>
+				
+						<div class="show_tab">
+							<ul class="new_list">
+								<li class="clearfix">
+									<i></i>
+									<em>1</em>、
+									<span>平台留言</span>
+									<div class="right_time">
+										<em>2017-10-10</em>
+										<span>09:09<span>
+									</div>
+									
+								</li>
+							</ul>
+						</div>
+						
+
+					</div>
+				</div>
+				
+				
+
+				<div class="panel">
+					<div class="panel_hd">
+						<p>重点关注客户</p>
+						<div class="more_box"></div>
+					</div>
+					<div class="panel_bd" style="padding: 20px 20px 20px 20px;">
+						<ul class="panels_two clearfix attention_list">
+							<li>
+								<div class="attention_hd clearfix">
+									<div class="client_img">
+										<img src="../img/init_img.png" />
+
+									</div>
+									<div class="client_infor">
+										<div class="client_name">
+											<span>白展堂</span>
+											<span>VIP3</span>
+											<span class="man"></span>
+										</div>
+										<p>
+											<label>活跃度：</label>
+											<span>1212</span>
+										</p>
+										<p>
+											<label>信用评级：</label>
+											<span>优</span>
+										</p>
+										<p>
+											<label>电话：</label>
+											<span>1212212122</span>
+										</p>
+										<p>
+											<label>地址：</label>
+											<span>广州市番禺大道北天安科技园</span>
+										</p>
+									</div>
+									<div class="index_num"><span>1</span></div>
+								</div>
+								<ul class="attention_data clearfix">
+									<li>
+										<p>储蓄总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+									<li>
+										<p>理财产品总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+								</ul>
+									
+								<div class="tab_content attention_chart">
+									<ul class="tab_btn ">
+										<li title="最新事项" class=" now_status">资产变化情况</li>
+										<li title="故障处理" class="">贷款分布情况</li>
+										<li title="平台留言" class="">理财产品分布情况</li>
+									</ul>
+									<!-- 核心tab区域 -->
+									<div class="main_center" style="height: 360px;">
+										<div class="show_tab show_now">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box"> 这里放图1</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图2</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图3</div>
+										</div>		
+									</div>
+								</div>
+							</li>
+							
+							<li>
+								<div class="attention_hd clearfix">
+									<div class="client_img">
+										<img src="../img/init_img.png" />
+
+									</div>
+									<div class="client_infor">
+										<div class="client_name">
+											<span>白展堂</span>
+											<span>VIP3</span>
+											<span class="woman"></span>
+										</div>
+										<p>
+											<label>活跃度：</label>
+											<span>1212</span>
+										</p>
+										<p>
+											<label>信用评级：</label>
+											<span>优</span>
+										</p>
+										<p>
+											<label>电话：</label>
+											<span>1212212122</span>
+										</p>
+										<p>
+											<label>地址：</label>
+											<span>广州市番禺大道北天安科技园</span>
+										</p>
+									</div>
+									<div class="index_num"><span>1</span></div>
+								</div>
+								<ul class="attention_data clearfix">
+									<li>
+										<p>储蓄总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+									<li>
+										<p>理财产品总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+								</ul>
+									
+								<div class="tab_content attention_chart">
+									<ul class="tab_btn">
+										<li title="最新事项" class="now_status">资产变化情况</li>
+										<li title="故障处理" class="">贷款分布情况</li>
+										<li title="平台留言" class="">理财产品分布情况</li>
+									</ul>
+									<!-- 核心tab区域 -->
+									<div class="main_center" style="height: 360px;">
+										<div class="show_tab show_now">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box"> 这里放图1</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图2</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图3</div>
+										</div>		
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="attention_hd clearfix">
+									<div class="client_img" style="float: left;">
+										<img src="../img/init_img.png" />
+
+									</div>
+									<div class="client_infor" style="overflow: hidden;">
+										<div class="client_name">
+											<span>白展堂</span>
+											<span>VIP3</span>
+											<span class="man"></span>
+										</div>
+										<p>
+											<label>活跃度：</label>
+											<span>1212</span>
+										</p>
+										<p>
+											<label>信用评级：</label>
+											<span>优</span>
+										</p>
+										<p>
+											<label>电话：</label>
+											<span>1212212122</span>
+										</p>
+										<p>
+											<label>地址：</label>
+											<span>广州市番禺大道北天安科技园</span>
+										</p>
+									</div>
+									<div class="index_num"><span>1</span></div>
+								</div>
+								<ul class="attention_data clearfix">
+									<li>
+										<p>储蓄总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+									<li>
+										<p>理财产品总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+								</ul>
+									
+								<div class="tab_content attention_chart">
+									<ul class="tab_btn ">
+										<li title="最新事项" class=" now_status">资产变化情况</li>
+										<li title="故障处理" class="">贷款分布情况</li>
+										<li title="平台留言" class="">理财产品分布情况</li>
+									</ul>
+									<!-- 核心tab区域 -->
+									<div class="main_center" style="height: 360px;">
+										<div class="show_tab show_now">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box"> 这里放图1</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图2</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图3</div>
+										</div>		
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="attention_hd clearfix">
+									<div class="client_img" >
+										<img src="../img/init_img.png" />
+
+									</div>
+									<div class="client_infor">
+										<div class="client_name">
+											<span>白展堂</span>
+											<span>VIP3</span>
+											<span class="woman"></span>
+										</div>
+										<p>
+											<label>活跃度：</label>
+											<span>1212</span>
+										</p>
+										<p>
+											<label>信用评级：</label>
+											<span>优</span>
+										</p>
+										<p>
+											<label>电话：</label>
+											<span>1212212122</span>
+										</p>
+										<p>
+											<label>地址：</label>
+											<span>广州市番禺大道北天安科技园</span>
+										</p>
+									</div>
+									<div class="index_num"><span>1</span></div>
+								</div>
+								<ul class="attention_data clearfix">
+									<li>
+										<p>储蓄总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+									<li>
+										<p>理财产品总额</p>
+										<div class="num">
+											<em>￥</em>
+											<em>2,500,000</em>
+										</div>
+									</li>
+								</ul>
+									
+								<div class="tab_content attention_chart">
+									<ul class="tab_btn ">
+										<li title="最新事项" class=" now_status">资产变化情况</li>
+										<li title="故障处理" class="">贷款分布情况</li>
+										<li title="平台留言" class="">理财产品分布情况</li>
+									</ul>
+									<!-- 核心tab区域 -->
+									<div class="main_center" style="height: 360px;">
+										<div class="show_tab show_now">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box"> 这里放图1</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图2</div>
+										</div>
+										<div class="show_tab">
+											<div class="tab_select">
+												<select name="">
+													<option value="">最近30天</option>
+												</select>
+											</div>
+											<div class="chart_box">这里放图3</div>
+										</div>		
+									</div>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+				<div class="footer">
+					<span>技术支持有广州市盛戈移软信息科技有限公司（3GMS）提供</span>
+					<span>copyright©2016</span>
+				</div>
+				
+				
+				
+
+			</div>
+		</div>
+
+	</body>
+
+</html>

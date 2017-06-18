@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->
+    <!--    
+        该属性指定需要Struts 2处理的请求后缀，该属性的默认值是action，即所有匹配*.action的请求都由Struts2处理。
+        如果用户需要指定多个请求后缀，则多个后缀之间以英文逗号（,）隔开
+    -->
+    <constant name="struts.action.extension" value="action,do" />
+    <!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="true" />
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 设置是否可以在action中使用斜线，默认为false不可以，想使用需设置为true. -->
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <!-- spring 托管 -->
+    <constant name="struts.objectFactory" value="spring" />
+    <!-- 上传文件大小闲置，最大1M -->
+    <constant name="struts.multipart.maxSize" value="1048576"/>
+     <!-- 文件上传存放 -->
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 基础包配置，配置全局属性 -->
+    
+	
+	<package name="pkg" extends="struts-default" namespace="/user" abstract="true">
+		<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="MyInterceptor"  class="cn.cellcom.web.struts.MyInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="MyInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 设置全局拦截器 -->
+		<default-interceptor-ref name="myStack"/>
+		<global-results>
+			<result name="error">/common/error.jsp</result>
+			<result name="fail">/common/fail.jsp</result>
+			<result name="success">/common/success.jsp</result>
+			<result name="timeout">/common/timeout.jsp</result>
+			<result name="bindWechat">/wechat/bindWechat.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="esb"   namespace="/esb" extends="struts-default">
+		<action name="AccountManagerAction_*" class="AccountManagerAction" method="{1}" >
+			<result name="success">/common/success.jsp</result>
+			<result name="error">/common/error.jsp</result>
+		</action>
+	</package>
+	
+	<package name="wechat" extends="pkg"  namespace="/user">
+		<action name="BindWechatAction_*" class="BindWechatAction" method="{1}" >
+			<result name="bindWechatSuccess">/wechat/bindWechatSuccess.jsp</result>
+			<result name="register">/user/register.jsp</result>
+		</action>
+		<action name="SmsAction_*" class="SmsAction" method="{1}" >
+		</action>
+		<action name="LeavewordAction_*" class="LeavewordAction" method="{1}" >
+			<result name="showLeaveword">/user/showLeaveword.jsp</result>
+			<result name="leavewordMsg">/user/leavewordMsg.jsp</result>
+			<result name="showLeavewordTxt">/user/showLeavewordTxt.jsp</result>
+		</action>
+		<action name="CallforwardAction_*" class="CallforwardAction" method="{1}" >
+			<result name="showCallforward">/user/showCallforward.jsp</result>
+		</action>
+		<action name="CallAction_*" class="CallAction" method="{1}" >
+			<result name="callSecretary">/user/callSecretary.jsp</result>
+		</action>
+		<action name="BusHandleAction_*" class="BusHandleAction" method="{1}" >
+			<result name="busHandle">/user/busHandle.jsp</result>
+		</action>
+		<action name="PoliteOffAction_*" class="PoliteOffAction" method="{1}" >
+			<result name="showPoliteOff">/user/showPoliteOff.jsp</result>
+			<result name="showPoliteOffDetail">/user/showPoliteOffDetail.jsp</result>
+		</action>
+		<action name="RegisterAction_*" class="RegisterAction" method="{1}" >
+			<result name="bindWechatSuccess">/wechat/bindWechatSuccess.jsp</result>
+		</action>
+		<action name="ActivityAction_*" class="ActivityAction" method="{1}" >
+			<result name="activity">/user/activity.jsp</result>
+		</action>
+		<action name="ColorPrintingAction_*" class="ColorPrintingAction" method="{1}" >
+			<result name="showMyColorPrinting">/colorprinting/showMyColorPrinting.jsp</result>
+		</action>
+		<action name="WechatAction_*" class="cn.cellcom.wechat.action.WechatAction" method="{1}" >
+			<result name="oauth">/user/oauth.jsp</result>
+			<result name="menuUrl">/user/menuUrl.jsp</result>
+		</action>
+		
+	</package>	
+	
+	<package name="yfg" extends="pkg"  namespace="/yfg">
+		<action name="GoodsAction_*" class="GoodsAction" method="{1}" >
+			<result name="showGoods">/yfg/showGoods.jsp</result>
+			<result name="showGoodsDetail">/yfg/showGoodsDetail.jsp</result>
+			<result name="bindMobile">/yfg/bindMobile.jsp</result>
+			<result name="checkTxzlUser">/yfg/checkTxzlUser.jsp</result>
+			<result name="bindTxzlMobile">/yfg/bindTxzlMobile.jsp</result>
+			<result name="openTxzlMobile">/yfg/openTxzlMobile.jsp</result>
+		</action>
+		<action name="UserAction_*" class="UserAction" method="{1}" >
+			<result name="bindMobile">/yfg/bindMobile.jsp</result>
+			<result name="showGoods" type="redirect">/yfg/GoodsAction_showGoods.do?openid=${openid}</result>
+			<result name="showGoodsDetail" type="redirect">/yfg/GoodsAction_showGoodsDetail.do?openid=${openid}&amp;id=${id}</result>
+			<result name="showMyGoods">/yfg/showMyGoods.jsp</result>
+		</action>
+		<action name="OrderAction_*" class="OrderAction" method="{1}" >
+			<result name="alipay">/yfg/alipay.jsp</result>
+			<result name="paySuccess">/yfg/paySuccess.jsp</result>
+		</action>
+	</package>
+	<!-- 提供后台的辅助功能，查询SQL，上传下载文件 -->
+	<package name="workhelp" extends="pkg"  namespace="/workhelp">
+		<action name="SQLAction_*" class="cn.cellcom.workhelp.action.SQLAction" method="{1}" >
+			<result name="success">/workhelp/sql.jsp</result>
+			<result name="fail">/util.jsp</result>
+			<result name="util">/util.jsp</result>
+		</action>
+		<action name="FileAction_*" class="cn.cellcom.workhelp.action.FileAction" method="{1}" >
+			<result name="left">/workhelp/left.jsp</result>
+			<result name="util">/util.jsp</result>
+			<result name="load">/workhelp/load.jsp</result>
+			<result name="show">/workhelp/view.jsp</result>
+			<result name="preUpload">/workhelp/upload.jsp</result>
+			<result name="right">/workhelp/right.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.custom.i18n.resources"
+		value="messageResource" />
+</struts>

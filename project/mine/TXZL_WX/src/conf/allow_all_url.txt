@@ -1,0 +1,9 @@
+/common/404.jsp
+/common/error.jsp
+/common/fail.jsp
+/common/success.jsp
+/user/wechat/oauth.do
+/user/wechat/goMenuUrl.do
+/user/wechat/refreshToken
+/colorprinting/use/
+/colorprinting/part/

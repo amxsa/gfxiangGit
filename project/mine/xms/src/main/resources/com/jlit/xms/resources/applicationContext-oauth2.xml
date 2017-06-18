@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+	<!-- uums平台oauth2认证处理类 -->
+	<bean id="xmsOauth2Handler" class="com.jlit.xms.oauth.handler.XmsOauth2Handler">
+	    <property name="toAuthorizeUri" value="${to_authrize_uri}"></property><!--发起oauth认证的请求路径  -->
+	    <property name="callbackUri" value="${callback_uri}"></property><!--oauth授权认证后回调地址  -->
+	    <property name="clientId" value="${oauth_client_id}"></property><!--oauth2应用的client_id  -->
+	    <property name="clientSecret" value="${oauth_client_secret}"></property><!--oauth2应用的client_id应用的密钥  -->
+	    <property name="forcelogin" value="0"></property><!--oauth服务器认证时是否强制登录，0：不强制，1：强制  -->
+	</bean>
+    
+    
+    
+    <!-- 跳转至oauth服务器进行授权认证servlet -->
+	<bean id="authorizationForOauthServletBean" class="com.jlit.oauth.AuthorizationForOauthServlet">
+	     <property name="oauth2Handler" ref="xmsOauth2Handler"></property><!-- 处理类 -->
+	</bean>
+	<!-- oauth认证授权完成后回调处理servlet -->
+	<bean id="authorizationCallbackServletBean" class="com.jlit.oauth.AuthorizationCallbackServlet">
+	     <property name="oauth2Handler" ref="xmsOauth2Handler"></property><!-- 处理类 -->
+	</bean>
+	
+	
+
+</beans>

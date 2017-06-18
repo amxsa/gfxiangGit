@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+.label {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	position: absolute;
+	top:5px;
+	left: 5px;
+	z-index:10;
+}

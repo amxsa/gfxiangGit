@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+  	
+
+     <bean id="propertyConfigurer"
+    	  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">
+    	  <property name="locations">
+    	  	<list>
+    	  		<value>classpath:/com/jlit/xms/resources/global.properties</value>
+    	  	</list>
+    	  </property>
+    </bean>
+    
+    <bean id="dataSource"
+    	class="com.mchange.v2.c3p0.ComboPooledDataSource"
+    	destroy-method="close">
+    	<property name="driverClass" value="${jdbc.driverClassName}" />
+    	<property name="jdbcUrl" value="${jdbc.url}" />
+    	<property name="user" value="${jdbc.username}" />
+    	<property name="password" value="${jdbc.password}" />
+    	<property name="initialPoolSize" value="${cpool.minPoolSize}" />
+    	<property name="minPoolSize" value="${cpool.minPoolSize}" />
+    	<property name="maxPoolSize" value="${cpool.maxPoolSize}" />
+    	<property name="acquireIncrement" value="${cpool.acquireIncrement}" />
+    	<property name="maxIdleTime" value="${cpool.maxIdleTime}" />
+    	<property name="idleConnectionTestPeriod" value="${cpool.idleConnectionTestPeriod}" />
+    	<property name="testConnectionOnCheckin" value="${cpool.testConnectionOnCheckin}"></property>
+    	<property name="preferredTestQuery" value="${cpool.preferredTestQuery}"></property>
+    </bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:com/jlit/xms/resources/myBatis-config.xml" />
+		<property name="mapperLocations" value="classpath:com/jlit/xms/mapper/*.xml"></property>
+	</bean>
+    
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*"  propagation="REQUIRED" read-only="false" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="mybatisBussinessService"	expression="execution(public * com.jlit.xms.service.*.*(..))" />
+		<aop:advisor pointcut-ref="mybatisBussinessService"	advice-ref="advice" />
+	</aop:config>
+
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>		
+	</bean>	
+	
+	<context:component-scan base-package="com.jlit.xms">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>	
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"/> -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<property name="basePackage" value="com.jlit.xms.mapper"/>
+	</bean>
+	
+	<bean id="jdbc" class="common.DB.JDBC" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="cp" />
+		</constructor-arg>
+	</bean>
+	<bean id="cp" class="common.DB.ConnConf" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="r" />
+		</constructor-arg>
+		
+	</bean>
+	<bean id="r" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg index="0">
+			<value>/com/jlit/xms/resources/global.properties</value>
+		</constructor-arg>
+	</bean>
+</beans>  

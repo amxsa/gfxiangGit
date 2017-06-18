@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>topControl</title>
+
+<script language="javascript" type="text/javascript">
+function controlClick() {
+	var obj = self.parent.document.getElementById("frameRows");
+	if (obj.rows=="114,7,*") {
+		obj.rows="0,7,*";
+	} else {
+		obj.rows="114,7,*";
+	}
+}
+</script>
+<script type="text/javascript" src="../themes/js/jquery.js"></script>
+<script type="text/javascript" src="../themes/js/styleswitch.js"></script>
+<link rel="stylesheet" href="../themes/skyblue/skyblueTop.css" type="text/css" title="styles1" />
+</head>
+<body style="cursor:pointer">
+<div id="line" onclick="javascript:controlClick()"></div>
+</body>
+</html>

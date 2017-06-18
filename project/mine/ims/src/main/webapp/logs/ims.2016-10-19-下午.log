@@ -1,0 +1,9 @@
+[INFO] 2016-10-19 17:02:40.112 [org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:982)]
+Closing WebApplicationContext for namespace 'mvc-servlet': startup date [Tue Oct 18 15:08:46 CST 2016]; parent: Root WebApplicationContext
+
+[WARN] 2016-10-19 17:02:40.116 [com.gf.ims.common.listener.GlobalListener.contextDestroyed(GlobalListener.java:19)]
+-----------------容器开始销毁-----------------
+
+[WARN] 2016-10-19 17:02:40.117 [com.gf.ims.common.listener.GlobalListener.contextDestroyed(GlobalListener.java:20)]
+*****************容器完成销毁*****************
+

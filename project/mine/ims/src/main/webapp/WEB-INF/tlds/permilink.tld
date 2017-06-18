@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>JSTL 1.1 functions library</description>
+	<display-name>JSTL functions</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>permilink</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functions</uri>
+
+	<tag>
+		<description>链接控制标签</description>
+		<name>enable</name>
+		<tag-class>com.jlit.uaas.web.tags.PermiLinkTag</tag-class>
+		<body-content>empty</body-content><!--这里如果设为empty,则无body-->
+		<attribute>
+		    <description>Action类名</description>
+			<name>actionname</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+		    <description>Action操作的URL</description>
+			<name>actionurl</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+		    <description>所操作记录的ID</description>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+</taglib>

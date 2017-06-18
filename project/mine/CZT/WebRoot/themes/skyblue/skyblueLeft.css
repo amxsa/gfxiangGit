@@ -1,0 +1,307 @@
+@charset "utf-8";
+*{
+    font-family: Arial, Helvetica, sans-serif, "宋体";
+    font-size: 12px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    list-style-type: none;
+    scrollbar-face-color: #caebf7;
+    scrollbar-shadow-color: #59bffa;
+    scrollbar-highlight-color: #59bffa;
+    scrollbar-3dlight-color: #ebecec;
+    scrollbar-darkshadow-color: #ebecec;
+    scrollbar-track-color: #ebecec;
+    scrollbar-arrow-color: #5a626e;
+    color: #CCCCCC;
+}
+html
+{
+overflow-x:hidden;
+}
+a  {
+    font-family: "宋体";
+    font-size: 12px;
+    text-decoration: none;
+	blr:expression(this.onFocus=this.blur());
+}
+ul {
+    font-family: "宋体";
+    font-size: 12px;
+    text-decoration: none;
+    padding-left: 0px;
+    list-style-type: none;
+}
+#left {
+    position: absolute;
+    width: 100%;
+    float: left;
+}
+#meunimg-bg {
+    background-image: url(../images/images3/images/meunimg-bg.gif);
+    background-repeat: repeat-x;
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 38px;
+    overflow: visible;
+    background-position: left top;
+    
+}
+
+#meunbar {
+    position: relative;
+    width: 100%;
+    height: 38px;
+    background-image: url(../images/images3/images/meunimg.gif);
+    background-repeat: no-repeat;
+    clear: both;
+    float: left;
+
+}
+#dhtmlxTree {
+    position: relative;
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 40px;
+}
+
+.menutext{
+    float: left;
+    list-style-type: none;
+    font-size: 12px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    line-height: 25px;
+    padding-top: 2px;
+    margin-top: 5px;
+    background-color: #FFFFFF;
+}
+.menutext a{
+    float: left;
+    padding-left: 20px;
+    overflow: hidden;
+
+}
+.meun01 {
+    background-image: url(../images/images3/images/meunlink-img2.gif);
+    background-position: 0px;
+    background-repeat: repeat-x;
+    height: 25px;
+}
+
+.icoimg {
+    margin-right: 5px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    align:absmiddle;
+    vertical-align: text-bottom;
+    margin-top: 4px;
+}
+
+.icoimg1{
+    margin-right: 5px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    align:absmiddle;
+    vertical-align: middle;
+    margin-top: -2px;
+    width: auto;
+}
+#meunacrbg{
+    color: #d62525;
+    font-family: "宋体";
+    font-size: 12px;
+    width: 100%;
+    height: 23px;
+    line-height: 23px;
+    list-style-type: none;
+    display: block;
+    text-indent: 5px;
+    margin-top: 3px;
+    font-weight: normal;
+}
+#meunacrbg a{
+    background-image: url(../images/images3/images/meunlink-img1-1.gif);
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    list-style-position: inside;
+    list-style-image: url(../images/images3/images/meunacr01.gif);
+    font-family: "宋体";
+    font-weight: normal;
+}
+#meunacrbg a:hover {
+    background-image: url(../images/images3/images/meunlink-img2.gif);
+    background-repeat: repeat-x;
+    color: #d62525
+}
+/*.meunacr a {
+    display: block;
+    background-image: url(../images/images2/images/meunacr01.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.meunacr a:hover {
+    background-image: url(../images/images2/images/meunlink-img2.gif);
+    background-repeat: repeat-x;
+    color: #2a6784;
+}*/
+.meunacr01  a{
+    color: #938d8c;
+    font-family: "宋体";
+    font-size: 12px;
+    width: 100%;
+}
+.meunacr01 a:hover{
+    background-image: url(../images/images3/images/meunlink-img3.gif);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    color: #6a650e;
+}
+.stretcher2{
+    color: #938d8c;
+    font-family: "宋体";
+    font-size: 12px;
+    display: block;
+    list-style-type: none;
+    text-indent: 20px;
+}
+.stretcher2  a{
+    color: #938d8c;
+    font-family: "宋体";
+    font-size: 12px;
+    display: block;
+    list-style-type: none;
+    line-height: 25px;
+    height: 25px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.stretcher2 a:hover{
+    background-image: url(../images/images3/images/meunlink-img3.gif);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    color: #6a650e;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+
+.pttext{
+    float: left;
+    display: block;
+    list-style-type: none;
+    height: 25px;
+    overflow: visible;
+    position: relative;
+    line-height: 25px;
+    padding-top: 2px;
+}
+.pttext a{
+    float: left;
+    padding-left: 20px;
+
+}
+
+.pttext2{
+    list-style-type: none;
+    font-family: "宋体";
+    font-size: 12px;
+    font-weight: bold;
+    color: #666666;
+    background-image: url(../images/images3/images/meunlink-img3-bluebg.gif);
+    background-repeat: repeat-x;
+    background-position: left top;
+    line-height: 20px;
+    height: 25px;
+    clip: rect(auto,auto,auto,auto);
+    text-indent: 20px;
+    margin-top: 8px;
+}
+.pttext2-1{
+    list-style-type: none;
+    font-family: "宋体";
+    font-size: 12px;
+    font-weight: bold;
+    color: #666666;
+    background-image: url(../images/images3/images/meunlink-img3-bluebg.gif);
+    background-repeat: repeat-x;
+    background-position: left top;
+    line-height: 20px;
+    height: 25px;
+    clip: rect(auto,auto,auto,auto);
+    text-indent: 20px;
+}
+.pttext2bg{
+    color: #666666;
+    background-image: url(../images/images3/images/meunlink-img3-blue.gif);
+    background-repeat: no-repeat;
+    background-position: left top;
+    clip: rect(auto,auto,auto,auto);
+}
+h3  {
+    padding: 0;
+    margin: 0;
+    border:0;
+    font-family: "宋体";
+    font-size: 12px;
+}
+
+h3 i {
+    color: #ffd9fe;
+    color: #990000;
+    font-size: 12px;
+    font-family: "宋体";
+}
+.img {
+    float: left;
+    background-image: url(../images/images3/images/meunacr02.gif);
+    background-repeat: no-repeat;
+    background-position: 0px 8px;
+    margin-right: 0px;
+    width: 10px;
+    margin-left: 5px;
+
+}
+.b-text {
+    font-family: "宋体";
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF9900;
+
+}
+#blok {
+    height: 15px;
+    display: block;
+
+}
+/*左侧线*/
+#line-y {
+    width: 7px;
+    height: 100%;
+    float: left;
+    background-image: url(../images/images3/images/bar-y.gif);
+    background-repeat: repeat-y;
+    background-position: left;
+    overflow: hidden;
+    position: absolute;
+}
+#imany {
+    background-image: url(../images/images3/images/bar-y.gif);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 7px;
+    top: 50%;
+}

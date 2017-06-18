@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end --> 
+    <title>客户回访评价</title>
+    <link rel="stylesheet" type="text/css" href="css/bath.css" />
+    <link rel="stylesheet" type="text/css" href="css/my_msg.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+	//解析url  例如...a.html?aa=bbb&cc=ddd  那么获取参数可以用bbb=GetURLParameter("aa")
+	function GetURLParameter(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]);
+		return null;
+	}
+	
+    
+    $(function(){
+        var status=GetURLParameter("status");
+        if(status=="1"){
+        //alert("我是状态1的");
+
+        }
+        if(status=="2"){
+        //alert("我是状态2的");
+        $(".confirm_btn").css({'background':"#d7d7d7","color":"#525252"});
+        $(".confirm_btn").html("已受理")
+		$(".confirm_btn").unbind("click");
+        }
+
+        var fenshu = 1;                             // 全局
+        $('.star li').click(function(event) {   
+            var index = $(this).index()             // 获取当前索引值，和分数相关
+            fenshu = index+1                        // 索引值和分数的关系，分数比索引值多1
+            $('.star span').html(fenshu)            // 改变文字
+            $('.star li').removeClass()                 // 先清空，再点亮
+            $('.star li:lt('+fenshu+')').addClass('on') 
+        })
+        .mouseenter(function(event) { 
+            var index = $(this).index()
+            var fenshu = index+1                        // 相对
+            $('.star li').removeClass()                 // 先清空，再点亮
+            $('.star li:lt('+fenshu+')').addClass('on') 
+        })
+        .mouseleave(function(event) {                   // 鼠标离开的时候，回到真正的分数
+            $('.star li').removeClass()                 // 先清空，再点亮
+            $('.star li:lt('+fenshu+')').addClass('on') 
+        });
+    })
+    </script>
+</head>
+    <body>
+    <div class="box main_pd big_box">
+        <img src="img/aa.png" alt="" class="my_p" />
+        <p class="name">微信昵称</p>
+        <p class="core">黄金vip</p>
+        <p class="phone_num">电话：<em>13958658855</em>
+        <a href="tel:18688888888" class="call"></a> </p>  
+
+    </div>
+   
+    <div class="box main_pd">
+        <p class="time_p">预约时间：<em>2016年4月5日</em></p>
+        <p class="time_p">取现金额：<em>20万</em></p>
+        <div class="confirm_btn" onclick="javascript:location.href='scoreMsg.html'">受理</div>
+        <!-- <div class="confirm_btn" style="background:#e1e1e1">取消</div> -->
+        
+    </div>
+    </body>
+</html>

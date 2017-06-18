@@ -1,0 +1,167 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: arial, helvetica, sans-serif, tahoma;
+	font-size: 14px;
+	background-color: #FFF;
+	color: #444444;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+form {
+	padding: 0;
+	margin: 0;
+}
+
+h1,h2,h3,ul,li {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+.content {
+	
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	line-height: 30px;
+}
+
+.btn {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 13px;
+	border-left: #002D96 1px solid;
+	cursor:pointer;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+}
+
+.logo {
+	background-color: #FFFFDB;
+}
+.topmain {
+	padding-left: 6px;
+	font-size: 14px;
+}
+.topmain a {
+	padding-left: 6px;
+	font-size: 14px;
+}
+.topmain a link {
+	color: #0065ac;
+	text-decoration: underline;
+}
+.top {
+	font-size:14px;
+	color: #797268;
+	padding-top: 2px;
+	padding-right: 14px;
+	padding-bottom: 3px;
+	padding-left: 14px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #9ec1e7;
+}
+
+.top div {
+	line-height: 20px;
+}
+.title {
+	padding-top: 10px;
+	padding-right: 16px;
+	padding-bottom: 10px;
+	padding-left: 16px;
+	line-height: 18px;
+}
+
+.name {
+	color: #444444;
+	padding-top: 3px;
+	padding-right: 14px;
+	padding-bottom: 3px;
+	padding-left: 14px;
+	font-size: 16px;
+}
+
+.unresdli {
+	padding-top: 4px;
+	padding-right: 14px;
+	padding-bottom: 3px;
+	padding-left: 14px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e5e5e5;
+	overflow: hidden;
+	line-height: 20px;
+}
+
+.unresdli .linkblock {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+
+.unresdli h2 {
+	display: block;
+}
+
+.linkblock h2 strong {
+	color: #444444;
+}
+
+.unresdli h2 .font3 {
+	color: #888888;
+}
+
+.unresdli h3 {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: normal;
+	text-align: right;
+	float: right;
+	overflow: hidden;
+	color: #444444;
+}
+
+
+
+.fenye {
+	padding-top: 2px;
+	padding-right: 14px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	line-height: 20px;
+}
+
+.link {
+	color: #0065ac;
+	text-decoration: underline;
+}
+
+.foot {
+	background-repeat: repeat-x;
+	background-position: top;
+	text-align: center;
+	padding-right: 20px;
+	padding-left: 20px;
+	line-height: 32px;
+	height: 32px;
+	background-color: #FFFFDB;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+}

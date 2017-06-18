@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="propertyConfiger"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:conf/mysql.properties</value>
+		</property>
+	</bean>
+	<!-- Database -->
+	<!--  
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+
+		<property name="driverClass">
+			<value>${mysql.driverClassName}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${mysql.url}</value>
+		</property>
+		<property name="user">
+			<value>${mysql.user}</value>
+		</property>
+		<property name="password">
+			<value>${mysql.password}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>${mysql.initialPoolSize}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${mysql.minPoolSize}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${mysql.maxPoolSize}</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>${mysql.acquireIncrement}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${mysql.maxIdleTime}</value>
+		</property>
+		<property name="maxStatements">
+			<value>${mysql.maxStatements}</value>
+		</property>
+		<property name="autoCommitOnClose">
+			<value>${mysql.autoCommitOnClose}</value>
+		</property>
+	</bean>
+	-->
+	
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver">
+			<value>${mysql.driverClassName}</value>
+		</property>
+		<property name="driverUrl">
+			<value>${mysql.url}</value>
+		</property>
+		<property name="user" value="${mysql.user}" />
+		<property name="password" value="${mysql.password}" />
+		<property name="alias" value="GROUPCALL" />
+		<property name="maximumActiveTime" value="300000" />
+		<property name="prototypeCount" value="1" />
+		<property name="maximumConnectionCount" value="50" />
+		<property name="minimumConnectionCount" value="3" />
+		<property name="simultaneousBuildThrottle" value="50" />
+		<!--  
+		<property name="houseKeepingTestSql" value="select sysdate from dual" />
+		-->
+	</bean>
+	<bean id="jdbc" class="cn.cellcom.common.DB.JDBC" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="cp" />
+		</constructor-arg>
+	</bean>
+	<bean id="cp" class="cn.cellcom.common.DB.ConnConf" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="r" />
+		</constructor-arg>
+		
+	</bean>
+	<bean id="r" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg index="0">
+			<value>/conf/mysql.properties</value>
+		</constructor-arg>
+	</bean>
+</beans>

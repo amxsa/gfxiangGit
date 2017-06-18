@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>系统管理--系统用户</title>
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="系统管理.css"/>
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+		<!-- 引入本项目弹出层js文件 -->
+		<script>
+			$(function() {
+				// 窗口弹出
+				$('.see').click(function(event) {
+					$('.layer').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+				});
+
+				// 点击关闭按钮，关闭窗口，     点击背景也关闭  
+				$('.close,.layer-bg,.layer_ft_no').click(function(event) {
+					$('.layer,.layer-bg').hide();
+
+				});
+				
+				
+				
+				//菜单的全选全不选
+				$("#checkeds .serach_in").each(function() {
+					$(this).on("click", ".choseall", function() {
+						$(this).next(".select_content").find(".chose_box").prop('checked', $(this).prop("checked"));
+					})
+
+					$(this).on("click", ".select_content", function() {
+						var f = $(this).find(".chose_box:checked").length == $(this).find(".chose_box").length;
+						$(this).siblings(".choseall").prop('checked', f);
+
+					})
+				})
+			})
+		</script>
+
+		<body>
+			<div class="wrap_main" onscroll="jumps()">
+				<!-- 面包屑开始 -->
+				<div class="crumb">
+					<em>系统管理</em>
+					<i>></i>
+					<em>角色管理</em>
+					<!--  <i>></i>
+        <em></em> -->
+				</div>
+				<!-- 面包屑结束 -->
+				<!-- 面包屑下部分开始 -->
+				<div class="wrap_main_bd">
+					<!-- 查找模块开始 -->
+					<!--<div class="serach_box">-->
+
+					<!-- 时间控件 -->
+					<!--<div class="serach_in">
+                <span class="find_title">时间</span> 
+                 <input name="orderDate" id="orderDate" readonly="readonly" type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate chose_time"  value="">  
+            </div>
+            <div class="common_btn">查找</div>-->
+
+					<!--</div>-->
+					<!-- 查找模块结束 -->
+
+					<!-- 表格区 -->
+					<div class="commonTable_content">
+						<div class="table_btn_box">
+							<div class="table_btn">新增角色</div>
+						</div>
+						<table width="100%" border="1" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>角色名称</th>
+									<th>角色描述</th>
+									<th>用户数量</th>
+									<th>操作</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>110099</td>
+									<td>张三</td>
+									<td>天安科技员管理员</td>
+									<td>
+										<em class="see">编辑</em>
+										<em >删除</em>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					<!-- 分页========== -->
+					<div class="commonPage">
+						<input type="hidden" id="currentPageNo">
+						<!-- 现在是第几页 -->
+						<span class="which_page">第<i>3</i>页/共<em>10</em>页</span>
+						<!-- 操作第几页 -->
+						<div class="page_content_box">
+							<span class="control_page" onclick="submit('S')">首页</span>
+							<span class="control_page" onclick="submit('P')">上一页</span>
+							<ul class="page_btn">
+								<li id="c1" onclick="check(this)">1</li>
+								<li id="c2" onclick="check(this)">2</li>
+								<li id="c3" onclick="check(this)">3</li>
+								<li id="c4" onclick="check(this)">4</li>
+								<li id="c5" onclick="check(this)">5</li>
+							</ul>
+							<span class="control_page" onclick="submit('N')">下一页</span>
+							<span class="control_page" onclick="submit('E')">尾页</span>
+						</div>
+						<!-- 跳转到第几页 -->
+						<div class="page_content_box">
+							第<input type="text" class="ipt_page" id="selectPageNo" onblur="changePageNo(this)" />页
+							<span class="page_go">GO</span>
+						</div>
+						<!-- 每页显示数目 -->
+						<div class="page_content_box">
+							每页显示条目数
+							<select name="" id="" class="page_chose">
+								<option value="100">10</option>
+								<option value="100">20</option>
+								<option value="100">50</option>
+							</select>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<style>
+				
+			</style>
+
+			<!-- 模态窗口 -->
+			<div class="layer">
+				<!--窗口标题栏-->
+				<div class="layer_hd">
+					<p>编辑账号</p>
+					<span class="close"></span>
+				</div>
+				<!--窗口内容部分-->
+				<div class="layer_bd">
+					<div class="layer_bd_content ">
+						<div class="clearfix">
+							<div class="layer_content_left">
+								<div class="serach_in">
+									<div>
+										<i>*</i>
+										<span>角色</span>
+									</div>
+									<div>
+										<input type="text" placeholder="" class="common_input" />
+									</div>
+								</div>
+							</div>
+							<div class="layer_content_right">
+								<div class="serach_in">
+									<div>
+										<i>*</i>
+										<span>角色描述</span>
+									</div>
+									<div>
+										<input type="text" placeholder="" class="common_input" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="boldfont" style="margin-left: 15px;"><i>*</i>权限配置</div>
+
+						<div id="checkeds">
+							<div class="serach_in">
+								<div>
+									<span>业务看板</span>
+								</div>
+								<div>
+									<input type="checkbox" class="choseall" id="" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />业务看板
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="serach_in">
+								<div>
+									<span>客户服务</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />现场服务
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />常规服务
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />我的客户
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />预约服务
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />客户回访管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />贷款申请管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />客户服务报表
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="serach_in">
+								<div>
+									<span>客户管理</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />个人客户
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />企业客户
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />等级设置
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />客户分析
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="serach_in">
+								<div>
+									<span>产品管理</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />产品信息管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />产品销售管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />产品推广设置
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />查询统计
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="serach_in">
+								<div>
+									<span>业务管理</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />投诉建议
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />叫号机管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />填单机管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />网点管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />自助设备管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />报表
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />二维码管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />业务设置
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="serach_in">
+								<div>
+									<span>绩效管理</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />岗位管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />考核评分
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="serach_in">
+								<div>
+									<span>公众平台</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />公共库
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />内容库
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />智能客服
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />自动应答菜单
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />菜单发布
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />粉丝管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />门店管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />摇一摇周边
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="serach_in">
+								<div>
+									<span>推广营销</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />虚拟奖品
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />活动管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />会话记录
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />消息群发
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />流程管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />微信卡券
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="serach_in">
+								<div>
+									<span>我的账号</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />信息修改
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="serach_in">
+								<div>
+									<span>系统管理</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />系统用户
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />角色管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />系统日志
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="serach_in">
+								<div>
+									<span>商盟管理</span>
+								</div>
+								<div>
+									<input type="checkbox" id="" class="choseall" />全选
+									<div class="select_content">
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />商户管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />IBeacon管理
+										</div>
+										<div class="width20">
+											<input type="checkbox" class="chose_box" />邀约码管理
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="layer_ft">
+					<div class="layer_ft_yes">保存</div>
+					<div class="layer_ft_no">取消</div>
+
+				</div>
+			</div>
+			<div class="layer-bg"></div>
+
+		</body>
+
+</html>

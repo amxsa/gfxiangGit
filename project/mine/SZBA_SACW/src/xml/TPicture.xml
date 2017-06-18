@@ -1,0 +1,16 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.domain.TPicture" tableName="t_picture">
+	 <columnMapList>
+	    <ids>
+			<id name="pic_id" property="picID"/>
+	    </ids>
+	    <column name="type" property="type"/>
+	    <column name="thumbnail_url" property="thumbnailUrl" unsaved="0.0"/>
+	    <column name="original_url" property="originalUrl" />
+	    <column name="description" property="picDescription" />
+	    <column name="creator" property="creator" />
+	    <column name="case_id" property="caseID" />
+	    <column name="property_id" property="propertyID" />
+	    <column name="elec_evidence_id" property="elecEvidenceID" />
+	    <column name="priority" property="priority" />
+	 </columnMapList>
+</classAndTable>

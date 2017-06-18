@@ -1,0 +1,5 @@
+span.time_dot{height: 36px;line-height: 36px;text-align: left;}
+.listTimeChoose{padding: 5px 0;}
+tbody tr:nth-of-type(2n) td {
+    background-color: #fff;}
+tr>td{padding:20px;}

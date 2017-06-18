@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<util:map id="msgTemplateKeyMap" map-class="java.util.HashMap">
+		<entry key="RZCK" value="velocity_rzck_template.vm" />
+		<entry key="RZCKCQ" value="velocity_rzckcq_template.vm" />
+		<entry key="ZCKRZXK" value="velocity_zckrzxk_template.vm" />
+		<entry key="ZCKRZXKCQ" value="velocity_zckrzxkcq_template.vm" />
+		<entry key="CWDYGH" value="velocity_cwdygh_template.vm" />
+		<entry key="CWDYGHCQ" value="velocity_cwdyghcq_template.vm" />
+		<entry key="TQCW" value="velocity_tqch_template.vm" />
+		<entry key="DB" value="velocity_db_template.vm" />
+		<entry key="CB" value="velocity_cb_template.vm" />
+	</util:map>
+
+    <!-- 入暂存库 -->
+	<bean id="messageRZCKTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>RZCK</value>
+				<value>1</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskRZCKMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageRZCKTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 4 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 入暂存库超期 -->
+	<bean id="messageRZCKCQTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>RZCKCQ</value>
+				<value>1</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskRZCKCQMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageRZCKCQTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 2 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 暂存库入中心库 -->
+	<bean id="messageZCKRZXKTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>ZCKRZXK</value>
+				<value>6</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskZCKRZXKMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageZCKRZXKTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 1 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 暂存库入中心库 超期-->
+	<bean id="messageZCKRZXKCQTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>ZCKRZXKCQ</value>
+				<value>7</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskZCKRZXKCQMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageZCKRZXKCQTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 1 * * ?</value>
+		</property>
+	</bean>
+	
+	<!--  财物调用归还-->
+	<bean id="messageCWDYGHTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>CWDYGH</value>
+				<value>2</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskCWDYGHMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageCWDYGHTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 5 * * ?</value>
+		</property>
+	</bean>
+	
+	<!--  财物调用归还 超期-->
+	<bean id="messageCWDYGHCQTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>CWDYGHCQ</value>
+				<value>2</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskCWDYGHCQMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageCWDYGHCQTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 5 * * ?</value>
+		</property>
+	</bean>
+	
+	<!--  提取财物-->
+	<bean id="messageTQCWTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>TQCW</value>
+				<value>1</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskTQCWMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageTQCWTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 6 * * ?</value>
+		</property>
+	</bean>
+	
+	<!--  待办提醒 -->
+	<bean id="messageDBTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>DB</value>
+				<value>1</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskDBMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageDBTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 7 * * ?</value>
+		</property>
+	</bean>
+
+   <!--  催办提醒 -->
+	<bean id="messageCBTaskJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--false表示等上一个任务执行完后再开启新的任务 -->
+		<property name="concurrent" value="false" />
+		<property name="targetObject">
+			<ref bean="messageService" />
+		</property>
+		<property name="targetMethod">
+			<value>publicMessage</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>CB</value>
+				<value>3</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskCBMessage" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageCBTaskJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 7 * * ?</value>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- 添加触发器 -->
+		<property name="triggers">
+			<list>
+				<ref bean="taskRZCKMessage" />
+				<ref bean="taskRZCKCQMessage" />
+				<ref bean="taskZCKRZXKMessage" />
+				<ref bean="taskZCKRZXKCQMessage" />
+				<ref bean="taskCWDYGHMessage" />
+				<ref bean="taskCWDYGHCQMessage" />
+				<ref bean="taskTQCWMessage" />
+				<ref bean="taskDBMessage" />
+				<ref bean="taskCBMessage" />
+			</list>
+		</property>
+	</bean>
+</beans>

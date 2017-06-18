@@ -1,0 +1,271 @@
+/*页面样式*/
+
+/*图文盒子*/
+
+.imgtext_box {background-color: #FFFFFF;box-sizing: border-box;}
+
+.imgtext_box li {
+	border: 1px solid #D8E1F2;
+	box-sizing: border-box;
+	width: 262px;
+	margin: 0 20px 20px 0;
+	float: left;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.imgtext_hd {
+	box-sizing: border-box;
+	height: 30px;
+	line-height: 29px;
+	background-color: #E5EDFC;
+	border-bottom: 1px solid #D8E1F2;
+}
+
+.imgtext_hd span {display: inline-block;padding: 0 8px;}
+
+.imgtext_hd span.imgtext_many {background-color: #717D98;color: #FFFFFF;}
+
+.imgtext_hd span.imgtext_alone {
+	background-color: #FFFFFF;
+}
+
+.imgtext_hd em {padding-left: 8px;}
+
+.imgtext_bd {
+	box-sizing: border-box;
+	height: 136px;
+	padding: 15px;
+}
+
+.imgtext_bd img {
+	width: 232px;
+	height: 106px;
+}
+
+.imgtext_footer {
+	box-sizing: border-box;
+	height: 30px;
+	background-color: #f7f9ff;
+	border-top: 1px solid #D8E1F2;
+	text-align: center;
+}
+
+.imgtext_footer>div {
+	border-right: 1px solid #D8E1F2;
+	float: left;
+	width: 49.5%;
+	height: 30px;
+}
+
+.imgtext_footer>div:nth-child(1) {
+	background: url(../../img/icon-edit.png) no-repeat center center;
+	background-size: 16px 16px;
+	cursor: pointer;
+}
+
+.imgtext_footer>div:nth-child(2) {
+	background: url(../../img/icon-delete.png) no-repeat center center;
+	background-size: 20px 20px;
+	border: 0;
+	cursor: pointer;
+}
+
+
+/*弹出框*/
+
+.layer {
+	height: 400px;
+}
+
+.layer_hd,
+.layer_ft {
+	position: static;
+}
+
+.layer_bd {
+	padding: 20px 0 0;
+}
+
+.layer_bd_content {
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+
+.layer_bd_content .common_input {
+	width: 405px;
+	display: block;
+}
+
+
+/*弹出框的左边部分样式*/
+
+.layer_bd_content .layer_left {
+	float: left;
+	box-sizing: border-box;
+	padding-right: 20px;
+	height: 700px;
+	overflow-y: auto;
+}
+
+.layer_left li {
+	border: 1px solid #D8E1F2;
+	margin-bottom: 15px;
+	height: 130px;
+	width: 200px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	position: relative;
+}
+
+.layer_left .imgtext_bd {
+	height: auto;
+	padding: 8px;
+}
+
+.layer_left .imgtext_bd img {
+	width: 180px;
+	height: 85px;
+}
+
+
+/*多图文的左边部分的样式*/
+
+.layer_left .add_imgtext {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.layer_left .add_imgtext img {
+	margin: 35px auto 10px;
+	width: 50px;
+	height: 50px;
+}
+
+.imgtext_control {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+}
+
+.imgtext_control ul {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.imgtext_control li {
+	width: 30px;
+	height: 30px;
+	background-color: #FFFFFF;
+	margin: 5px;
+	display: inline-block;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.imgtext_control li:nth-child(1) {
+	background: url(../img/icon-up.png) no-repeat center center #ffffff;
+	background-size: 20px 20px;
+}
+
+.imgtext_control li:nth-child(2) {
+	background: url(../img/icon-down.png) no-repeat center center #FFFFFF;
+	background-size: 20px 20px;
+}
+
+.imgtext_control li:nth-child(3) {
+	background: url(../../img/icon-edit.png) no-repeat center center #FFFFFF;
+	background-size: 20px 20px;
+}
+
+.imgtext_control li:nth-child(4) {
+	background: url(../../img/icon-delete.png) no-repeat center center #FFFFFF;
+	background-size: 20px 20px;
+}
+
+
+/*弹出框的右边样式*/
+
+.layer_bd_content .layer_right {
+	padding-top: 15px;
+	width: 518px;
+	float: left;
+	border: 1px solid #D8E1F2;
+}
+
+.layer_right li {
+	padding-bottom: 15px;
+}
+
+.layer_right li>span {
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+	vertical-align: top;
+	padding-top: 5px;
+	padding-right: 15px;
+}
+
+.layer_right li>div {
+	display: inline-block;
+}
+
+.layer_right .img_hint {
+	margin-left: -30px;
+	line-height: 30px;
+	vertical-align: top;
+}
+
+.layer_right checkbox {
+	margin-right: 5px;
+	margin-top: 10px;
+}
+
+.inputimg {
+	border: 1px solid #D8E1F2;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 204px;
+	position: relative;
+}
+
+.inputimg img {
+	width: 180px;
+	height: 82px;
+}
+
+.inputimg .delete_img {
+	width: 25px;
+	height: 25px;
+	background: url(../img/delete.png) no-repeat center center;
+	background-size: 15px 15px;
+	background-color: rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	cursor: pointer;
+}
+
+.content {
+	width: 400px;
+	height: 200px;
+	display: inline-block;
+	color: #717d98;
+	font-family: Microsoft YaHei;
+	z-index: -1;
+}
+/*原文链接选择*/
+.select_box .serach_in{
+	display: none;
+	margin-bottom: 10px;
+}

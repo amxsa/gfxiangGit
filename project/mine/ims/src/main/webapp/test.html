@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>旋转</title>
+<style>
+* {margin:0; padding:0; border:0;}
+div {width:190px; height:190px; margin-left:100px; margin-top:-100px;}
+img {width:190px; height:190px; border-radius:100px; animation:myfirst 5s linear infinite; -webkit-animation:myfirst 5s linear infinite; animation-play-state:running; -webkit-animation-play-state:running;}
+img:hover {animation-play-state:paused; -webkit-animation-play-state:paused;}
+ 
+@keyframes myfirst {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
+@-webkit-keyframes myfirst {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
+</style>
+</head>
+ 
+<body>
+<p style="margin-top:100px"></p>
+<div><img src="bb.jpg"/><div>
+</body>
+</html>

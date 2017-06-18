@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jlit.xms.mapper.DeptMapper" >
+
+  <resultMap id="deptBaseResultMap" type="com.jlit.xms.model.Dept" >
+    <id column="dept_id" property="id" />
+    <result column="dept_name" property="name"  />
+    <result column="logo" property="logo"  />
+    <association property="level"   javaType="Level"  column="levelId"  select="getLevelForDept"></association>
+    <collection property="emps" ofType="Emp"  column="dept_id" select="getEmpsById"></collection>
+  </resultMap>
+  <select id="getLevelForDept" resultType="Level">
+  	select * from t_level where id=#{value}
+  </select>
+  <select id="getEmpsById" resultMap="com.jlit.xms.mapper.EmpMapper.empBaseResultMap">
+  	select * from t_emp where dept_id=#{value}
+  </select>
+  <sql id="pageSql">
+  		select distinct d.id as dept_id,d.name as dept_name,d.logo,d.level_id levelId
+  		from t_dept d  left join t_level l on d.level_id=l.id<!--  left join t_emp e on d.id=e.dept_id -->
+  		<where>
+			<if test="paramModel.name!=null and paramModel.name!=''"> and d.name like CONCAT('%',#{paramModel.name},'%') </if>
+			<if test="keyWord.queryBean.levelName!=null and keyWord.queryBean.levelName!=''"> and l.name like CONCAT('%',#{keyWord.queryBean.levelName},'%') </if>
+		</where>
+  </sql>
+  <select id="selectPageList" parameterType="pageData"	resultMap="deptBaseResultMap">
+		<include refid="pageSql"></include>
+		limit #{start},#{pageSize}
+	</select>
+	<select id="selectRecords" parameterType="pageData" resultType="integer">
+		select  count(1) from (<include refid="pageSql"></include>) a
+	</select>
+	<select id="getById" parameterType="string" resultMap="deptBaseResultMap">
+		select d.*,d.level_id levelId,d.id dept_id from t_dept d where id=#{id}
+	</select>
+	<insert id="insert" parameterType="dept">
+		insert into t_dept(id,name,logo,level_id) values (#{id},#{name},#{logo},#{level.id});
+	</insert>
+	<update id="update" parameterType="dept" >
+    update t_dept
+    <set >
+      <if test="name != null" >name = #{name,jdbcType=VARCHAR},</if>
+      <if test="logo != null" >logo = #{logo,jdbcType=VARCHAR},</if>
+      <if test="level!= null" >level_id = #{level.id,jdbcType=VARCHAR},</if>
+    </set>
+    where id=#{id}
+  </update>
+  <delete id="deleteById" parameterType="string">
+  	delete from t_dept where id=#{id}
+  </delete>
+  <select id="getByName" parameterType="string"  resultMap="deptBaseResultMap">
+  	select * from t_dept  where name=#{value}
+  </select>
+  <select id="queryForList" parameterType="dept"  resultMap="deptBaseResultMap">
+  	select * from t_dept  where 1=1
+  </select>
+</mapper>

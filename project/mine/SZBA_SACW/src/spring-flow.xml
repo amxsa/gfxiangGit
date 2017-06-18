@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<bean id="flowService" class="cn.cellcom.szba.service.impl.FlowServiceImpl">
+		<property name="disposalMapper" ref="disposalMapBean" />
+		<property name="procedureMapper" ref="procedureMapBean" />
+		<property name="categoryAttributeMapper" ref="categoryAttributeMapBean" />
+	</bean>
+	
+	<bean id="judgeProcessService" class="cn.cellcom.szba.service.impl.JudgeProcessServiceImpl"></bean>
+	
+	<bean id="testService" class="cn.cellcom.szba.service.TestService">
+		<property name="disposalMapper" ref="disposalMapBean" />
+		<property name="procedureMapper" ref="procedureMapBean" />
+		<property name="categoryAttributeMapper" ref="categoryAttributeMapBean" />
+		<property name="roleMapper" ref="roleMapBean" />
+	</bean>
+	
+	<util:map id="disposalMapBean" map-class="java.util.HashMap">
+		<entry key="RZCK">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="RZCK" />
+				<property name="description" value="入暂存库" />
+			</bean>
+		</entry>
+		<entry key="RZXK">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="RZXK" />
+				<property name="description" value="入中心库" />
+			</bean>
+		</entry>
+		<entry key="CZCK">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="CZCK" />
+				<property name="description" value="出暂存库" />
+			</bean>
+		</entry>
+		<entry key="CZXK">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="CZXK" />
+				<property name="description" value="出中心库" />
+			</bean>
+		</entry>
+		<entry key="TH">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="TH" />
+				<property name="description" value="退还" />
+			</bean>
+		</entry>
+		<entry key="XH">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="XH" />
+				<property name="description" value="销毁" />
+			</bean>
+		</entry>
+		<entry key="DY">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="DY" />
+				<property name="description" value="调用" />
+			</bean>
+		</entry>
+		<entry key="PM">
+			<bean class="cn.cellcom.szba.databean.Disposal">
+				<property name="code" value="PM" />
+				<property name="description" value="拍卖" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="procedureMapBean" map-class="java.util.HashMap">
+		<entry key="PROCEDURE001">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE001" />
+				<property name="description" value="一般财物入暂存库流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE002">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE002" />
+				<property name="description" value="一般财物入中心库流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE003">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE003" />
+				<property name="description" value="一般财物处置流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE004">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE004" />
+				<property name="description" value="暂存库一般财物调用流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE005">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE005" />
+				<property name="description" value="中心库一般财物调用流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE006">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE006" />
+				<property name="description" value="一般财物出暂存库流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE007">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE007" />
+				<property name="description" value="一般财物出中心库流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE008">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE008" />
+				<property name="description" value="不在公安局保存的财物处置流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE009">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE009" />
+				<property name="description" value="无存储介质电子物证储存流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE010">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE010" />
+				<property name="description" value="特殊财物直接入中心库流程" />
+			</bean>
+		</entry>
+		<entry key="PROCEDURE011">
+			<bean class="cn.cellcom.szba.databean.Procedure">
+				<property name="code" value="PROCEDURE011" />
+				<property name="description" value="特殊财物销毁（移交）处置流程" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="categoryAttributeMapBean" map-class="java.util.HashMap">
+		<entry key="YBCW">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="YBCW" />
+				<property name="description" value="一般财物" />
+			</bean>
+		</entry>
+		<entry key="YHBZ">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="YHBZ" />
+				<property name="description" value="烟花爆竹" />
+			</bean>
+		</entry>
+		<entry key="GZDJLA">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="GZDJLA" />
+				<property name="description" value="管制刀具(立案)" />
+			</bean>
+		</entry>
+		<entry key="GZDJBLA">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="GZDJBLA" />
+				<property name="description" value="管制刀具(不立案)" />
+			</bean>
+		</entry>
+		<entry key="JHQZ">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="JHQZ" />
+				<property name="description" value="缴获枪支" />
+			</bean>
+		</entry>
+		<entry key="YHWPTS">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="YHWPTS" />
+				<property name="description" value="淫秽物品（图书类）" />
+			</bean>
+		</entry>
+		<entry key="YHWPGP">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="YHWPGP" />
+				<property name="description" value="淫秽物品（光盘）" />
+			</bean>
+		</entry>
+		<entry key="DBGJ">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="DBGJ" />
+				<property name="description" value="赌博工具" />
+			</bean>
+		</entry>
+		<entry key="BBCCW">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="BBCCW" />
+				<property name="description" value="不保存的财物" />
+			</bean>
+		</entry>
+		<entry key="DZWZY">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="DZWZY" />
+				<property name="description" value="电子物证(有存储介质)" />
+			</bean>
+		</entry>
+		<entry key="DZWZW">
+			<bean class="cn.cellcom.szba.databean.CategoryAttribute">
+				<property name="code" value="DZWZW" />
+				<property name="description" value="电子物证(无存储介质)" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="roleMapBean" map-class="java.util.HashMap">
+		<entry key="BAMJ">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="BAMJ" />
+				<property name="name" value="办案民警" />
+			</bean>
+		</entry>
+		<entry key="BADWLD">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="BADWLD" />
+				<property name="name" value="办案单位领导" />
+			</bean>
+		</entry>
+		<entry key="ZCKGLY">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="ZCKGLY" />
+				<property name="name" value="暂存库管理员" />
+			</bean>
+		</entry>
+		<entry key="FZK">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="FZK" />
+				<property name="name" value="法制科" />
+			</bean>
+		</entry>
+		<entry key="ZAKMJ">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="ZAKMJ" />
+				<property name="name" value="治安科民警" />
+			</bean>
+		</entry>
+		<entry key="ZAKLD">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="ZAKLD" />
+				<property name="name" value="治安科领导" />
+			</bean>
+		</entry>
+		<entry key="FJLD">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="FJLD" />
+				<property name="name" value="分局领导" />
+			</bean>
+		</entry>
+		<entry key="ZXKGLY">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="ZXKGLY" />
+				<property name="name" value="中心库管理员" />
+			</bean>
+		</entry>
+		<entry key="ZXKLD">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="ZXKLD" />
+				<property name="name" value="中心库领导" />
+			</bean>
+		</entry>
+		<entry key="XTGLY">
+			<bean class="cn.cellcom.szba.domain.TRole">
+				<property name="roleKey" value="XTGLY" />
+				<property name="name" value="系统管理员" />
+			</bean>
+		</entry>
+	</util:map>
+	
+</beans>

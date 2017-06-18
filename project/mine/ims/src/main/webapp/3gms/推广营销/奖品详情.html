@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>推广营销--虚拟奖品--奖品详情</title>
+		<!-- 引入整个平台公共样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<!-- 引入本文件的样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<!-- 引入jquery库文件 -->
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<!-- 引入时间插件文件 -->
+		<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+		<!--<style type="text/css">
+             .cc{
+             	margin-bottom: ;
+             	text-align: ;
+             }
+		</style>-->
+
+		<script type="text/javascript">
+			$(function() {
+				// 点击切换页签
+				$(".tab_btn li").click(function(event) {
+					var index = $(this).index();
+					$(this).addClass('now_status').siblings('li').removeClass('now_status');
+					$(".show_tab").eq(index).addClass('show_now').siblings('.show_tab').removeClass('show_now');
+
+				});
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<!-- 面包屑开始 -->
+			<div class="crumb">
+				<em>推广营销</em>
+				<i>></i>
+				<em>虚拟奖品</em>
+				<i>></i>
+				<em>奖品详情</em>
+			</div>
+			<!-- 面包屑结束 -->
+			<!-- 面包屑下部分开始 -->
+			<div class="wrap_main_bd">
+				<div class="common_btn">返回</div>
+				<!-- 查找模块开始 -->
+				<div class="serach_box" style="margin-top: 20px;">
+
+					<div class="serach_in">
+						<!-- select -->
+						<span class="find_title">活动</span>
+						<select name="" id="">
+							<option value="请选择">请选择</option>
+							<option value="选择一">选择一</option>
+							<option value="选择二">选择二</option>
+							<option value="选择三">选择三</option>
+						</select>
+					</div>
+					<div class="serach_in">
+						<!-- select -->
+						<span class="find_title">奖品级别</span>
+						<select name="" id="">
+							<option value="请选择">请选择</option>
+							<option value="选择一">选择一</option>
+							<option value="选择二">选择二</option>
+							<option value="选择三">选择三</option>
+						</select>
+					</div>
+					<div class="serach_in">
+						<!-- select -->
+						<span class="find_title">奖品状态</span>
+						<select name="" id="">
+							<option value="请选择">请选择</option>
+							<option value="选择一">选择一</option>
+							<option value="选择二">选择二</option>
+							<option value="选择三">选择三</option>
+						</select>
+					</div>
+					<div class="common_btn">查询</div>
+
+				</div>
+				<!-- 查找模块结束 -->
+
+				<!-- 表格区 -->
+				<div class="commonTable_content">
+					<div class="table_btn_box">
+						<div class="table_btn">导出信息列表</div>
+					</div>
+					<table width="100%" border="1" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th>供应商</th>
+								<th>奖品名称</th>
+								<th>关联活动</th>
+								<th>活动状态</th>
+								<th>奖品级别</th>
+								<th>奖品状态</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1133333345</td>
+								<td>1111333333456</td>
+								<td>111133333366</td>
+								<td>11</td>
+								<td>11</td>
+								<td>11</td>
+							
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+				<!-- 分页========== -->
+				<div class="commonPage">
+					<input type="hidden" id="currentPageNo">
+					<!-- 现在是第几页 -->
+					<span class="which_page">第<i>3</i>页/共<em>10</em>页</span>
+					<!-- 操作第几页 -->
+					<div class="page_content_box">
+						<span class="control_page" onclick="submit('S')">首页</span>
+						<span class="control_page" onclick="submit('P')">上一页</span>
+						<ul class="page_btn">
+							<li id="c1" onclick="check(this)">1</li>
+							<li id="c2" onclick="check(this)">2</li>
+							<li id="c3" onclick="check(this)">3</li>
+							<li id="c4" onclick="check(this)">4</li>
+							<li id="c5" onclick="check(this)">5</li>
+						</ul>
+						<span class="control_page" onclick="submit('N')">下一页</span>
+						<span class="control_page" onclick="submit('E')">尾页</span>
+					</div>
+					<!-- 跳转到第几页 -->
+					<div class="page_content_box">
+						第<input type="text" class="ipt_page" id="selectPageNo" onblur="changePageNo(this)" />页
+						<span class="page_go">GO</span>
+					</div>
+					<!-- 每页显示数目 -->
+					<div class="page_content_box">
+						每页显示条目数
+						<select name="" id="" class="page_chose">
+							<option value="100">10</option>
+							<option value="100">20</option>
+							<option value="100">50</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</body>
+
+</html>

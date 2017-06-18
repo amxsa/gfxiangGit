@@ -1,0 +1,7 @@
+/user/leaveword/showLeaveword.do
+/user/leaveword/leavewordMsg.do
+/user/leaveword/showLeavewordTxt.do
+/user/callForward/
+/user/politeOff/
+/user/colorPrinting
+/user/upgrade.jsp

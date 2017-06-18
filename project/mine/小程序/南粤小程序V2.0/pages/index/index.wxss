@@ -1,0 +1,26 @@
+.page{font-family:"微软雅黑";}
+input{font-family:"微软雅黑";}
+.login_input{width: 100%;height: 50px;line-height: 50px;border-bottom:1px solid #d9d9d9;display: block;padding:0 30px;box-sizing: border-box;margin-bottom:0px;font-family:"微软雅黑";font-size:16px;color:#212121;}
+
+.centerBox{padding:0 4%;box-sizing: border-box;}
+.image{width:210px;height:42px;margin:40px auto;display:block;}
+.getNum{position: absolute;right:0;top:14px;font-size:16px;color:#ca0713;}
+.getNumBox{position: relative;left:0;top:0;}
+.getNumBox .icon{width:20px;height:20px;position: absolute;left:0;top:14px;}
+
+
+
+.cardBox{padding: 0 5%;box-sizing: border-box;}
+.listBox{width:100%;height:100px;background:#fff;border-radius: 5px;display:block;padding:10px;box-sizing: border-box;margin-bottom:10px;border:1px solid #ca0612;}
+
+.list_pic{width:100px;height:25px;}
+button[type="primary"] {
+color:#FFFFFF;
+background-color:#ca0713;
+margin:40px 0 20px;
+}
+.button-hover[type="primary"] {
+color:#FFFFFF;
+background-color:#ca0713;
+margin:40px 0 20px;
+}

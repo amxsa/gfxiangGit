@@ -1,0 +1,14 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.domain.TPolice" tableName="t_police">
+	 <columnMapList>
+	    <ids>
+			<id name="id" property="poliId" identify="true"/>
+	    </ids>
+	    <column name="name" property="poliName"/>
+	    <column name="department_id" property="deptID"/>
+	    <column name="creator" property="creator.account"/>
+	    <column name="type" property="poliType"/>
+	    <column name="mix_id" property="mixId"/>
+	    <column name="id_type" property="idType"/>
+	    <column name="id_num" property="idNum"/>
+	 </columnMapList>
+</classAndTable>

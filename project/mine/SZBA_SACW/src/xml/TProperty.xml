@@ -1,0 +1,28 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.domain.TProperty" tableName="t_property">
+	 <columnMapList>
+	    <ids>
+			<id name="id" property="proId" identify="true"/>
+	    </ids>
+	    <column name="name" property="proName"/>
+	    <column name="quantity" property="proQuantity"/>
+	    <column name="unit" property="proUnit" />
+	    <column name="owner" property="proOwner" />
+	    <column name="phone" property="proPhone" />
+	    <column name="characteristic" property="proCharacteristic" />
+	    <column name="category_id" property="categoryId" />
+	    <column name="type" property="proType" />
+	    <column name="origin" property="proOrigin" />
+	    <column name="nature" property="proNature" />
+	    <column name="seizure_place" property="proSeizurePlace" />
+	    <column name="seizure_basis" property="proSeizureBasis" />
+	    <column name="remark" property="proRemark" />
+	    <column name="save_demand" property="saveDemand" />
+	    <column name="save_method" property="saveMethod" />
+	    <column name="envi_demand" property="enviDemand" />
+	    <column name="apprai_result" property="appraiResult" />
+	    <column name="apprai_situation" property="appraiSituation" />
+	    <column name="is_running" property="isRunning" />
+	    <column name="damage_status" property="damageStatus" />
+	    <listResult name="cn.cellcom.szba.domain.TPicture" property="picList"> </listResult>
+	 </columnMapList>
+</classAndTable>

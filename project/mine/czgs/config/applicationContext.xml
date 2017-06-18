@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    <!-- 引用外部连接池配置 -->
+    <context:property-placeholder location="classpath:db.properties" />
+	
+   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="jdbcUrl" value="${jdbcUrl}"></property>
+		<property name="driverClass" value="${driverClass}"></property>
+		<property name="user" value="${user}"></property>
+		<property name="password" value="${password}"></property>
+		<!--初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialPoolSize" value="${initialPoolSize}"></property>
+		<!--连接池中保留的最小连接数。Default: 3 -->
+		<property name="minPoolSize" value="3"></property>
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize" value="${maxPoolSize}"></property>
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="3"></property>
+		<!--最大空闲时间，1800秒内未使用则连接被丢弃，若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="1800"></property>
+	</bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"></property>
+    	<property name="hibernateProperties">
+    		<props>
+    			<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+    		</props>
+    	</property>
+    	<property name="mappingLocations">
+    		<list>
+    			<value>classpath:hcho/test/entity/*.hbm.xml</value>
+    			<value>classpath:hcho/nsfw/*/entity/*.hbm.xml</value>
+    		</list>
+    	</property>
+    </bean>
+    
+    <!--配置 事务管理 -->
+    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <!-- 配置事务通知 -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="list*" read-only="true"/>
+			<tx:method name="*" rollback-for="Throwable"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置aop 引进切面类  就不再使用execution（...）  bean(*Service)就代表所有以Service结尾的类 -->
+     <aop:config>
+    	<aop:pointcut expression="bean(*Service)" id="serviceOperation"/>
+    	
+    	<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+    </aop:config>
+    
+    <!-- 配置注入了sessionfactory的公用bean 给其他dao继承  -->
+   <bean id="baseDao" abstract="true">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+   
+   <!-- 配置权限 --> 
+   <bean id="permissionCheck" class="hcho.core.permission.impl.PermissionCheckImpl"></bean>
+    
+   <import resource="hcho/test/conf/*-spring.xml"></import>
+   <import resource="hcho/nsfw/*/conf/*-spring.xml"/>
+</beans>

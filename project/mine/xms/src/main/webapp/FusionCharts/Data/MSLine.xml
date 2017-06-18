@@ -1,0 +1,25 @@
+<chart caption='血压统计表' baseFontSize='12' lineThickness='1'  xAxisName='时间' yAxisName='血压(mmHg)'
+ showValues='0' formatNumberScale='0' anchorRadius='2'   divLineAlpha='20' divLineColor='000000'  rotateYAxisName='0'
+divLineIsDashed='1' showAlternateHGridColor='1' alternateHGridAlpha='5' alternateHGridColor='99CCFF'
+  labelStep="2" numvdivlines='5' chartRightMargin="35" bgColor='FFFFFF,99CCFF' bgAngle='270' bgAlpha='50,50'>
+<categories >
+
+<category label='' />
+
+
+</categories>
+
+
+
+<dataset seriesName='收缩压' color='1D8BD1' anchorBorderColor='1D8BD1' anchorBgColor='1D8BD1'>
+		<set value='' />
+
+	</dataset>
+	
+<dataset seriesName='舒张压' color='F1683C' anchorBorderColor='F1683C' anchorBgColor='F1683C'>
+	<set value='' />
+	
+	</dataset>
+
+
+</chart>

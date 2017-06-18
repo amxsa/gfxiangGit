@@ -1,0 +1,72 @@
+.process_list li {
+	position: relative;
+	margin-bottom: 25px;
+}
+
+.process_list li .process_num {
+	width: 24px;
+	height: 24px;
+	float: left;
+	background-color: #1db7ff;
+	color: #FFFFFF;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 24px;
+	font-size: 14px;
+	margin: 6px 20px 0 6px;
+	z-index: 3;
+}
+
+.process_list li .col {
+	position: absolute;
+	left: 17px;
+	top: -30px;
+	width: 2px;
+	height: 40px;
+	background-color: #1db7ff;
+}
+
+.input_box {
+	overflow: hidden;
+}
+
+.input_box label {
+	margin-right: 20px;
+	color: #1db7ff;
+}
+
+.input_box select {
+	width: 148px;
+	height: 34px;
+	line-height: 34px;
+	border: solid 1px #d9e0f2;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #717d98;
+	font-family: "微软雅黑";
+	background-color: #fff;
+	padding-left: 4px;
+	box-sizing: border-box;
+	font-size: 14px;
+	margin-right: 20px;
+}
+
+.btn_list {
+	margin-left: 106px;
+}
+
+td {}
+
+td span {
+	display: inline-block;
+	padding-right: 40px;
+	margin-right: 20px;
+	height: 35px;
+	background: url(../../img/icon-jiantou.png) no-repeat center right;
+}
+
+td span:last-child {
+	background: none;
+}

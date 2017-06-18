@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<flownodes>
+    <flownode name="agree" isSameAsCurrentDept="true" roles="8" propertyStatus="WDJ" actualPosition="BAMJ" applicationStatus="N">
+        <conditionExpression></conditionExpression>
+        <departments departmentId="2048" isRecursion="false"/>
+        <departments departmentId="2048" isRecursion="true"/>
+    </flownode>
+</flownodes>

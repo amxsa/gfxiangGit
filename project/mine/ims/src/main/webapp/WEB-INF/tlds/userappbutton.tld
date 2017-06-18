@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>JSTL 1.1 functions library</description>
+	<display-name>JSTL functions</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>uab</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functions</uri>
+
+	<tag>
+		<description>按钮显示控制标签</description>
+		<name>enable</name>
+		<tag-class>com.iip.portal.web.tags.UserAppButtonTag</tag-class>
+		<body-content>empty</body-content><!--这里如果设为empty,则无body-->
+	</tag>
+	
+</taglib>

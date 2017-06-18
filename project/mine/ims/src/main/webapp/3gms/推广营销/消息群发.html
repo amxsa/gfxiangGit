@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>公众平台--内容库</title>
+		<!-- 引入整个平台公共样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="css/publicLibrary.css" />
+
+		<link rel="stylesheet" type="text/css" href="../公众平台/css/内容库.css" />
+		<link rel="stylesheet" type="text/css" href="css/消息群发.css">
+		<!-- 引入jquery库文件 -->
+		<script src="../js/jquery-2.1.0.js" type="text/javascript"></script>
+
+		<!-- 引入编辑插件 -->
+		<script src="../公众平台/js/ueditor/ueditor.config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../公众平台/js/ueditor/ueditor.all.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../公众平台/js/ueditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				// 点击切换页签
+				$(".tab_btn li").click(function(event) {
+					var index = $(this).index();
+					$(this).addClass('now_status').siblings('li').removeClass('now_status');
+					$(".show_tab").eq(index).addClass('show_now').siblings('.show_tab').removeClass('show_now');
+
+				});
+				// 点击三角排序
+				$("thead th").click(function(event) {
+					$(this).children('i').toggleClass('down');
+				});
+
+				//新建单图文的正文
+				var ue1 = UE.getEditor('editor1', {
+					toolbars: [
+						['fullscreen', 'source',
+							'|', 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'pasteplain',
+							'spechars', 'forecolor', 'backcolor', 'fontfamily', 'fontsize',
+							'lineheight', 'indent', '|',
+							'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+							'link', 'unlink', '|',
+							'insertimage', 'emotion', 'insertvideo', '|',
+							'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',
+							'preview', 'searchreplace'
+						]
+					],
+				});
+
+				//新建多图文的正文
+				var ue2 = UE.getEditor('editor2', {
+					toolbars: [
+						['fullscreen', 'source',
+							'|', 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'pasteplain',
+							'spechars', 'forecolor', 'backcolor', 'fontfamily', 'fontsize',
+							'lineheight', 'indent', '|',
+							'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+							'link', 'unlink', '|',
+							'insertimage', 'emotion', 'insertvideo', '|',
+							'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',
+							'preview', 'searchreplace'
+						]
+					],
+				});
+
+				//弹框里的添加多图文
+				$(".add_imgtext").on("click", function() {
+					$lis = $("<li></li>");
+					$lis.html('<div class="imgtext_hd"><em>图文标题</em></div>' +
+						'<div class="imgtext_bd"><img src="../img/图片.jpg"/></div>' +
+						'<div class="imgtext_control">' +
+						'<ul><li></li><li></li><li></li><li></li></ul>' +
+						'</div>');
+					$(this).before($lis);
+
+					if($(".imgtext_list > li").length >= 9) {
+						$(this).hide()
+					}
+				})
+
+				//原文链接的选择
+				$(".select_line").change(function() {
+						var num = $(this).children("option:selected").index();
+						$(".select_box .serach_in").eq(num).show().siblings(".serach_in").hide();
+					})
+					//多图文操作区，移入显示，移出隐藏
+				$(".imgtext_list").on("mouseover mouseout", "li", function(event) {
+					if(event.type == "mouseover") {
+						//鼠标悬浮
+						$(this).find(".imgtext_control").show()
+					} else if(event.type == "mouseout") {
+						$(this).find(".imgtext_control").hide()
+
+					}
+				})
+
+				//新建单图文窗口弹出
+				$('.addImgText').click(function(event) {
+					$('.layer_addimgtext').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+					$(".layer_addimgtext .layer_ft_yes").on("click", function() {
+						//创建单图文
+						var $lis = $("<li></li>")
+						$lis.html('<div class="imgtext_hd">' +
+							'<span class="imgtext_alone">单图文</span>' +
+							'<em>农行信用卡新户有礼</em>' +
+							'</div>' +
+							'<div class="imgtext_bd">' +
+							'<img src="../img/图片.jpg" />' +
+							'</div>' +
+							'<div class="imgtext_footer clearfix">' +
+							'<div class="edit_imgtext"></div>' +
+							'<div class="delete_imgtext"></div></div>')
+						$(".imgtext_box").append($lis);
+
+						$(this).unbind();
+						$('.layer,.layer-bg').hide();
+						$(".imgtext_btns").hide();
+
+					})
+
+				});
+				//新建多图文窗口弹出
+				$('.addImgTexts').click(function(event) {
+					$('.layer_addimgtexts').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+					$(".layer_addimgtexts .layer_ft_yes").on("click", function() {
+						//创建多图文
+						var $lis = $("<li></li>")
+						$lis.html('<div class="imgtext_hd">' +
+							'<span class="imgtext_many">多图文</span>' +
+							'<em>农行信用卡新户有礼</em>' +
+							'</div>' +
+							'<div class="imgtext_bd">' +
+							'<img src="../img/图片.jpg" />' +
+							'</div>' +
+							'<div class="imgtext_footer clearfix">' +
+							'<div class="edit_imgtext"></div>' +
+							'<div class="delete_imgtext"></div></div>')
+						$(".imgtext_box").append($lis);
+
+						$('.layer,.layer-bg').hide();
+						$(".imgtext_btns").hide();
+
+					})
+				});
+
+				//删除图文
+				$(".imgtext_box").on("click", ".delete_imgtext", function() {
+					$(this).parent().parent().remove();
+					$(".imgtext_btns").show();
+				})
+
+				//编辑图文
+				$(".imgtext_box").on("click", ".edit_imgtext", function() {
+
+				})
+
+				// 点击关闭按钮，关闭窗口，     点击背景也关闭  
+				$('.close,.layer-bg,.layer_ft_no').click(function(event) {
+					$('.layer,.layer-bg').hide();
+
+				})
+
+				//引入图文
+				$('.inputimgtext_btn').click(function(event) {
+					$('.layer_inputimgtext').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+				});
+
+				//从内容库中选择图片
+				$(".search_img").on("click", function() {
+					$('.layer_inputs').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5); // 半透明
+
+					$(".layer_list li").find("img").show();
+					$(".layer_list li").find("audio").hide();
+					$(".layer_list li").find("video").hide();
+
+					$(".layer_ft_yes").on("click", function() {
+						var $lis = $("<li></li>")
+						$lis.html('<div class="img_box_bd"><img src="../img/图片.jpg" /></div>' +
+							'<div class="img_box_ft">农行信用卡新户有礼</div>' +
+							'<div class="delete_img"></div>')
+						$(".img_list").append($lis);
+
+						$(".imgbtn_box").hide();
+						$(this).unbind();
+						$('.layer,.layer-bg').hide();
+					})
+
+				})
+
+				//删除图片
+				$(".img_list").on("click", ".delete_img", function() {
+					$(this).parent().remove();
+					$(".imgbtn_box").show();
+				})
+
+				//从内容库选择语音
+				$(".search_audio").on("click", function() {
+					$('.layer_inputs').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+					$(".layer_list li").find("img").hide();
+					$(".layer_list li").children("audio").show();
+					$(".layer_list li").find("video").hide();
+
+					$(".layer_ft_yes").on("click", function() {
+						var $lis = $("<li></li>");
+						$lis.html('<div class="video_box_hd">农行信用卡新户有礼</div>' +
+							'<div class="video_box_bd">' +
+							'<audio src="../公众平台/video/2.MP4" controls></audio>' +
+							'</div>' +
+							'<div class="video_ft delete_audio"></div>')
+						$(".audios").append($lis);
+
+						$(this).unbind();
+						$('.layer,.layer-bg').hide();
+						$(".audio_btns").hide();
+					})
+
+				})
+
+				//删除语音
+				$(".audios").on("click", ".delete_audio", function() {
+					$(this).parent().remove();
+					$(".audio_btns").show();
+				})
+
+				//从内容库选择视频
+				$(".search_video").on("click", function() {
+						$('.layer_inputs').fadeIn(100);
+						$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+						$(".layer_list li").find("img").hide();
+						$(".layer_list li").find("audio").hide();
+						$(".layer_list li").find("video").show();
+
+						$(".layer_ft_yes").on("click", function() {
+							var $lis = $("<li></li>");
+							$lis.html('<div class="video_box_hd">农行信用卡新户有礼</div>' +
+								'<div class="video_box_bd">' +
+								'<video src="../公众平台/video/2.MP4" controls></video>' +
+								'</div>' +
+								'<div class="video_ft delete_video"></div>');
+
+							$(".videos").append($lis);
+
+							$(this).unbind();
+							$('.layer,.layer-bg').hide();
+							$(".video_btns").hide();
+						})
+
+					})
+					//删除视频
+				$(".videos").on("click", ".delete_video", function() {
+					$(this).parent().remove();
+					$(".video_btns").show();
+				})
+
+				//添加卡券
+				$(".search_card").on("click", function() {
+					$(".layer_inputcard").fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+						//					
+					$(".layer_inputcard .layer_ft_yes").on("click", function() {
+							var $lis = $("<li></li>");
+							$lis.html('<div class="delete_card"></div>' +
+								'<div class="card_bd">这是标题这是</div>' +
+								'<div class="card_deco"></div>' +
+								'<div class="card_ft">券类型(兑换券)</div>');
+							$('.card_list').append($lis);
+
+							$(this).unbind();
+							$('.layer,.layer-bg').hide();
+							$(".search_card").hide();
+						})
+						//
+				})
+
+				//删除卡券
+				$('.card_list').on("click", ".delete_card", function() {
+					$(this).parent().remove();
+					$(".search_card").show();
+				})
+
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<!-- 面包屑开始 -->
+			<div class="crumb">
+				<em>推广营销</em>
+				<i>></i>
+				<em>消息群发</em>
+			</div>
+			<!-- 面包屑结束 -->
+			<!-- 面包屑下部分开始 -->
+			<div class="wrap_main_bd">
+				<!-- 查找模块开始 -->
+
+				<!-- 页签 -->
+				<div class="tab_content">
+					<ul class="tab_btn">
+
+						<li title="纯文本" class="now_status">纯文本</li>
+						<li title="图文">图片</li>
+						<li title="消息图文">消息图文</li>
+						<li title="语音">语音</li>
+						<li title="视频">视频</li>
+						<li title="卡券">卡券</li>
+					</ul>
+					<!-- 核心tab区域 -->
+					<div class="main_center">
+						<!--纯文本-->
+						<div class="show_tab show_now">
+							<div class="search_box">
+								<div class="input_box">
+									<label>选择用户</label>
+									<select name="">
+										<option value="">全部用户</option>
+										<option value="">其他用户用户</option>
+									</select>
+								</div>
+								<div class="input_box">
+									<label>选择性别</label>
+									<select name="">
+										<option value="">全部性别</option>
+										<option value="">男</option>
+									</select>
+								</div>
+								<div class="table_btn">发送</div>
+							</div>
+							<div class="content_box">
+								<textarea placeholder="请输入文本"></textarea>
+							</div>
+
+						</div>
+						<!--纯文本结束-->
+
+						<!--图片-->
+						<div class="show_tab">
+							<div class="search_box">
+								<div class="input_box">
+									<label>选择用户</label>
+									<select name="">
+										<option value="">全部用户</option>
+										<option value="">其他用户用户</option>
+									</select>
+								</div>
+								<div class="input_box">
+									<label>选择性别</label>
+									<select name="">
+										<option value="">全部性别</option>
+										<option value="">男</option>
+									</select>
+								</div>
+								<div class="table_btn">发送</div>
+							</div>
+							<div class="btn_box imgbtn_box">
+								<div class="table_btn search_img">从内容库中选择</div>
+								<div class="import_img import_btn clearfix" style="display: inline-block;">
+									<input type="file" name="" id="" value="" title="本地上传" />
+									<div class="table_btn">本地上传</div>
+								</div>
+								<span class="inputimg_remark">文件大小不超过1M，格式bmp、png、jpeg、jpg、git。</span>
+							</div>
+
+							<ul class="img_list clearfix">
+								<!--<li>
+									<div class="img_box_bd">
+										<img src="../img/图片.jpg" />
+									</div>
+									<div class="img_box_ft">
+										农行信用卡新户有礼
+									</div>
+									<div class="delete_img">
+
+									</div>
+								</li>-->
+
+							</ul>
+
+						</div>
+						<!--图片结束-->
+
+						<!--图文消息-->
+						<div class="show_tab">
+							<div class="search_box">
+								<div class="input_box">
+									<label>选择用户</label>
+									<select name="">
+										<option value="">全部用户</option>
+										<option value="">其他用户用户</option>
+									</select>
+								</div>
+								<div class="input_box">
+									<label>选择性别</label>
+									<select name="">
+										<option value="">全部性别</option>
+										<option value="">男</option>
+									</select>
+								</div>
+								<div class="table_btn">发送</div>
+							</div>
+							<div class="btn_box imgtext_btns">
+								<div class="table_btn addImgText">新建单图文</div>
+								<div class="table_btn inputimgtext_btn">引入单图文</div>
+								<div class="table_btn addImgTexts">新建多图文</div>
+								<div class="table_btn inputimgtext_btn">引入多图文</div>
+							</div>
+
+							<ul class="imgtext_box clearfix">
+								<!--单图文-->
+								<!--<li>
+									<div class="imgtext_hd">
+										<span class="imgtext_alone">单图文</span>
+										<em>农行信用卡新户有礼</em>
+
+									</div>
+									<div class="imgtext_bd">
+										<img src="../img/图片.jpg" />
+
+									</div>
+									<div class="imgtext_footer clearfix">
+										<div class="edit_imgtext"></div>
+										<div class="delete_imgtext"></div>
+
+									</div>
+								</li>-->
+								<!--多图文-->
+								<!--<li>
+									<div class="imgtext_hd">
+										<span class="imgtext_many">多图文</span>
+										<em>农行信用卡新户有礼</em>
+
+									</div>
+									<div class="imgtext_bd">
+										<img src="../img/图片.jpg" />
+
+									</div>
+									<div class="imgtext_footer clearfix">
+										<div class="edit_imgtext"></div>
+										<div class="delete_imgtext"></div>
+									</div>
+								</li>-->
+							</ul>
+
+						</div>
+						<!--图文消息结束-->
+
+						<!--语音-->
+						<div class="show_tab">
+							<div class="search_box">
+								<div class="input_box">
+									<label>选择用户</label>
+									<select name="">
+										<option value="">全部用户</option>
+										<option value="">其他用户用户</option>
+									</select>
+								</div>
+								<div class="input_box">
+									<label>选择性别</label>
+									<select name="">
+										<option value="">全部性别</option>
+										<option value="">男</option>
+									</select>
+								</div>
+								<div class="table_btn">发送</div>
+							</div>
+							<div class="btn_box audio_btns">
+								<div class="table_btn search_audio">从内容库中选择</div>
+								<div class="import_btn clearfix" style="display: inline-block;">
+									<input type="file" name="" id="" value="" title="本地上传" />
+									<div class="table_btn">本地上传</div>
+								</div>
+								<span class="inputimg_remark">文件大小不超过2M，格式MP3</span>
+							</div>
+							<ul class="video_list audios clearfix">
+								<!--<li>
+									<div class="video_box_hd">农行信用卡新户有礼</div>
+									<div class="video_box_bd">
+										<audio src="../公众平台/video/2.MP4" controls></audio>
+									</div>
+									<div class="video_ft delete_audio"></div>
+								</li>-->
+							</ul>
+
+						</div>
+						<!--语音结束-->
+
+						<!--视频-->
+						<div class="show_tab">
+							<div class="search_box">
+								<div class="input_box">
+									<label>选择用户</label>
+									<select name="">
+										<option value="">全部用户</option>
+										<option value="">其他用户用户</option>
+									</select>
+								</div>
+								<div class="input_box">
+									<label>选择性别</label>
+									<select name="">
+										<option value="">全部性别</option>
+										<option value="">男</option>
+									</select>
+								</div>
+								<div class="table_btn">发送</div>
+							</div>
+							<div class="btn_box video_btns">
+
+								<div class="table_btn search_video">从内容库中选择</div>
+								<div class="import_btn clearfix" style="display: inline-block;">
+									<input type="file" name="" id="" value="" title="本地上传" />
+									<div class="table_btn">本地上传</div>
+								</div>
+								<span class="inputimg_remark">文件大小不超过10M，格式为MP4<span>
+
+							</div>
+							
+							<ul class="video_list videos clearfix">
+								<!--<li>
+									<div class="video_box_hd">农行信用卡新户有礼</div>
+									<div class="video_box_bd">
+										<video src="../公众平台/video/2.MP4" controls></video>
+									</div>
+									<div class="video_ft delete_video"></div>
+								</li>-->
+							</ul>
+
+						</div>
+						
+						<!--视频结束-->
+						<!--卡券-->
+						<div class="show_tab">
+							<div class="search_box">
+								<div class="input_box">
+									<label>选择用户</label>
+									<select name="">
+										<option value="">全部用户</option>
+										<option value="">其他用户用户</option>
+									</select>
+								</div>
+								<div class="input_box">
+									<label>选择性别</label>
+									<select name="">
+										<option value="">全部性别</option>
+										<option value="">男</option>
+									</select>
+								</div>
+								<div class="table_btn">发送</div>
+							</div>
+							<div class="btn_box">
+
+								<div class="table_btn search_card">选择卡券</div>
+								
+							</div>
+							
+							<ul class="card_list clearfix">
+								<!--<li>
+									<div class="delete_card"></div>
+									<div class="card_bd">这是标题这是</div>
+									<div class="card_deco"></div>
+									<div class="card_ft">券类型(兑换券)</div>
+								</li>-->
+							</ul>
+
+						</div>
+						<!--卡券结束-->
+						
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+			
+			
+			
+			
+			
+		<!-- 新建单图文 -->
+		<div class="layer layer_addimgtext">
+			<div class="layer_hd">
+				<p>新建单图文</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content clearfix">
+					<div class="layer_left">
+						<ul>
+							<li>
+								<div class="imgtext_hd">
+									<em>农行信用卡新户有礼</em>
+								</div>
+								<div class="imgtext_bd">
+									<img src="../img/init_img.png" />
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="layer_right clearfix">
+						<ul>
+							<li>
+								<span>图文标题</span>
+								<div>
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</li>
+							<li>
+								<span>封面图片</span>
+								<div class="imgmessage_box">
+									<div class="import_btn clearfix" title="导入图片" style="display: inline-block;">
+										<input type="file" name="" id="" value="" />
+										<div class="table_btn">导入图片</div>
+									</div>
+									<span class="img_hint">图片建议尺寸700*320像素</span>
+									<div>
+										<input type="checkbox" name="" id="" value="" style="margin: 10px 5px 10px 0;" />将图片添加到正文
+									</div>
+									<div class="inputimg">
+										<img src="../img/init_img.png" />
+										<div class="delete_img"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<span>摘要(选填)</span>
+								<div>
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</li>
+							<li>
+								<span>正文</span>
+								<div class="">
+									<script id="editor1" type="text/plain" class="content"></script>
+								</div>
+							</li>
+							<li>
+								<span>原文链接</span>
+								<div>
+									<input type="text" name="" id="" value="" class="common_input" />
+									<span style="display: block;">使用原文链接会使正文失效</span>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--新建单图文结束-->
+
+		<!-- 新建多图文 -->
+		<div class="layer layer_addimgtexts">
+			<div class="layer_hd">
+				<p>新建多图文</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content clearfix">
+					<!--弹出框的左边-->
+					<div class="layer_left">
+						<ul class="imgtext_list">
+							<li>
+								<div class="imgtext_hd">
+									<em>农行信用卡新户有礼</em>
+								</div>
+								<div class="imgtext_bd">
+									<img src="../img/init_img.png" />
+								</div>
+								<div class="imgtext_control">
+									<ul>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul>
+								</div>
+							</li>
+							<li class="add_imgtext">
+								<img src="../img/init_img.png" />
+							</li>
+						</ul>
+					</div>
+					<!--弹出框的右边-->
+					<div class="layer_right clearfix">
+						<ul>
+							<li>
+								<span>图文标题</span>
+								<div>
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</li>
+							<li>
+								<span>封面图片</span>
+								<div class="imgmessage_box">
+									<div class="import_btn clearfix" title="导入图片" style="display: inline-block;">
+										<input type="file" name="" id="" value="" />
+										<div class="table_btn">导入图片</div>
+									</div>
+									<span class="img_hint">图片建议尺寸700*320像素</span>
+									<div>
+										<input type="checkbox" name="" id="" value="" style="margin: 10px 5px 10px 0;" />将图片添加到正文
+									</div>
+									<div class="inputimg">
+										<img src="../img/init_img.png" />
+										<div class="delete_img"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<span>摘要(选填)</span>
+								<div>
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</li>
+							<li>
+								<span>正文</span>
+								<div class="">
+									<script id="editor2" type="text/plain" class="content">为困仅靠</script>
+								</div>
+							</li>
+							<li>
+								<span>原文链接</span>
+								<div>
+									<div class="serach_in" style="margin-bottom: 10px;">
+										<select name="" id="" class="select_line">
+											<option value="请选择">自定义</option>
+											<option value="选择一">活动</option>
+											<option value="选择二">流程</option>
+											<option value="选择三">投票</option>
+											<option value="选择三">问券</option>
+										</select>
+									</div>
+									<span>使用原文链接会使正文失效</span>
+									<!--根据原文链接选择而显示的内容-->
+									<div class="select_box">
+										<div class="serach_in" style="margin-right: 0;display: block;">
+											<input type="text" name="" id="" value="" class="common_input" placeholder="请输入原文链接地址" />
+										</div>
+										<div class="serach_in">
+											<span class="find_title">活动</span>
+											<select name="" id="">
+												<option value="请选择">请选择</option>
+												<option value="选择一">选择一</option>
+											</select>
+										</div>
+										<div class="serach_in">
+											<span class="find_title">流程</span>
+											<select name="" id="">
+												<option value="请选择">请选择</option>
+												<option value="选择一">选择一</option>
+											</select>
+										</div>
+										<div class="serach_in">
+											<span class="find_title">投票</span>
+											<select name="" id="">
+												<option value="请选择">请选择</option>
+												<option value="选择一">选择一</option>
+											</select>
+										</div>
+										<div class="serach_in">
+											<span class="find_title">问券</span>
+											<select name="" id="">
+												<option value="请选择">请选择</option>
+												<option value="选择一">选择一</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--新建多图文结束-->
+
+		<!-- 引入图文弹框 -->
+		<div class="layer layer_inputimgtext">
+			<div class="layer_hd">
+				<p>引入图文</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content">
+					<div class="serach_box" style="margin-bottom: 20px;">
+						<!-- 搜索关键字 -->
+						<div class="serach_in">
+							<span class="find_title">搜索关键字</span>
+							<input type="text" placeholder="请输入图文名称" class="table_search" />
+						</div>
+						<div class="common_btn">查询</div>
+					</div>
+					<!-- 表格区 -->
+					<div class="commonTable_content">
+						<table width="100%" border="1" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th width="20"></th>
+									<th>图文名称<i class="down"></i></th>
+									<th>图文类型<i class="down"></i></th>
+									<th>创建时间<i class="down"></i></th>
+									<th>创建人<i class="down"></i></th>
+									<th>对应的公众号<i class="down"></i></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="radio" name="" id="" value="" /></td>
+									<td>11</td>
+									<td>11</td>
+									<td>11</td>
+									<td>11</td>
+									<td>11</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 分页========== -->
+					<div class="commonPage">
+						<input type="hidden" id="currentPageNo">
+						<!-- 现在是第几页 -->
+						<span class="which_page">第<i>3</i>页/共<em>10</em>页</span>
+						<!-- 操作第几页 -->
+						<div class="page_content_box">
+							<span class="control_page" onclick="submit('S')">首页</span>
+							<span class="control_page" onclick="submit('P')">上一页</span>
+							<ul class="page_btn">
+								<li id="c1" onclick="check(this)">1</li>
+								<li id="c2" onclick="check(this)">2</li>
+								<li id="c3" onclick="check(this)">3</li>
+								<li id="c4" onclick="check(this)">4</li>
+								<li id="c5" onclick="check(this)">5</li>
+							</ul>
+							<span class="control_page" onclick="submit('N')">下一页</span>
+							<span class="control_page" onclick="submit('E')">尾页</span>
+						</div>
+						<!-- 跳转到第几页 -->
+						<div class="page_content_box">
+							第<input type="text" class="ipt_page" id="selectPageNo" onblur="changePageNo(this)" />页
+							<span class="page_go">GO</span>
+						</div>
+						<!-- 每页显示数目 -->
+						<div class="page_content_box">
+							每页显示条目数
+							<select name="" id="" class="page_chose">
+								<option value="100">10</option>
+								<option value="100">20</option>
+								<option value="100">50</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--新建多图文结束-->
+
+		<!-- 引入图片 -->
+		<div class="layer layer_inputs">
+			<div class="layer_hd">
+				<p class="layer_title">引入图文</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content">
+					<!-- 图片列表 -->
+					<ul class="layer_list">
+						<li>
+							<img src="../img/图片.jpg" />
+							<audio src="../公众平台/video/2.MP4" controls></audio>
+							<video src="../公众平台/video/2.MP4" controls></video>
+							<div>
+								<input type="radio" name="inputimg" id="" value="" />
+								<span>这</span>
+							</div>
+						</li>
+					</ul>
+					<!-- 分页========== -->
+					<div class="commonPage">
+						<input type="hidden" id="currentPageNo">
+						<!-- 现在是第几页 -->
+						<span class="which_page">第<i>3</i>页/共<em>10</em>页</span>
+						<!-- 操作第几页 -->
+						<div class="page_content_box">
+							<span class="control_page" onclick="submit('S')">首页</span>
+							<span class="control_page" onclick="submit('P')">上一页</span>
+							<ul class="page_btn">
+								<li id="c1" onclick="check(this)">1</li>
+								<li id="c2" onclick="check(this)">2</li>
+								<li id="c3" onclick="check(this)">3</li>
+								<li id="c4" onclick="check(this)">4</li>
+								<li id="c5" onclick="check(this)">5</li>
+							</ul>
+							<span class="control_page" onclick="submit('N')">下一页</span>
+							<span class="control_page" onclick="submit('E')">尾页</span>
+						</div>
+						<!-- 跳转到第几页 -->
+						<div class="page_content_box">
+							第<input type="text" class="ipt_page" id="selectPageNo" onblur="changePageNo(this)" />页
+							<span class="page_go">GO</span>
+						</div>
+						<!-- 每页显示数目 -->
+						<div class="page_content_box">
+							每页显示条目数
+							<select name="" id="" class="page_chose">
+								<option value="100">10</option>
+								<option value="100">20</option>
+								<option value="100">50</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--新建多图文结束-->
+
+		<!-- 引入卡券 -->
+		<div class="layer layer_inputcard">
+			<div class="layer_hd">
+				<p>引入卡券</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content">
+					<!-- 表格区 -->
+					<div class="commonTable_content">
+						<table width="100%" border="1" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th width="20"></th>
+									<th>卡券类型</th>
+									<th>卡券名称</th>
+									<th>卡券有效期</th>
+									<th>卡券状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="radio" name="" id="" value="" /></td>
+									<td>11</td>
+									<td>11</td>
+									<td>11</td>
+									<td>11</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 分页========== -->
+					<div class="commonPage">
+						<input type="hidden" id="currentPageNo">
+						<!-- 现在是第几页 -->
+						<span class="which_page">第<i>3</i>页/共<em>10</em>页</span>
+						<!-- 操作第几页 -->
+						<div class="page_content_box">
+							<span class="control_page" onclick="submit('S')">首页</span>
+							<span class="control_page" onclick="submit('P')">上一页</span>
+							<ul class="page_btn">
+								<li id="c1" onclick="check(this)">1</li>
+								<li id="c2" onclick="check(this)">2</li>
+								<li id="c3" onclick="check(this)">3</li>
+								<li id="c4" onclick="check(this)">4</li>
+								<li id="c5" onclick="check(this)">5</li>
+							</ul>
+							<span class="control_page" onclick="submit('N')">下一页</span>
+							<span class="control_page" onclick="submit('E')">尾页</span>
+						</div>
+						<!-- 跳转到第几页 -->
+						<div class="page_content_box">
+							第<input type="text" class="ipt_page" id="selectPageNo" onblur="changePageNo(this)" />页
+							<span class="page_go">GO</span>
+						</div>
+						<!-- 每页显示数目 -->
+						<div class="page_content_box">
+							每页显示条目数
+							<select name="" id="" class="page_chose">
+								<option value="100">10</option>
+								<option value="100">20</option>
+								<option value="100">50</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--新建多图文结束-->
+
+		<div class="layer-bg"></div>
+
+	</body>
+
+</html>

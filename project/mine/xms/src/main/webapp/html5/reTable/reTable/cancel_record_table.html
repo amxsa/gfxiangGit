@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>列表</title>
+<link rel="stylesheet" type="text/css" href="css/bath.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/cancel_record_table.css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+<style type="text/css">
+	.page span{
+		cursor:pointer;
+	}
+	.selected{
+		color:red;
+	}
+</style>
+<!-- <script src="js/record_table.js" type="text/javascript"></script> -->
+<script type="text/javascript">
+
+var s = {
+		"rows" : [ {
+			"custName" : "达达",
+			"orderStatus" : "大额取款",
+			"lines" : "123",
+			"time" : "2016/12/23",
+			"website" : "天安科技园",
+			"status" : "1"
+		}, {
+			"custName" : "小一",
+			"orderStatus" : "大额取款",
+			"lines" : "123",
+			"time" : "2016/12/23",
+			"website" : "天安科技天安科技园天安科技园天安科技园园",
+			"status" : "1"
+		} ]
+	};
+
+	var y = {
+		"rows" : [ {
+			"custName" : "玉吉",
+			"orderStatus" : "大额取款",
+			"lines" : "123",
+			"time" : "2016/12/23",
+			"website" : "天安科技园",
+			"status" : "1"
+		}, {
+			"custName" : "小二",
+			"orderStatus" : "大额取款",
+			"lines" : "123",
+			"time" : "2016/12/23",
+			"website" : "天安科技园",
+			"status" : "1"
+		} ]
+	};
+	var z = {
+		"rows" : [ {
+			"custName" : "洗洗",
+			"orderStatus" : "大额取款",
+			"lines" : "123",
+			"time" : "2016/12/23",
+			"website" : "天安科技园",
+			"status" : "1"
+		}, {
+			"custName" : "小三",
+			"orderStatus" : "大额取款",
+			"lines" : "123",
+			"time" : "2016/12/23",
+			"website" : "天安科技园",
+			"status" : "1"
+		} ]
+	};
+	$(function() {
+		loadList("A"); //一开始加载列表 
+		// 大菜单的tab栏切换
+		$(".tab_top li").click(function(e) {
+			$(this).addClass("now").siblings("li").removeClass("now");
+			var ss = $(this).attr("cc");
+			if (ss == "B") {
+				loadList("B");
+			} else if (ss == "C") {
+				loadList("C");
+			} else if (ss == "A") {
+				loadList("A");
+			}
+			var index = $(this).index()
+			$(".centent_bd").eq(index).addClass("current").siblings("div").removeClass("current")
+		});
+		// 点击三角排序
+		$("thead th").click(function(event) {
+			$(this).children('i').toggleClass('down');
+		});
+
+		// 数据开始
+		function verify() {
+			//提交获取结果
+			ajaxSg.sg_ajaxClick({
+				url : '/XiaoITest/xiaoi'
+			});
+			//获取单个实体
+			sg_loadObject('/XiaoITest/xiaoi', {
+				data : 'id'
+			});
+		}
+		function getItemHtml(row, dataid) {
+			// row是 一个对象，获取row里面的属性
+			var temp = '';
+			temp = '<tr>';
+			temp += '<td>' + row.custName + '</td>';
+			if (row.orderStatus=="0") {
+				temp += '<td> 小额取款</td>';
+			}else if (row.orderStatus=="1") {
+				temp += '<td> 中额取款</td>';
+			}else{
+				temp += '<td> 大额取款</td>';
+			}
+			temp += '<td>' + row.lines + '</td>';
+			temp += '<td>' + row.time + '/12/23</td>';
+			temp += '<td title="'+row.website+'">' + row.website + '</td>'
+			temp += '<td>' + row.status + '</td>';
+			temp += '<td><i></i><em></em></td>';
+			temp += '</tr>';
+			return temp;
+		}
+		function genItems(data, dataid) {
+			var rows = data.rows;
+			var c = "";
+			for (var i = 0; i < rows.length; i++) {
+				c += getItemHtml(rows[i], dataid);
+
+			}
+			$("tbody").html(c);
+		}
+
+		function loadList(dataid) {
+			$("tbody tr").remove();
+			//获取列表
+			if (dataid == "A") {
+				genItems(s, dataid);
+			} else if (dataid == "B") {
+				genItems(y, dataid);
+			} else if (dataid == "C") {
+				genItems(z, dataid);
+			}
+		}
+		
+		var currentPageNo=1;
+		
+		setPageNo(1);
+		$("#currentPageNo").val(currentPageNo);
+	});
+	function setPageNo(currentPageNo){
+		if (currentPageNo<=3) {
+			for (var i = 1; i < 6; i++) {
+				$("#c"+i).text(i).removeClass("selected");
+			}
+			$("#c"+currentPageNo).addClass("selected");
+		}else{
+			for (var i = 1; i < 6; i++) {
+				$("#c"+i).text(parseInt(currentPageNo)+i-3).removeClass("selected");
+			}
+			$("#c3").addClass("selected");
+		}
+	}
+	function check(ele){
+		var pageNo=$(ele).text();
+		$("#currentPageNo").val(pageNo);
+		setPageNo(pageNo);
+	}
+	function changePageNo(ele){
+		var no=parseInt($(ele).val());
+		if (!isNaN(no)) {
+			$("#currentPageNo").val(no);
+			setPageNo(parseInt(no));
+		}
+		$(ele).val('');
+	}
+	function submit(type){
+		var currentPageNo=$("#currentPageNo").val();
+		if (type=="S") {//首页
+			currentPageNo=1;
+			$("#currentPageNo").val(currentPageNo);
+			setPageNo(currentPageNo);
+		}else if (type=="P") {//上一页
+			if (parseInt(currentPageNo)<=1) {
+				
+			}else{
+				$("#currentPageNo").val(parseInt(currentPageNo)-1);
+				setPageNo(parseInt(currentPageNo)-1);
+			}
+		}else if (type=="N") {//下一页
+			$("#currentPageNo").val(parseInt(currentPageNo)+1);
+			setPageNo(parseInt(currentPageNo)+1);
+		}else if (type=="E") {//尾页
+			
+		}
+	}
+</script>
+
+
+</head>
+<body>
+	<div class="matter_wap">
+		<div class="right_centent">
+			<div class="sort">
+				<a href="javascript:;">客户服务</a> &nbsp;&nbsp;>&nbsp;&nbsp; <a
+					href="javascript:;">贷款申请</a>
+			</div>
+			<div class="centent_r_btm">
+
+				<div class="main_box">
+					<ul class="tab_top">
+						<li class="now" cc="A">A<em>(10)</em></li>
+						<li style="background: #d24726" cc="B">B<em>(10)</em></li>
+						<li style="background: #ff8f33" cc="C">C<em>(4)</em></li>
+					</ul>
+					<div class="centent_hd">
+						<div class="search_box">
+							<div class="ipt_box">
+								<input type="text" class="search"
+									placeholder="仅支持申请人、贷款类型、额度的搜索" />
+								<div class="search_btn"></div>
+							</div>
+						</div>
+						<span>申请日期:</span> <input type="text" class="cancer_time Wdate"
+							id="d4311"
+							onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})" />
+						至 <input type="text " id="d4312" class="cancer_time Wdate"
+							type="text"
+							onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})" />
+						<div class="find">查询</div>
+
+					</div>
+					<div class="centent_bd current now">
+						<table width="100%" border="1" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>申请人<i class="down"></i></th>
+									<th>贷款类型<i class="down"></i></th>
+									<th>额度<i class="down"></i></th>
+									<th>申请日期<i class="down"></i></th>
+									<th>办理网点<i class="down"></i></th>
+									<th>状态<i class="down"></i></th>
+									<th>操作<i class="down"></i></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div class="page">
+						<input type="hidden" id="currentPageNo"></input>
+						<span class="totalCount">
+							共<span id="tc">0</span>条记录
+						</span>&nbsp;&nbsp;&nbsp;
+						<span  title="首页" onclick="submit('S')" >首页</span>&nbsp;
+						 <span title="上一页" onclick="submit('P')">上一页</span> &nbsp;
+						 <span id="c1" onclick="check(this)"></span>
+						 <span id="c2" onclick="check(this)"></span>
+						 <span id="c3" onclick="check(this)"></span>
+						 <span id="c4" onclick="check(this)"></span>
+						 <span id="c5" onclick="check(this)"></span>
+						 <em><input type="text" id="selectPageNo" onblur="changePageNo(this)" ></input></em>
+						 <span title="下一页" onclick="submit('N')" >下一页</span> &nbsp;
+						 <span title="尾页" onclick="submit('E')">尾页</span>&nbsp;
+						每页显示<select class="pageSize">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+						</select>条数据
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

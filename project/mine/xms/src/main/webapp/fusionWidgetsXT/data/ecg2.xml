@@ -1,0 +1,70 @@
+<chart numDisplaySets='1800'
+		subCaption='ECG_III'
+        showRealTimeValue='0'
+        lineThickness='1'
+        lineColor='71fd00'
+        lineAlpha='100'
+        showValues='0'
+        showAnchors='0'
+        showLegend='0'
+        showShadow='0'
+        showYAxisValues='0'
+        showAlternateHGridColor='0'
+        showZeroPlane="0"
+        divLineColor="c3e1ab"
+        canvasBorderColor="000000"
+        canvasBorderThickness="1"
+        showLabels='0'
+        dataStreamURL='updateEcg.html?leadName=2'
+        refreshInterval='1'
+        updateInterval='1'
+        bgAlpha='0'
+        showBorder='0'
+        canvasBgColor='225081'
+        divLineThickness='0.7'
+        vDivLineThickness='0.7'
+        yAxisMaxValue='5000'
+        yAxisMinValue='-3000'
+		ChartTopMargin='15'
+		ChartBottomMargin='0'
+		ChartLeftMargin='0'
+		ChartRightMargin='0'
+        >
+    <categories>
+        <category label='15:31'/>
+        <category label='15:32'/>
+        <category label='15:33'/>
+        <category label='15:34'/>
+        <category label='15:35'/>
+        <category label='15:36'/>
+        <category label='15:37'/>
+        <category label='15:38'/>
+        <category label='15:39'/>
+        <category label='15:40'/>
+        <category label='15:41'/>
+        <category label='15:42'/>
+        <category label='15:43'/>
+        <category label='15:44'/>
+        <category label='15:45'/>
+        <category label='15:46'/>
+        <category label='15:47'/>
+        <category label='15:48'/>
+        <category label='15:49'/>
+        <category label='15:50'/>
+        <category label='15:50'/>
+        <category label='15:51'/>
+        <category label='15:52'/>
+        <category label='15:53'/>
+        <category label='15:54'/>
+        <category label='15:55'/>
+        <category label='15:56'/>
+        <category label='15:57'/>
+        <category label='15:58'/>
+        <category label='15:59'/>
+        <category label='16:00'/>
+    </categories>
+    <dataset seriesName='ECG'>
+        <set value=''/>
+        
+    </dataset>
+</chart>

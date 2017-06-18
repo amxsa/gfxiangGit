@@ -1,0 +1,97 @@
+/*图片页签下的样式*/
+
+.img_list li {
+	float: left;
+	width: 180px;
+	box-sizing: border-box;
+	border: 1px solid #D8E1F2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	position: relative;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.img_list .img_box_bd {
+	box-sizing: border-box;
+	padding: 10px;
+	height: 180px;
+	vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+}
+
+.img_list .img_box_bd img {
+	max-width: 160px;
+	max-height: 160px;
+}
+
+.img_list .img_box_ft {
+	box-sizing: border-box;
+	height: 30px;
+	line-height: 29px;
+	background-color: #E5EDFC;
+	border-top: 1px solid #D8E1F2;
+	text-align: center;
+}
+
+.img_list .delete_img {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 30px;
+	height: 30px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: url(../img/delete.png) no-repeat center center rgba(0, 0, 0, 0.5);
+	background-size: 18px 18px;
+	cursor: pointer;
+}
+
+.inputimg_remark {
+	vertical-align: top;
+	display: inline-block;
+	margin-left: -30px;
+	height: 30px;
+	line-height: 30px;
+}
+
+
+/*视频页签下的样式*/
+
+.video_list li {
+	float: left;
+	box-sizing: border-box;
+	border: 1px solid #D8E1F2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin: 0 20px 20px 0;
+}
+
+.video_list .video_box_hd {
+	box-sizing: border-box;
+	height: 30px;
+	line-height: 29px;
+	background-color: #E5EDFC;
+	border-bottom: 1px solid #D8E1F2;
+	text-align: center;
+}
+
+.video_list .video_box_bd {
+	padding: 0 10px 0 10px;
+}
+
+.video_list .video_box_bd video {
+	width: 270px;
+	height: 160px;
+}
+
+.video_list .video_ft {
+	height: 30px;
+	background: url(../img/delete.png) no-repeat center center rgba(0, 0, 0, 0.5);
+	background-size: 18px 18px;
+	cursor: pointer;
+}

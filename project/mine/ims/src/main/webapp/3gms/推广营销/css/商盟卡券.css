@@ -1,0 +1,111 @@
+.wrap_main_bd input[type='checkbox'],
+.wrap_main_bd input[type='radio'] {
+	margin-right: 5px;
+}
+
+.setparam .input_box label {
+	width: 100px;
+}
+
+.select_invitation {
+	border: solid 1px #d9e0f2;
+	margin-left: 114px;
+	padding-top: 10px;
+	max-width: 1000px;
+	display: none;
+}
+
+.select_invitation .chose_all {
+	margin-left: 10px;
+}
+
+.invitation_list {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.invitation_list li {
+	width: 25%;
+	float: left;
+	box-sizing: border-box;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.invitation {
+	margin: 10px 0 10px 114px;
+}
+
+.business> label {
+	vertical-align: top;
+	line-height: 34px;
+}
+
+.business> div {
+	display: inline-block;
+}
+
+.business .img_box {
+	max-width: 308px;
+	max-height: 180px;
+	margin-top: 8px;
+	padding: 8px;
+}
+
+.business .img_box img {
+	max-width: 288px;
+	max-height: 160px;
+}
+
+.business .hint {
+	vertical-align: top;
+	line-height: 34px;
+}
+
+.client_list li {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	line-height: 30px;
+	padding-right: 15px;
+}
+
+.selectclient_list {
+	border-top: solid 1px #d9e0f2;
+	margin-top: 10px;
+	padding-top: 20px;
+}
+
+.selectclient_list> label {
+	vertical-align: top;
+	margin-right: 10px;
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+}
+
+.selectclient_list> div {
+	display: inline-block;
+	width: 650px;
+}
+
+.selectclient_list .chose_all {
+	margin-left: 11px;
+}
+
+.selectclient_list ul {
+	border: solid 1px #d9e0f2;
+	padding-bottom: 10px;
+}
+
+.selectclient_list li {
+	float: left;
+	width: 25%;
+	box-sizing: border-box;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.selectclient_list .chose_all {
+	margin-bottom: 10px;
+}

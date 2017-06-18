@@ -1,0 +1,215 @@
+CREATE TABLE `ali_pay_app_info` (
+  `id` varchar(32) NOT NULL,
+  `pid` varchar(32) DEFAULT NULL COMMENT '合作者身份(PID)',
+  `app_id` varchar(32) DEFAULT NULL COMMENT '商家支付宝id',
+  `mch_id` varchar(32) DEFAULT NULL COMMENT '支付宝商家账户的商户号',
+  `api_key` varchar(32) DEFAULT NULL COMMENT '支付宝商家账户设置的API密钥，在商户平台设置',
+  `parner_rsa` varchar(1024) DEFAULT NULL COMMENT '商家自己生成的私钥',
+  `parner_rsa_pkcs8` varchar(1024) DEFAULT NULL COMMENT '商家自己生成的私钥（pkcs8格式私钥）',
+  `parner_public_rsa` varchar(1024) DEFAULT NULL COMMENT '商家生成的公钥',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  `target` varchar(20) DEFAULT NULL,
+  `css` varchar(100) DEFAULT NULL,
+  `icon` varchar(50) DEFAULT NULL,
+  `levels` int(11) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
+  `cntid_name` varchar(20) DEFAULT NULL,
+  `sql_condition` varchar(100) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `is_leaf` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `orders` (
+  `id` varchar(32) NOT NULL DEFAULT '' COMMENT '主键id',
+  `order_no` varchar(32) NOT NULL COMMENT '订单流水号',
+  `user_id` varchar(32) NOT NULL COMMENT '用户id',
+  `total_price` double(20,2) NOT NULL COMMENT '订单总支付金额（用户支付总金额），单位：元',
+  `type` int(1) NOT NULL COMMENT '订单类型：1商品订单 2服务套餐订单 3上门服务预约订单 4健康服务订单 5余额充值订单 6 药店消费订单  7 到店型订单 ',
+  `pay_method` int(5) DEFAULT NULL COMMENT '支付方式：1支付宝 2微信APP支付 3余额支付（纯余额）4支付宝扫码支付',
+  `pay_status` int(1) NOT NULL COMMENT '支付状态：0未支付 1已支付',
+  `status` int(2) NOT NULL COMMENT '普通电商模式（商城、超市）:   0：待付款 1：待发货 2：待收货 3：退款中 4：售后处理中 5：交易成功 6：订单关闭\r\n家政/上门服务/送水到家： 0：待付款 1：待服务 2：已服务 3：退款中 4：售后处理中 5：交易成功 6：订单关闭\r\n团购：0:待付款（无效状态） 2：待使用 3：退款中 5：交易成功 6：交易关闭',
+  `order_info` varchar(2048) DEFAULT NULL COMMENT '订单简略信息',
+  `out_trade_no` varchar(32) DEFAULT NULL COMMENT '第三方支付流水号（支付宝流水号&微信订单号）',
+  `trade_no` varchar(32) DEFAULT NULL COMMENT '支付系统支付流水号（upp中订单流水号）',
+  `buyer_email` varchar(32) DEFAULT NULL COMMENT '买家支付账号（第三方支付平台买家的账号）',
+  `create_time` datetime NOT NULL COMMENT '订单生成时间',
+  `pay_time` datetime DEFAULT NULL COMMENT '支付完成时间',
+  `finish_time` datetime DEFAULT NULL COMMENT '订单完成时间',
+  `channel_flag` int(1) DEFAULT NULL COMMENT '渠道标识：1 web端 2：wap端（无线移动端）3：android 4：ios',
+  `is_refunded` int(2) DEFAULT NULL COMMENT ' 是否有申请退款 1 是',
+  `pay_name` varchar(56) DEFAULT NULL COMMENT '支付方式名称',
+  `seller_id` varchar(32) DEFAULT NULL COMMENT '店铺id',
+  `seller_name` varchar(64) DEFAULT NULL COMMENT '店铺名称',
+  `remarks` varchar(100) DEFAULT NULL COMMENT '备注',
+  `send_message_flag` int(2) DEFAULT '1' COMMENT '是否发送短信消息（0：已发送，1：未发送）',
+  PRIMARY KEY (`id`),
+  KEY `ind_orders_name` (`order_no`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_dept` (
+  `id` varchar(32) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `logo` varchar(100) DEFAULT NULL,
+  `level_id` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_emp` (
+  `id` varchar(32) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `id_card` varchar(18) DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `age` int(3) DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
+  `info` text,
+  `dept_id` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_level` (
+  `id` varchar(32) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `trade_order` (
+  `id` varchar(50) NOT NULL COMMENT '主键id',
+  `pay_method` int(11) NOT NULL COMMENT '支付方式  1 支付宝 2微信APP支付 4支付宝扫码支付',
+  `order_no` varchar(128) NOT NULL COMMENT '本系统订单号（唯一性约束）',
+  `order_source_flag` int(11) NOT NULL COMMENT '订单来源标识：1 内部订单 2 合作方订单',
+  `partner_no` varchar(50) DEFAULT NULL COMMENT '合作方编号',
+  `order_subject` varchar(600) NOT NULL COMMENT '商品名称(长度小于258字符串)',
+  `order_body` text COMMENT '商品描述（长度小于500字符串）',
+  `total_fee` double NOT NULL COMMENT '订单交易总额 单位为RMB-Yuan。取值范围为[0.01，100000000.00]',
+  `show_url` varchar(256) DEFAULT NULL COMMENT '商品展示网址',
+  `out_trade_no` varchar(128) NOT NULL COMMENT '真实订单号，关联合作方系统订单或本系统内部订单',
+  `inside_order_type` int(11) DEFAULT NULL COMMENT '内部订单类型：1 物业维修服务 2 场馆服务 3...',
+  `return_url` varchar(128) DEFAULT NULL COMMENT '合作方订单页面跳转同步通知页面路径',
+  `notify_url` varchar(128) DEFAULT NULL COMMENT '合作方订单服务器异步通知页面路径',
+  `trade_no` varchar(128) DEFAULT NULL COMMENT '第三方支付系统交易流水号（支付宝：支付宝流水号，微信：微信订单号）',
+  `buyer_email` varchar(100) DEFAULT NULL COMMENT '买家第三方支付账号，（支付宝：买家支付宝账号，微信：用户在商户appid下的唯一标识）',
+  `seller_email` varchar(100) DEFAULT NULL COMMENT '卖家第三方支付账号，（支付宝：商家支付宝账号，微信：微信商家账号）',
+  `trade_status` int(11) NOT NULL COMMENT '订单支付状态：0 未支付 1 支付成功',
+  `check_status` int(11) NOT NULL COMMENT '订单审核状态：0 未审核  1已审核',
+  `checker_account` longtext COMMENT '订单审核人账号',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `trade_time` datetime DEFAULT NULL COMMENT '订单支付完成时间',
+  `check_time` datetime DEFAULT NULL COMMENT '订单审核时间',
+  `is_refunded` int(11) NOT NULL DEFAULT '0' COMMENT '是否有退款记录: 0无退款记录 1 有退款记录',
+  `refund_times` int(11) NOT NULL DEFAULT '0' COMMENT '退款记录次数，默认0',
+  `left_fee` double DEFAULT NULL COMMENT '剩余金额，如果有退款，小于totle_fee',
+  `channel_flag` int(11) NOT NULL DEFAULT '1' COMMENT '渠道标识：1 web端 2：wap端（无线移动端）',
+  `paymethod` varchar(32) DEFAULT NULL COMMENT '默认支付方式:directPay（余额支付）bankPay（网银支付） cartoon（卡通）creditPay（信用支付）CASH（网点支付）',
+  `defaultbank` varchar(32) DEFAULT NULL COMMENT '银行简码',
+  `appid` varchar(32) DEFAULT NULL COMMENT '客户端appid(微信支付appid)',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `AK_order_no_unique` (`order_no`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='交易订单表';
+
+CREATE TABLE `trade_partner` (
+  `id` varchar(50) NOT NULL,
+  `partner_no` varchar(50) NOT NULL COMMENT '合作方编号（唯一性约束）',
+  `name` varchar(50) NOT NULL COMMENT '合作方名称',
+  `contactor` varchar(30) DEFAULT NULL COMMENT '联系人',
+  `contact_tel` varchar(30) DEFAULT NULL COMMENT '联系电话',
+  `secret_key` varchar(50) NOT NULL COMMENT '合作方确定的加密密钥（唯一性约束）',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `status` int(11) NOT NULL COMMENT '状态：0失效 1有效',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `AK_partner_no_unique` (`partner_no`) USING BTREE,
+  UNIQUE KEY `AK_secret_key_unique` (`secret_key`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='支付系统合作伙伴';
+
+CREATE TABLE `trade_refund` (
+  `id` varchar(50) NOT NULL COMMENT '主键id',
+  `batch_no` varchar(32) NOT NULL COMMENT '退款批次号（唯一性约束）',
+  `batch_num` int(11) NOT NULL COMMENT '申请退款的总笔数',
+  `detail_data` text NOT NULL COMMENT '申请退款单笔数据集',
+  `success_num` int(11) DEFAULT NULL COMMENT '退款成功总数（退款完成后填写）',
+  `result_details` text COMMENT '退款结果明细（退款完成后填写）',
+  `status` int(11) NOT NULL COMMENT '退款状态：0 未完成 1已经完成',
+  `oprator_account` varchar(50) NOT NULL COMMENT '操作者账号',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `finish_time` datetime DEFAULT NULL COMMENT '退款结果反馈时间（退款完成后填写）',
+  `seller_email` varchar(100) NOT NULL COMMENT '商家支付宝账号',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `AK_bacth_no_unique` (`batch_no`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='交易退款批次记录';
+
+CREATE TABLE `trade_refund_apply` (
+  `id` varchar(50) NOT NULL COMMENT '主键id',
+  `pay_method` int(11) NOT NULL COMMENT '支付方式  1 支付宝 2货到付款',
+  `order_source_flag` int(11) NOT NULL COMMENT '订单来源标识：1 内部订单 2 合作方订单',
+  `refund_apply_no` varchar(50) DEFAULT NULL COMMENT '退款申请单号(来自合作方)',
+  `trade_no` varchar(128) NOT NULL COMMENT '支付宝交易流水号',
+  `out_trade_no` varchar(128) NOT NULL COMMENT '真实订单号，关联合作方系统订单或本系统内部订单',
+  `order_no` varchar(50) DEFAULT NULL COMMENT '本系统订单号',
+  `refund_id` varchar(50) DEFAULT NULL COMMENT '退款批次表id',
+  `batch_no` varchar(50) DEFAULT NULL COMMENT '退款批次号',
+  `partner_no` varchar(50) DEFAULT NULL COMMENT '合作方编号',
+  `order_subject` varchar(256) DEFAULT NULL COMMENT '商品名称(长度小于128字符串)',
+  `refund_fee` float NOT NULL COMMENT '退款金额，单位元',
+  `refund_reason` varchar(256) NOT NULL COMMENT '退款理由',
+  `user_account` varchar(50) DEFAULT NULL COMMENT '消费者登录名',
+  `seller_account` varchar(50) DEFAULT NULL COMMENT '商家管理员登录名',
+  `refund_time_str` varchar(50) DEFAULT NULL COMMENT '退款时间(合作方传递参数)',
+  `notify_url` varchar(128) DEFAULT NULL COMMENT '合作方订单服务器异步通知页面路径',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `refund_finish_time` datetime DEFAULT NULL COMMENT '退款结束时间（退款结束时填写）',
+  `read_time` datetime DEFAULT NULL COMMENT '操作者第一次阅读时间',
+  `read_status` int(11) NOT NULL DEFAULT '0' COMMENT '阅读状态：0 未阅 1已阅',
+  `refund_status` int(11) NOT NULL DEFAULT '0' COMMENT '退款状态：0 未退款 1 退款成功 2退款失败',
+  `error_code` varchar(64) DEFAULT NULL COMMENT '退款失败错误代码（退款失败时填写）',
+  `error_code_desc` varchar(256) DEFAULT NULL COMMENT '退款失败错误代码含义（退款失败时填写）',
+  `operator_account` varchar(50) DEFAULT NULL COMMENT '操作者账号',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='退款申请表（只适用支付宝付款的订单）';
+
+CREATE TABLE `wx_pay_app_info` (
+  `id` varchar(32) NOT NULL COMMENT '主键id',
+  `appid` varchar(32) NOT NULL COMMENT '微信开放平台申请的App的appid',
+  `mch_id` varchar(32) NOT NULL COMMENT '微信商家账户的商户号',
+  `api_key` varchar(32) NOT NULL COMMENT '微信商家账户设置的API密钥，在商户平台设置',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `role` (
+  `id` varchar(32) NOT NULL COMMENT '主键ID',
+  `role_name` varchar(64) NOT NULL COMMENT '角色名称',
+  `role_note` text COMMENT '角色描述',
+  `create_account` varchar(32) DEFAULT NULL COMMENT '创建者账号',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
+
+CREATE TABLE `user` (
+  `id` varchar(32) NOT NULL DEFAULT '' COMMENT '主键',
+  `user_type` varchar(2) DEFAULT NULL COMMENT '用户类型（1、病人  2、系统超级管理员  3、普通管理员  4、医生  5、主任医生  6、护士  7、护士长 8、院长与副院长9、平台管理员10、医院管理员  ）',
+  `user_name` varchar(64) DEFAULT NULL COMMENT '客户的名称',
+  `nick_name` varchar(64) DEFAULT NULL COMMENT '用户昵称',
+  `user_account` varchar(30) DEFAULT NULL COMMENT '客户的帐号',
+  `password` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '客户的密码',
+  `mobile` varchar(32) DEFAULT NULL COMMENT '手机',
+  `image_path` varchar(255) DEFAULT NULL COMMENT '图像地址',
+  `address` varchar(255) DEFAULT NULL COMMENT '地址',
+  `account_status` varchar(1) DEFAULT NULL COMMENT '帐号的状态\r\n            0 表示帐号失效\r\n            1 表示帐号可用\r\n            ',
+  `create_time` datetime DEFAULT NULL COMMENT '记录创建时间',
+  `parent_id` varchar(32) DEFAULT NULL COMMENT '上级的ID',
+  `role_id` varchar(32) DEFAULT NULL COMMENT '角色ID',
+  `level_no` varchar(64) DEFAULT NULL COMMENT '级别编号(系统维护 超级管理员默认为000，每多一级加三位)',
+  `sex` char(1) DEFAULT '1' COMMENT '性别：1男 2女',
+  PRIMARY KEY (`id`),
+  KEY `IDX_USER_ACCOUNT` (`user_account`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息';
+

@@ -1,0 +1,412 @@
+@charset "utf-8";
+*{
+	font-family: Arial, Helvetica, sans-serif, "宋体";
+	font-size: 12px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	list-style-type: none;
+}
+a  {
+	font-family: "宋体";
+	font-size: 12px;
+	text-decoration: none;
+}
+html, body, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+}
+ul
+{
+	list-style-type: none;
+	padding-left: 0px;
+}
+li {
+	list-style-type: none;
+	float: left;
+	font-family: "宋体";
+	font-size: 12px;
+	padding-left: 0px;
+}
+#userinfo li {
+	list-style-type: none;
+	float: left;
+	font-family: "宋体";
+	font-size: 12px;
+	margin-right: 0px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+#top {
+	position: relative;
+	width: 100%;
+	background-image: url(../images/images0/images/topbg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	float: left;
+	overflow: visible;
+	z-index: 1;
+	padding: 0px;
+}
+#top #guangao {
+	position: relative;
+	width: 100%;
+	height: 85px;
+	background-image: url(../images/images0/images/topgg.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	overflow: visible;
+	z-index: 1;
+	float: left;
+	clear: both;
+}
+#toolbar #user {
+	width: 24px;
+	margin-left: 8px;
+	clear: none;
+	float: left;
+	margin-top: 2px;
+	height: 25px;
+	background-image: url(../images/images0/images/user-ico.gif);
+	background-repeat: no-repeat;
+	overflow: visible;
+	visibility: visible;
+	position: relative;
+}
+#userinfo {
+	margin-left: 8px;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	font-family: "宋体";
+	color: #FFFFFF;
+	width: 160px;
+	overflow: visible;
+	clear: none;
+	position: relative;
+}
+#userinfo2 {
+	float: left;
+	font-family: "宋体";
+	color: #FFFFFF;
+	width: 210px;
+	padding-top: 5px;
+	position: relative;
+	overflow: visible;
+	z-index: 1;
+}
+.close a{
+	background-image: url(../images/images0/images/nystyle3-2.gif);
+	background-repeat: no-repeat;
+	display: block;
+	text-align: center;
+	float: left;
+	line-height: 21px;
+	margin-left: 5px;
+}
+#userinfo2 a:hover{
+	background-image: url(../images/images0/images/nystyle3-2.gif);
+	background-repeat: no-repeat;
+}
+#userinfo2 a{
+
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FFFFFF;
+	display: block;
+	height: 21px;
+	width: 65px;
+	text-align: center;
+	float: left;
+	line-height: 21px;
+	clear: none;
+	overflow: visible;
+}
+#toolbar {
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background-image: url(../images/images0/images/toolbar-bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	overflow: visible;
+	z-index: 1;
+	float: left;
+	clear: both;
+}
+#bar {
+	position: relative;
+	width: 1000px;
+	height: 30px;
+	overflow: visible;
+	z-index: 1;
+	float: left;
+	clear: both;
+}
+#line {
+	position: relative;
+	width: 100%;
+	height: 7px;
+	background-image: url(../images/images0/images/bar-x.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	overflow: hidden;
+	z-index: 1;
+	float: left;
+	clear: both;
+}
+#tztext{
+	font-family: "宋体";
+	color: #FFFFFF;
+	width: 498px;
+	position: relative;
+	background-image: url(../images/images0/images/tztext-bg.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	overflow: hidden;
+	bottom: 1px;
+	float: right;
+	height: 27px;
+}
+#acr-l{
+	float: left;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	width: 21px;
+	height: 22px;
+	padding-top: 6px;
+}
+#acr-l a{
+	float: left;
+	position: relative;
+	width: 21px;
+	display: block;
+	height: 22px;
+	line-height: 70px;
+	background-image: url(../images/images0/images/tzacr-l1.gif);
+	background-repeat: no-repeat;
+}
+#acr-l a:hover{
+	background-image: url(../images/images0/images/tzacr-l2.gif);
+	background-repeat: no-repeat;
+}
+#acr-2{
+	float: right;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	width: 21px;
+	height: 22px;
+	padding-top: 6px;
+}
+#acr-2 a{
+	float: left;
+	position: relative;
+	width: 21px;
+	display: block;
+	height: 22px;
+	line-height: 70px;
+	background-image: url(../images/images0/images/tzacr-r1.gif);
+	background-repeat: no-repeat;
+}
+#acr-2 a:hover{
+	background-image: url(../images/images0/images/tzacr-r2.gif);
+	background-repeat: no-repeat;
+}
+.tonzhi{
+	float: left;
+	text-align: center;
+	margin-left: 2px;
+	color: #CCFF33;
+	margin-right: 2px;
+	width: 40px;
+	font-family: "宋体";
+	font-size: 12px;
+	letter-spacing: 1px;
+	clear: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	position: relative;
+	overflow: hidden;
+	top: 10px;
+}
+
+
+/*
+#text li a{
+	padding-top: 4px;
+	color: #FFFFFF;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	padding-left: 5px;
+	line-height: 24px;
+	height: 24px;
+	display: block;
+	padding-right: 0px;
+	margin-left: 10px;
+}
+
+#text li a:hover{
+	float: left;
+	background-image: url(../images/images3/images/tztext-ny-1.gif);
+	background-position: left 0px;
+	padding-top: 0px;
+	color: #FFFF00;
+	padding-left: 10px;
+	margin-top: 3px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	line-height: 24px;
+	height: 24px;
+	cursor: hand;
+}
+#text li a span{
+	float: left;
+	background-repeat: no-repeat;
+	line-height: 24px;
+	height: 24px;
+}
+#text li a:hover span{
+	background-image: url(../images/images3/images/tztext-ny-1.gif);
+	background-position: right -1px;
+	padding-right: 10px;
+	background-repeat: no-repeat;
+	margin-top: 1px;
+	margin-right: 0px;
+	display: block;
+	line-height: 24px;
+	height: 24px;
+}
+*/
+#text{
+	overflow: hidden;
+	z-index: 1;
+	width: 402px;
+	height: 27px;
+	float: left;
+	text-align: center;
+}
+#text li{
+	float: left;
+	width: 100px;
+	text-align: center;
+	line-height: 30px;
+	color: #FFFFFF;
+	height: 27px;
+}
+#text li a{
+	float: left;
+	width: 100px;
+	display: block;
+	text-align: center;
+	line-height: 32px;
+	color: #FFFFFF;
+}
+
+#text li a:hover{
+	float: left;
+	background-image: url(../images/images0/images/tztext-ny.gif);
+	background-repeat: repeat-x;
+	background-position: 0px 4px;
+	width: 100px;
+	color: #FFFF00;
+}
+/*消息栏跑马灯样式*/
+.carousel-component {
+	position:relative;
+	overflow:hidden;	/* component turns it on when first item is rendered */
+}
+.carousel-component ul.carousel-list {
+	width:10000px;
+	position:relative;
+	z-index:1;
+	height: 25px;
+}
+
+.carousel-component .carousel-list li {
+	float:left;
+	list-style:none;
+	overflow:hidden;
+}
+
+.carousel-component .carousel-clip-region { 
+	overflow:hidden; /* Secret to the clipping */
+	margin:0px auto;
+	position:relative; 
+}
+/*以上主要是顶部样式*/
+#info {
+	position:relative;
+	height:25px;
+	z-index:1;
+	float: right;
+	overflow: visible;
+	width: 200px;
+}
+/*跑马灯样式*/
+#info-news {
+	position:relative;
+	height:20px;
+	z-index:1;
+	float: right;
+	overflow: hidden;
+	width: 400px;
+	font-family: "宋体";
+	color: #d71616;
+	line-height: 20px;
+	text-align: right;
+	padding-right: 5px;
+	margin-right: 5px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCCCCC;
+	padding-left: 2px;
+	top: 3px;
+}
+#info ul{
+	list-style-type: none;
+	padding: 0px;
+}
+#info li {
+	list-style-type: none;
+	clear: both;
+	float: left;
+	padding: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	text-align: left;
+	color: #a7a7a7;
+}
+#info li.lift{
+	list-style-type: none;
+	clear: none;
+	float: left;
+	height: 20px;
+	padding-top: 6px;
+}
+#info li.color{
+	list-style-type: none;
+	clear: none;
+	float: left;
+	padding-top: 7px;
+	padding-left: 8px;
+	cursor: hand;
+}
+#info-main {
+	position:relative;
+	height:30px;
+	z-index:1;
+	float: right;
+	overflow: hidden;
+	width: 1000px;
+	clear: right;
+	top: 30px;
+}
+/*通知栏计数字体色*/
+#tztext #text span {
+	color: #CCFF33;
+}

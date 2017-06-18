@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jlit.xms.mapper.LevelMapper" >
+  <resultMap id="levelBaseResultMap" type="com.jlit.xms.model.Level" >
+    <id column="id" property="id" />
+    <result column="name" property="name"  />
+  </resultMap>
+  <select id="getById" parameterType="string" resultMap="levelBaseResultMap">
+  	select * from t_level where id=#{id}
+  </select>
+</mapper>

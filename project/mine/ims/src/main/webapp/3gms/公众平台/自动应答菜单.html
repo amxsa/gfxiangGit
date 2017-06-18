@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>公众平台--自动应答菜单</title>
+		<!-- 引入整个平台公共样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="css/智能客服.css" />
+		<link rel="stylesheet" type="text/css" href="css/自动应答菜单.css" />
+		<!-- 引入jquery库文件 -->
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<!-- 引入编辑插件 -->
+		<script src="js/ueditor/ueditor.config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ueditor/ueditor.all.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ueditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(function() {
+
+				//控制子菜单是否下拉显示按钮
+				$(".menu_zero").on("click", ".item_state", function() {
+					var $this = $(this);
+					if($this.parent().parent().parent().parent().hasClass("menu_zero")) {
+						return false;
+					} else if($this.parent().parent().parent().hasClass("hasitem")) {
+						$this.parent().parent().siblings("ul").slideToggle();
+						//控制子菜单是否下拉显示按钮的图标变换
+						if($this.hasClass("item_state_open")) {
+							$this.removeClass("item_state_open").addClass("item_state_close");
+						} else {
+							$this.removeClass("item_state_close").addClass("item_state_open");
+						}
+					}
+
+				})
+
+				//新建菜单
+				$(".menu_zero").on("click", ".add_item", function() {
+					$('.layer').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+
+					var hasitem = $(this).parent().parent().parent();
+					var famenu_class = $(this).parent().parent().parent().parent();
+
+					$('.layer_ft_yes').click(function() {
+						//判断菜单标题不为空
+						if($("#menutxt").val() == "") {
+							alert("菜单标题不能为空");
+							return false;
+						}
+
+						var $lis = $("<li></li>")
+
+						//判断选择的是哪种回复类型
+						var $selectline = $(".select_line").val();
+						switch($selectline) {
+							case "纯文本":
+								$lis.addClass("menu_text");
+								break;
+							case "图文信息":
+								$lis.addClass("menu_imgtext");
+								break;
+							case "流程":
+								$lis.addClass("menu_process");
+								break;
+							case "活动":
+								$lis.addClass("menu_activity");
+								break;
+							case "问券":
+								$lis.addClass("menu_question");
+								break;
+							case "投票":
+								$lis.addClass("menu_vote");
+								break;
+							case "卡券":
+								$lis.addClass("menu_card");
+								break;
+						}
+
+						var $uls;
+						var item_num = 1; //菜单序号默认为1
+						//判断是否有子菜单
+						if(hasitem.hasClass("hasitem")) {
+							//如果有，则直接判断该子菜单列表的类名，并添加进去					    	
+							switch(famenu_class.attr("class")) {
+								case "menu_zero":
+									$uls = hasitem.children(".menu_one");
+									break;
+								case "menu_one":
+									$uls = hasitem.children(".menu_two");
+									break;
+								case "menu_two":
+									$uls = hasitem.children(".menu_three");
+									break;
+							}
+							item_num = $uls.children().length + 1;
+						} else {
+							//如果没有子菜单，则先创建子菜单列表
+							hasitem.addClass("hasitem");
+							$uls = $("<ul></ul>");
+							switch(famenu_class.attr("class")) {
+								case "menu_zero":
+									$uls.addClass("menu_one")
+									break;
+								case "menu_one":
+									$uls.addClass("menu_two")
+									break;
+								case "menu_two":
+									$uls.addClass("menu_three")
+									break;
+							}
+							$uls.css("display", "block")
+							hasitem.append($uls);
+
+						}
+
+						$lis.html('<div class="item clearfix">' +
+							'<ul class="menu_left clearfix">' +
+							'<li class="item_state item_state_open"></li>' +
+							'<li class="item_num">' + item_num + '</li>' +
+							'<li class="item_icon"></li>' +
+							'</ul><span>' + $("#menutxt").val() + '</span>' +
+							'<ul class="menu_right">' +
+							'<li class="add_item"></li>' +
+							'<li class="edit_item"></li>' +
+							'<li class="delete_item"></li></ul></div>');
+
+						$uls.append($lis);
+
+						$("#menutxt").val(""); //菜单输入框清空
+						$(".select_line").val("纯文本"); //回复类型输入款默认纯文本 
+						$(".select_box .select_in").eq(0).show().siblings(".select_in").hide();
+
+						$(this).unbind("click")
+						$('.layer,.layer-bg').hide();
+
+					})
+
+				});
+				//编辑菜单
+				$('.edit_item').click(function() {
+					$('.layer').fadeIn(100);
+					$('.layer-bg').fadeTo(100, 0.5) // 半透明
+				});
+
+				// 点击关闭按钮，关闭窗口，     点击背景也关闭  
+				$('.close,.layer-bg,.layer_ft_no').click(function() {
+					$("#menutxt").val(""); //菜单输入框清空
+					$(".select_line").val("纯文本"); //回复类型输入款默认纯文本 
+					$(".select_box .select_in").eq(0).show().siblings(".select_in").hide();
+					$('.layer,.layer-bg').hide();
+
+				})
+
+				//回复类型的选择
+				$(".select_line").change(function() {
+					var num = $(this).children("option:selected").index();
+					$(".select_box .select_in").eq(num).show().siblings(".select_in").hide();
+				})
+
+				//回复类型为纯文本的编辑框
+				var ue1 = UE.getEditor('editor1', {
+					toolbars: [
+						['fullscreen', 'source',
+							'|', 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'pasteplain',
+							'spechars', 'forecolor', 'backcolor', 'fontfamily', 'fontsize',
+							'lineheight', 'indent', '|',
+							'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+							'link', 'unlink', '|',
+							'insertimage', 'emotion', 'insertvideo', '|',
+							'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',
+							'preview', 'searchreplace'
+						]
+					],
+				});
+
+				//删除菜单
+				$(".menu_zero").on("click", ".delete_item", function() {
+					$(this).parent().parent().parent().remove()
+					rank()
+				})
+
+				//排序
+				rank()
+
+			})
+
+			//排序
+			function rank() {
+				//序号
+				$(".menu_one > li").each(function() {
+					$(this).find(".item .menu_left .item_num").text($(this).index() + 1)
+					$(this).find(".menu_two > li").each(function() {
+						$(this).find(".item .menu_left .item_num").text($(this).index() + 1)
+						$(this).find(".menu_three > li").each(function() {
+							$(this).find(".item .menu_left .item_num").text($(this).index() + 1)
+						})
+					})
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<!-- 面包屑开始 -->
+			<div class="crumb">
+				<em>公众平台</em>
+				<i>></i>
+				<em>自动应答菜单</em>
+			</div>
+			<!-- 面包屑结束 -->
+			<!-- 面包屑下部分开始 -->
+			<div class="wrap_main_bd">
+				<!--头部的2列模块-->
+				<ul class="top_list clearfix">
+					<li>
+						<div>关注欢迎语</div>
+						<ul class="menu_right">
+							<li class="edit_item"></li>
+						</ul>
+					</li>
+					<li>
+						<div>无法识别回复语</div>
+						<ul class="menu_right">
+							<li class="edit_item"></li>
+							
+						</ul>
+					</li>
+				</ul>
+				<!--头部的2列模块结束-->
+
+				<div class="wrap_menu">
+					<ul class="icon_detail">
+						<li>图文消息</li>
+						<li>纯文本</li>
+						<li>投票</li>
+						<li>流程</li>
+						<li>抽奖活动</li>
+						<li>问券调查</li>
+						<li>卡券</li>
+					</ul>
+
+					<ul class="menu_zero">
+						<li class="menu_text hasitem">
+							<div class="menu_title clearfix">
+								<ul class="menu_left clearfix">
+									<li class="item_state item_state_close"></li>
+									<li class="item_num">1</li>
+									<li class="item_icon"></li>
+								</ul>
+								<span>主菜单</span>
+								<ul class="menu_right">
+									<li class="add_item"></li>
+									<li class="edit_item"></li>
+								</ul>
+							</div>
+							<!--一级菜单-->
+							<ul class="menu_one">
+								<li class="menu_text hasitem">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_close"></li>
+											<li class="item_num">1</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>纯文本</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+										</ul>
+									</div>
+									<!--二级菜单-->
+									<ul class="menu_two">
+										<li class="menu_text hasitem">
+											<div class="item">
+												<ul class="menu_left clearfix">
+													<li class="item_state item_state_close"></li>
+													<li class="item_num">1</li>
+													<li class="item_icon"></li>
+												</ul>
+												<span>二级纯文本</span>
+												<ul class="menu_right">
+													<li class="add_item"></li>
+													<li class="edit_item"></li>
+													<li class="delete_item"></li>
+
+												</ul>
+											</div>
+											<!--3级菜单-->
+											<ul class="menu_three">
+												<li class="menu_imgtext">
+													<div class="item">
+														<ul class="menu_left clearfix">
+															<li class="item_state item_state_open"></li>
+															<li class="item_num">1111</li>
+															<li class="item_icon"></li>
+														</ul>
+														<span>三级图文信息</span>
+														<ul class="menu_right">
+															<li class="add_item"></li>
+															<li class="edit_item"></li>
+															<li class="delete_item"></li>
+
+														</ul>
+													</div>
+												</li>
+												<li class="menu_text">
+													<div class="item">
+														<ul class="menu_left clearfix">
+															<li class="item_state item_state_open"></li>
+															<li class="item_num">1112</li>
+															<li class="item_icon"></li>
+														</ul>
+														<span>三级纯文本</span>
+														<ul class="menu_right">
+															<li class="add_item"></li>
+															<li class="edit_item"></li>
+															<li class="delete_item"></li>
+
+														</ul>
+													</div>
+												</li>
+												<li class="menu_activity">
+													<div class="item">
+														<ul class="menu_left clearfix">
+															<li class="item_state item_state_open"></li>
+															<li class="item_num">1113</li>
+															<li class="item_icon"></li>
+														</ul>
+														<span>三级活动</span>
+														<ul class="menu_right">
+															<li class="add_item"></li>
+															<li class="edit_item"></li>
+															<li class="delete_item"></li>
+
+														</ul>
+													</div>
+												</li>
+												<li class="menu_process">
+													<div class="item">
+														<ul class="menu_left clearfix">
+															<li class="item_state item_state_open"></li>
+															<li class="item_num">1114</li>
+															<li class="item_icon"></li>
+														</ul>
+														<span>三级流程</span>
+														<ul class="menu_right">
+															<li class="add_item"></li>
+															<li class="edit_item"></li>
+															<li class="delete_item"></li>
+
+														</ul>
+													</div>
+												</li>
+											</ul>
+										</li>
+
+										<li class="menu_imgtext">
+											<div class="item clearfix">
+												<ul class="menu_left clearfix">
+													<li class="item_state item_state_open"></li>
+													<li class="item_num">1112</li>
+													<li class="item_icon"></li>
+												</ul>
+												<span>图文消息</span>
+												<ul class="menu_right">
+													<li class="add_item"></li>
+													<li class="edit_item"></li>
+													<li class="delete_item"></li>
+
+												</ul>
+											</div>
+										</li>
+
+									</ul>
+								</li>
+
+								<li class="menu_text">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">1112</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>纯文本</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+
+								<li class="menu_imgtext">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">3</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>图文消息</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+								<li class="menu_process">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">4</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>流程</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+								<li class="menu_activity">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">5</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>抽奖活动</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+								<li class="menu_card">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">6</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>卡券</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+								<li class="menu_question">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">7</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>问卷调查</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+								<li class="menu_vote ">
+									<div class="item clearfix">
+										<ul class="menu_left clearfix">
+											<li class="item_state item_state_open"></li>
+											<li class="item_num">8</li>
+											<li class="item_icon"></li>
+										</ul>
+										<span>投票</span>
+										<ul class="menu_right">
+											<li class="add_item"></li>
+											<li class="edit_item"></li>
+											<li class="delete_item"></li>
+
+										</ul>
+									</div>
+								</li>
+
+							</ul>
+
+						</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- 菜单弹框 -->
+		<div class="layer">
+			<div class="layer_hd">
+				<p>新建关键字</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content clearfix">
+					<div class="serach_in" style="width: 100%;">
+						<span class="find_title">菜单标题</span>
+						<input type="text" name="" id="menutxt" value="" class="common_input" maxlength="24" style="width: 300px;" />
+					</div>
+
+					<div class="serach_in">
+						<span class="find_title">回复类型</span>
+						<select name="" id="" class="select_line">
+							<option value="纯文本" selected>纯文本</option>
+							<option value="图文信息">图文信息</option>
+							<option value="流程">流程</option>
+							<option value="活动">活动</option>
+							<option value="问券">问券</option>
+							<option value="投票">投票</option>
+							<option value="卡券">卡券</option>
+						</select>
+					</div>
+					<div class="select_box">
+						<!--纯文本-->
+						<div class="select_in" id="editor1" style="display: block;width: 660px;"></div>
+						<!--图文消息-->
+						<div class="select_in">
+							<!-- 表格区 -->
+							<div class="commonTable_content">
+								<table width="100%" border="1" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th style="width: 20px;"></th>
+											<th>图文名称<i class="down"></i></th>
+											<th>图文类型<i class="down"></i></th>
+											<th>创建时间<i class="down"></i></th>
+											<th>创建人<i class="down"></i></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input type="radio" name="" id="" value="" /></td>
+											<td>11</td>
+											<td>11</td>
+											<td>11</td>
+											<td>11</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+
+							<!-- 分页========== -->
+							<div class="commonPage">
+								<input type="hidden" id="currentPageNo">
+								<!-- 现在是第几页 -->
+								<span class="which_page">第<i>3</i>页/共<em>10</em>页</span>
+								<!-- 操作第几页 -->
+								<div class="page_content_box">
+									<span class="control_page" onclick="submit('S')">首页</span>
+									<span class="control_page" onclick="submit('P')">上一页</span>
+									<ul class="page_btn">
+										<li id="c1" onclick="check(this)">1</li>
+										<li id="c2" onclick="check(this)">2</li>
+										<li id="c3" onclick="check(this)">3</li>
+										<li id="c4" onclick="check(this)">4</li>
+										<li id="c5" onclick="check(this)">5</li>
+									</ul>
+									<span class="control_page" onclick="submit('N')">下一页</span>
+									<span class="control_page" onclick="submit('E')">尾页</span>
+								</div>
+								<!-- 跳转到第几页 -->
+								<div class="page_content_box">
+									第<input type="text" class="ipt_page" id="selectPageNo" onblur="changePageNo(this)" />页
+									<span class="page_go">GO</span>
+								</div>
+								<!-- 每页显示数目 -->
+								<div class="page_content_box">
+									每页显示条目数
+									<select name="" id="" class="page_chose">
+										<option value="100">10</option>
+										<option value="100">20</option>
+										<option value="100">50</option>
+									</select>
+								</div>
+							</div>
+
+						</div>
+						<!--流程-->
+						<div class="select_in">
+							<ul class="radio_box">
+								<li><input type="radio" name="" id="" value="" />绑定客户与微信号</li>
+								<li><input type="radio" name="" id="" value="" />贷款申请</li>
+							</ul>
+						</div>
+						<!--活动-->
+						<div class="select_in">
+							<ul class="radio_box">
+								<li><input type="radio" name="" id="" value="" />绑定客户与微信号</li>
+								<li><input type="radio" name="" id="" value="" />贷款申请</li>
+							</ul>
+						</div>
+						<!--问券-->
+						<div class="select_in">
+							<ul class="radio_box">
+								<li><input type="radio" name="" id="" value="" />绑定客户与微信号</li>
+								<li><input type="radio" name="" id="" value="" />贷款申请</li>
+							</ul>
+						</div>
+						<!--投票-->
+						<div class="select_in">
+							<ul class="radio_box">
+								<li><input type="radio" name="" id="" value="" />绑定客户与微信号</li>
+								<li><input type="radio" name="" id="" value="" />贷款申请</li>
+							</ul>
+						</div>
+						<!--卡券-->
+						<div class="select_in">
+							<ul class="radio_box">
+								<li><input type="radio" name="" id="" value="" />绑定客户与微信号</li>
+								<li><input type="radio" name="" id="" value="" />贷款申请</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--新建单图文结束-->
+
+		<div class="layer-bg"></div>
+
+	</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="hcho.nsfw.user.entity.UserRole" table="userRole">
+		<composite-id name="id" class="hcho.nsfw.user.entity.UserRoleId" >
+			<!-- 不懒加载  使得查询用户的时候可以直接获得该用户的角色信息 -->
+			<key-many-to-one name="role" class="hcho.nsfw.role.entity.Role" lazy="false">
+				<column name="role_id" length="32" not-null="true"></column>
+			</key-many-to-one>
+			<key-property name="userId" >
+				<column name="user_id" length="32" not-null="true"></column>
+			</key-property>
+		</composite-id>
+		
+	</class>
+
+</hibernate-mapping>
+	

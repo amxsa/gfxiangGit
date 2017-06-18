@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:jaxws="http://cxf.apache.org/jaxws"  
+    xmlns:cxf="http://cxf.apache.org/core"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd   
+    http://cxf.apache.org/jaxws   
+    http://cxf.apache.org/schemas/jaxws.xsd">  
+    <import resource="classpath:META-INF/cxf/cxf.xml" />  
+     <!-- 订单 web service -->
+   <!--  <bean id="ws_ordersService" class="com.jlit.mms.webservice.impl.IOrdersServiceImpl">
+        <property name="ordersService" ref="ordersService"></property>
+    </bean>  
+     商品列表 web service
+    <bean id="ws_commodityService" class="com.jlit.mms.webservice.impl.ICommodityServiceImpl">
+        <property name="commodityService" ref="commodityService"></property>
+        <property name="commodityVersionService" ref="commodityVersionService"></property>
+    </bean>  
+     商家列表 web service
+    <bean id="ws_sellerService" class="com.jlit.mms.webservice.impl.ISellerServiceImpl">
+        <property name="platformManageService" ref="platformManageService"></property>    
+    	<property name="sellerCategroyService" ref="sellerCategoryService"></property>
+    	<property name="addressDataService" ref="iAddressDataService"></property>
+        <property name="sellerService" ref="sellerService"></property>
+       	<property name="userService" ref="userService"></property>
+        <property name="businessService" ref="businessService"></property>
+    </bean>  
+    订单退款申请单webservice
+    <bean id="ws_iReFundApplyService" class="com.jlit.mms.webservice.impl.IReFundApplyServiceImpl">
+        <property name="ordersService"  ref="ordersService"/>
+        <property name="ordersRefundApplyService" ref="ordersRefundApplyService"/>
+    </bean>
+     商品订单webservice
+    <bean id="ws_iCommodityOrderService" class="com.jlit.mms.webservice.impl.ICommodityOrderServiceImpl">
+        <property name="commodityService"  ref="commodityService"/>
+        <property name="commodityOrdersService" ref="commodityOrdersService"/>
+    </bean>
+    
+    付款方式webservice
+    <bean id="ws_iPaymentFashionService" class="com.jlit.mms.webservice.impl.IPaymentFashionServiceImpl">
+        <property name="paymentFashionService"  ref="paymentFashionService"/>
+    </bean>
+         工作人员列表 web service
+    <bean id="ws_serviceWorkersService" class="com.jlit.mms.webservice.impl.IServiceWorkersServiceImpl">
+        <property name="peopleService" ref="peopleService"></property>
+    </bean>  
+         工作人员组列表 web service
+    <bean id="ws_serviceWorkersGroupService" class="com.jlit.mms.webservice.impl.IServiceWorkersGroupServiceImpl">
+        <property name="groupService" ref="groupService"></property>
+    </bean> 
+    	 小区店铺关联表
+    <bean id="ws_areainfoSellerService" class="com.jlit.mms.webservice.impl.IAreainfoSellerServiceImpl">
+        <property name="areainfoSellerDao" ref="areainfoSellerDao"></property>
+    </bean>  
+       	 商家web service
+    <bean id="ws_businessService" class="com.jlit.mms.webservice.impl.IBusinessServiceImpl">
+        <property name="businessService" ref="businessService"></property>
+        <property name="sellerService" ref="sellerService"></property>
+        <property name="businessCertifiedInfoService" ref="businessCertifiedInfoService"></property>
+        <property name="userService" ref="userService"></property>
+        <property name="iAddressDataService" ref="iAddressDataService"></property>
+        <property name="businessCertifiedCheckService" ref="businessCertifiedCheckService"></property>
+        <property name="platformManageService" ref="platformManageService"></property>
+    </bean>  
+    
+    <bean id="ws_sellerCategoryService" class="com.jlit.mms.webservice.impl.ISellerCategoryServiceImpl">
+        <property name="sellerCategoryDao" ref="sellerCategoryDao"></property>
+    </bean> 
+
+    物流发送方式
+      <bean id="ws_distributionFashionService" class="com.jlit.mms.webservice.impl.IDistributionFashionServiceImpl">
+        <property name="distributionFashionService" ref="distributionFashionService"></property>
+    </bean>  
+
+     <bean id="ws_receiverInfoService" class="com.jlit.mms.webservice.impl.IReceiverInfoServiceImpl">
+        <property name="receiverInfoDao" ref="receiverInfoDao"></property>
+        <property name="receiverInfoService" ref="receiverInfoService"></property>
+    </bean> 
+         积分信息web service
+    <bean id="ws_integralInfoService" class="com.jlit.mms.webservice.impl.IIntegralInfoServiceImpl">
+        <property name="integralInfoService" ref="integralInfoService"></property>
+    </bean> 
+             金额管理web service
+    <bean id="ws_moneyManageService" class="com.jlit.mms.webservice.impl.IMoneyManageServiceImpl">
+        <property name="moneyManageService" ref="moneyManageService"></property>
+    </bean> 
+                 积分等级web service
+    <bean id="ws_integralLevelService" class="com.jlit.mms.webservice.impl.IIntegralLevelServiceImpl">
+        <property name="integralLevelService" ref="integralLevelService"></property>
+    </bean> 
+                 同步收货地址web service
+    <bean id="ws_userReceiverInfoService" class="com.jlit.mms.webservice.impl.IUserReceiverInfoServiceImpl">
+        <property name="receiverInfoService" ref="receiverInfoService"></property>
+        <property name="iUserInfoService" ref="iUserInfoService"></property>
+        <property name="userService" ref="userService"></property>
+    </bean> 
+
+    
+    ws访问点
+    <jaxws:endpoint id="ws_serService_ep" implementor="#ws_ordersService" address="/ordersService" />  	
+    <jaxws:endpoint id="ws_iReFundApplyService_ep" implementor="#ws_iReFundApplyService" address="/reFundApplyService"/>
+    <jaxws:endpoint id="ws_iCommodityService_ep" implementor="#ws_commodityService" address="/commodityService"/>
+    <jaxws:endpoint id="ws_iSellerService_ep" implementor="#ws_sellerService" address="/sellerService"/>
+    <jaxws:endpoint id="ws_iCommodityOrderService_ep" implementor="#ws_iCommodityOrderService" address="/commodityOrderService"/>
+    <jaxws:endpoint id="ws_iPaymentFashionService_ep" implementor="#ws_iPaymentFashionService" address="/paymentFashionService"/>
+    <jaxws:endpoint id="ws_iServiceWorkersService_ep" implementor="#ws_serviceWorkersService" address="/serviceWorkersService"/>
+    <jaxws:endpoint id="ws_iserviceWorkersGroupService_ep" implementor="#ws_serviceWorkersGroupService" address="/serviceWorkersGroupService"/>
+    <jaxws:endpoint id="ws_iAreainfoSellerService_ep" implementor="#ws_areainfoSellerService" address="/areainfoSellerService"/>
+    <jaxws:endpoint id="ws_iBusinessService_ep" implementor="#ws_businessService" address="/businessService"/>
+    <jaxws:endpoint id="ws_iSellerCategoryService_ep" implementor="#ws_sellerCategoryService" address="/sellerCategoryService"/>
+
+    <jaxws:endpoint id="ws_iDistributionFashionService_ep" implementor="#ws_distributionFashionService" address="/distributionFashionService"/>
+
+    <jaxws:endpoint id="ws_iReceiverInfoService_ep" implementor="#ws_receiverInfoService" address="/receiverInfoService"/>
+    <jaxws:endpoint id="ws_iIntegralInfoService_ep" implementor="#ws_integralInfoService" address="/integralInfoService"/>
+    <jaxws:endpoint id="ws_iMoneyManageService_ep" implementor="#ws_moneyManageService" address="/moneyManageService"/>
+    <jaxws:endpoint id="ws_iIntegralLevelService_ep" implementor="#ws_integralLevelService" address="/integralLevelService"/>
+    <jaxws:endpoint id="ws_userReceiverInfoService_ep" implementor="#ws_userReceiverInfoService" address="/userReceiverInfoService"/>
+ -->
+</beans>													  					

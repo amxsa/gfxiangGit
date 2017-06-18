@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://cxf.apache.org/jaxws  
+	http://cxf.apache.org/schemas/jaxws.xsd" 
+	default-lazy-init="true">	
+	 
+	<!-- 支付配置信息bean -->
+	<bean id="payConfig" class="com.gf.ims.pay.bean.PayConfig">
+	    <property name="partnerNo" value="${pay_partner_no}"></property>
+	    <property name="secretKey" value="${pay_secret_key}"></property>
+	    <property name="payGateWay" value="${pay_gateway}"></property>
+	    <property name="returnUrl" value="${pay_return_url}"></property>
+	    <property name="notifyUrl" value="${pay_notify_url}"></property>
+	    <!-- <property name="refundApplyUrl" value="${refund_apply_geteway}"></property>
+	    <property name="refundNotifyUrl" value="${refund_notify_url}"></property>
+	    <property name="payGetWxPrepayidUrl" value="${pay_get_wx_prepayid_url}"></property>
+	    <property name="getWxPayOrderStatusUrl" value="${get_wx_pay_order_status_url}"></property>
+	    <property name="alipayQrcodePrepayOrderUrl" value="${alipay_qrcode_prepay_order_url}"></property>
+	  	<property name="payGetAliPrepayidUrl" value="${pay_get_ali_prepayid_url}"></property>
+	    <property name="getAliPayOrderStatusUrl" value="${get_ali_Pay_order_status_url}" /> -->
+	</bean>
+	<!-- 订单支付处理器工厂 -->
+	<bean id="payProcesserFactory" class="com.gf.ims.pay.proccesser.PayProcesserFactory">
+	    <property name="processerMap">
+	        <map>
+	            <entry key="1" value-ref="commodityOrderPayProcesser" /><!-- 用户订购商品订单支付处理器 -->
+	            <entry key="3" value-ref="commodityOrderPayProcesser" /><!-- 家政/上门服务/送水到家-->
+	            <entry key="7" value-ref="groupCouponOrderPayProcesser" /><!--团购订单-->
+	        </map>
+	    </property>
+	</bean>
+</beans>

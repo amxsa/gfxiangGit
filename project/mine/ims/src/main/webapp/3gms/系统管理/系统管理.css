@@ -1,0 +1,63 @@
+.layer_content_left {
+	width: 50%;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+	/*background-color: palegoldenrod;*/
+}
+
+.layer_content_right {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.serach_in {
+	display: block;
+	margin-bottom: 10px;
+	line-height: 34px;
+}
+
+.serach_in>div:nth-child(1) {
+	text-align: right;
+	float: left;
+	width: 80px;
+	padding-right: 20px;
+}
+
+.serach_in>div:nth-child(2) {
+	overflow: hidden;
+}
+.serach_in>div:nth-child(2) >input{
+	margin-left: 8px;
+}
+
+.serach_in input[type="checkbox"] {
+	margin-right: 5px;
+}
+
+.select_content {
+	box-sizing: border-box;
+	border: 1px solid #CCCCCC;
+	padding-left: 8px;
+	overflow: auto;
+}
+
+.width25 {
+	float: left;
+	width: 25%;
+}
+
+.width20 {
+	float: left;
+	width: 20%;
+}
+
+.layer_bd_content {
+	padding: 15px 20px 30px;
+	margin-bottom: 50px;
+}
+
+.layer_bd_content i {
+	color: red;
+}

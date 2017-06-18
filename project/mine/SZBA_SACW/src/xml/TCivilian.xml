@@ -1,0 +1,16 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.domain.TCivilian" tableName="t_civilian">
+	 <columnMapList>
+	    <ids>
+			<id name="id" property="civiId" />
+	    </ids>
+	    <column name="name" property="civiName"/>
+	    <column name="id_num" property="idNum"/>
+	    <column name="address" property="civiAddress"/>
+	    <column name="phone" property="civiPhone"/>
+	    <column name="creator" property="creator.account"/>
+	    <column name="mix_id" property="mixId"/>
+	    <column name="table_type" property="tableType"/>
+	    <column name="type" property="civiType"/>
+	   
+	 </columnMapList>
+</classAndTable>

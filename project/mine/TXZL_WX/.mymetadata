@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="TXZL_WX"
+  id="myeclipse.1421288960273"
+  context-root="/TXZL_WX"
+  j2ee-spec="6.0"
+  archive="TXZL_WX.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,11 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.domain.TApplicationProperty" tableName="t_application_property">
+	 <columnMapList>
+	    <ids>
+			<id name="id" property="id" identify="true"/>
+	    </ids>
+	    <column name="application_id" property="applicationId"/>
+	    <column name="property_id" property="propertyId"/>
+	    <column name="create_time" property="createTime"/>
+	   
+	 </columnMapList>
+</classAndTable>

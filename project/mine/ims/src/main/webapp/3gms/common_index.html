@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>shoppingdog</title>
+    <!-- 引入整个平台公共样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/base_web.css" />
+    <!-- 引入本项目公共的样式文件 -->
+    
+    <!-- 引入jquery库文件 -->
+    <script src="js/jquery-2.1.0.js" type="text/javascript"></script>
+  
+    <script type="text/javascript">
+     $(function(){
+        var  clickStatus=0;//可点击的状态
+        // 折叠一级菜单
+        $(".main_contain_left li p ").click(function(event) {
+            //alert(1)
+            if (clickStatus==0) {
+                $(this).siblings('ul').slideToggle();
+                $(this).parents('.commonMenu_li_first').siblings('li').children('ul'). slideUp();
+                 
+            } else if(clickStatus==1){
+                $(this).siblings('i').unbind();//禁止点击
+                
+
+            };
+            
+        });
+
+        // 折叠整个菜单
+        var flag=0;//展开的状态,如果一开始是展开的，点击的时候产生事件，然后折叠起来
+        $(".top_open").click(function(event) {
+                //alert(flag)展开的状态
+            if (flag==0) {
+                $(".top_open span").addClass('switch_dor_off')//切换折叠按钮图标
+                $(".main_contain_left ").css("width",40);
+                $(".commonMenu_first").css("width",58);//这两句是为了藏住滚动条
+                $(".commonMenu_li_first ul,p em").hide();//隐藏一级菜单和二级菜单
+                $("p i").show();//一级菜单的小图标显示
+                $(".top_open").css("paddingLeft",14);
+                $(".commonMenu_li_first p").css("paddingLeft",10);//藏住滚动条做的调整
+                $(".ft_txt").css("paddingLeft",40);//折叠的时候让脚部居中
+                flag=1;//折叠
+                clickStatus=1
+            } else if(flag==1){
+                //alert(flag) 折叠的状态
+                $(".top_open span").removeClass('switch_dor_off')
+                $(".main_contain_left ").css("width",130);  
+                $(".commonMenu_first").css("width",166);
+                $("p em").show();
+                $(".top_open").css("paddingLeft",53);
+                $(".commonMenu_li_first p").css("paddingLeft",12);
+                $(".commonMenu_on").parents('ul').show();
+                $(".ft_txt").css("paddingLeft",130);
+                flag=0; 
+                clickStatus=0
+            };
+           
+
+        });
+        // commonMenu_on为当前选中显示的样式类
+        $(".commonMenu_li_first li").click(function(event) {
+            $(".commonMenu_list li").removeClass('commonMenu_on');
+            $(this).addClass('commonMenu_on');
+        });
+
+
+        
+ 
+
+     })
+        
+    </script>
+</head>
+<body>
+    <!-- 头部开始==== -->
+    <header>
+        <h1>
+            <img src="img/sg_logo.png" alt="" />
+        </h1>
+        <span class="product_name">管理控制台</span>
+        <div class="user_box">
+            <div class="message_center iconfont"></div>
+            <div class="user_login iconfont">
+                <span class="user_level">超级管理员</span>
+                <span class="user_name">张三三</span>
+            </div>
+            <span class="exit">退出</span>
+        </div>
+    </header>
+
+    <!-- 核心左右区开始=== -->
+    <div class="main_contain">
+        <!-- 菜单部分 -->
+        <div class="main_contain_left clearfix" >
+            <div class="commonMenu_first">
+            <!-- 折叠区开始 -->
+                <div class="top_open "><span class="switch_dor iconfont"></span></div>
+            <!-- 折叠区结束 -->
+                <div class="commonMenu_body">
+                    <ul class="commonMenu_list">
+                    	<li class="commonMenu_li_first">
+                            <p><i class="icon_menu01 iconfont"></i><em>工作台</em></p>
+                            <ul>
+                            	<li onclick="jump('工作台/managerWordPanel.html')">客户经理工作台</li>
+                            	<li onclick="jump('工作台/operationWordPanel.html')">运营工作台</li>
+                               
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu01 iconfont"></i><em>业务看版</em></p>
+                            <ul>
+                            	<li onclick="jump('业务看板/产品销量.html')">产品销量</li>
+                            	<li onclick="jump('业务看板/经营指标变化趋势.html')">经营指标变化趋</li>
+                                <li onclick="jump('业务看板/客户资产规模.html')">客户资产规模</li>
+                                <li onclick="jump('业务看板/实时排队状况.html')">实时排队状况</li>
+                                <li onclick="jump('业务看板/重点客户.html')">重点客户</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu02 iconfont"></i><em>//客户服务</em></p>
+                            <ul>
+                                <li onclick="jump('21')">子菜单21</li>
+                                <li>子菜单22</li>
+                                <li>子菜单23</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu03 iconfont"></i><em>客户管理</em></p>
+                            <ul>
+                                <li onclick="jump('客户管理/等级设置2.html')">等级设置</li>
+                                <li onclick="jump('客户管理/客户分析.html')">客户分析</li>
+                                <!--<li>子菜单23</li>-->
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu04 iconfont"></i><em>产品管理</em></p>
+                            <ul>
+                            	<li onclick="jump('产品管理/产品推广设置.html')">产品推广设置</li>
+                            	<li onclick="jump('产品管理/产品销售管理.html')">产品销售管理</li>
+                            	<li onclick="jump('产品管理/产品信息管理/产品信息管理.html')">产品信息管理</li>
+                            	<li onclick="jump('产品管理/产品销量.html')">查询统计</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu05 iconfont"></i><em>//业务管理</em></p>
+                            <ul>
+                                <li>子菜单21</li>
+                           
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu06 iconfont"></i><em>绩效管理</em></p>
+                            <ul>
+                                <li onclick="jump('绩效管理/evaluationScore.html')">考核评分</li>
+                                <li onclick="jump('绩效管理/岗位管理.html')">岗位管理</li>
+                                <li onclick="jump('绩效管理/listPositionIndicators.html')">岗位指标设置</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu07 iconfont"></i><em>公众平台</em></p>
+                            <ul>
+                                <li onclick="jump('公众平台/公共库1.html')">公共库</li>
+                                <li onclick="jump('公众平台/内容库.html')">内容库</li>
+                                <li onclick="jump('公众平台/智能客服.html')">智能客服</li>
+                                <li onclick="jump('公众平台/自动应答菜单.html')">自动应答菜单</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu08 iconfont"></i><em>推广营销</em></p>
+                            <ul>
+                                <li onclick="jump('推广营销/虚拟奖品.html')">虚拟奖品</li>
+                                <li onclick="jump('推广营销/活动管理.html')">活动管理</li>
+                                <li onclick="jump('推广营销/消息群发.html')">消息群发</li>
+                                <li onclick="jump('推广营销/流程管理.html')">流程管理</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu09 iconfont"></i><em>//我的账号</em></p>
+                            <ul>
+                                <li>子菜单21</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu10 iconfont"></i><em>系统管理</em></p>
+                            <ul>
+                               <li onclick="jump('系统管理/角色管理2.html')">角色管理</li>
+                                <li onclick="jump('系统管理/系统日志.html')">系统日志</li>
+                                <li onclick="jump('系统管理/系统用户.html')">系统用户</li>
+                            </ul>
+                        </li>
+                        <li class="commonMenu_li_first">
+                            <p><i class="icon_menu11 iconfont"></i><em>//菜单管理</em></p>
+                            <ul>
+                                
+                                <li>子菜单21</li>
+                                                  
+                            </ul>
+                        </li>
+                       
+
+
+                    </ul>
+                </div>
+                
+            </div>
+           
+      
+        </div>
+        <!-- 右侧跳转内容区 -->
+        <div class="main_contain_right clearfix" >
+            <div style="height:100% ;"> 
+            	<!--工作台2/managerWordPanel.html-->
+            <iframe src="工作台2/operationWordPanel.html" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="body-right" name="body-right"  height="100%" style="box-sizing:border-box;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部开始==== -->
+   <!--  <footer id="ft" >
+        <p class="ft_txt">技术支持由广州市盛戈移软信息科技有限公司（3GMS）提供
+        <span>Copyright@2016</span></p>
+    </footer> -->
+    <!-- 这里是跳转的js -->
+    <script>
+           function jump(address){
+            var iframe=document.getElementById("body-right");
+            iframe.src=address;
+
+           }
+           
+    </script> 
+       
+</body>
+</html>

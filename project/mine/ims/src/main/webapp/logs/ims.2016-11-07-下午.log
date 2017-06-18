@@ -1,0 +1,153 @@
+[INFO] 2016-11-07 19:33:04.311 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-11-07 19:33:04.315 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-11-07 19:33:04.316 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-11-07 19:33:04.401 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-11-07 19:33:04.404 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Mon Nov 07 19:33:04 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-07 19:33:04.405 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-11-07 19:33:05.049 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/wx_notifyUrl]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.notifyUrl(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+
+[INFO] 2016-11-07 19:33:05.050 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/external/getWxPrepayidRequest]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequest(int,java.lang.String,java.lang.String,double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+
+[INFO] 2016-11-07 19:33:05.051 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/external/getWxPayOrderStatus]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.getWxPayOrderStatus(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+
+[INFO] 2016-11-07 19:33:05.052 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/base/goURL/{folder1}/{folder2}/{file}]}" onto public java.lang.String com.gf.ims.web.acion.BaseAction.goURL(java.lang.String,java.lang.String,java.lang.String)
+
+[INFO] 2016-11-07 19:33:05.053 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/test/test]}" onto public java.lang.Object com.gf.ims.web.acion.TestAction.Test()
+
+[INFO] 2016-11-07 19:33:05.151 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Mon Nov 07 19:33:04 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-07 19:33:05.229 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Mon Nov 07 19:33:04 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-07 19:33:05.451 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 1050 ms
+
+[INFO] 2016-11-07 19:45:06.138 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 19:46:20.631 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 19:47:11.914 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 19:48:14.866 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 19:48:50.286 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 19:55:28.299 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 19:56:42.053 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:
+
+[INFO] 2016-11-07 20:07:35.694 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:{"header":{"time_stamp":"13454354","token":"test"},"body":{}}
+
+[INFO] 2016-11-07 20:07:35.706 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@47197514: startup date [Mon Nov 07 20:07:35 CST 2016]; root of context hierarchy
+
+[INFO] 2016-11-07 20:07:35.707 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/applicationContext-dao.xml]
+
+[INFO] 2016-11-07 20:07:35.778 [org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)]
+Loading properties file from class path resource [com/gf/ims/resources/global.properties]
+
+[INFO] 2016-11-07 20:07:35.989 [common.DB.ConnConf.<init>(ConnConf.java:47)]
+JDBC初始化配置完毕
+
+[INFO] 2016-11-07 20:07:36.081 [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager(AbstractPoolBackedDataSource.java:462)]
+Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge12l9khcxa5v12mwvnv|209f0484, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge12l9khcxa5v12mwvnv|209f0484, idleConnectionTestPeriod -> 18000, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 25, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> SELECT id FROM menu where id='1', properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+[INFO] 2016-11-07 20:07:38.856 [common.DB.JDBC.update(JDBC.java:1143)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:: insert into orders( id,order_no,user_id,total_price,type,pay_method,pay_status,status,order_info,  out_trade_no,trade_no,buyer_email,create_time,pay_time,finish_time,channel_flag,is_refunded,  pay_name,seller_id,seller_name,remarks,send_message_flag ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ,Parameters:('cde452ba4a2242eab7c4d40621194c75','201611072007374193128','201611072007374193128',0.01,1,null,0,0,'测试商品419',null,null,null,'Mon Nov 07 20:07:37 CST 2016',null,null,null,null,null,'3298ebe65d114002a94a9b6fd8cc01d4','无名店铺','哈哈哈，尽快送货哦',null) 花费1415ms 
+
+[INFO] 2016-11-07 20:28:54.859 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:{"header":{"time_stamp":"13454354","token":"test"},"body":{}}
+
+[INFO] 2016-11-07 20:28:54.915 [common.DB.JDBC.update(JDBC.java:1143)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:: insert into orders( id,order_no,user_id,total_price,type,pay_method,pay_status,status,order_info,  out_trade_no,trade_no,buyer_email,create_time,pay_time,finish_time,channel_flag,is_refunded,  pay_name,seller_id,seller_name,remarks,send_message_flag ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ,Parameters:('bbf3b2c781504807b8eb7446b10f6e03','201611072028548605515','201611072028548605515',0.01,1,null,0,0,'测试商品087',null,null,null,'Mon Nov 07 20:28:54 CST 2016',null,null,null,null,null,'932183270bdc4efc84ab568dd304ffa3','无名店铺','哈哈哈，尽快送货哦',null) 花费54ms 
+
+[INFO] 2016-11-07 20:30:07.896 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:{"header":{"time_stamp":"13454354","token":"test"},"body":{}}
+
+[INFO] 2016-11-07 20:30:07.932 [common.DB.JDBC.update(JDBC.java:1143)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:: insert into orders( id,order_no,user_id,total_price,type,pay_method,pay_status,status,order_info,  out_trade_no,trade_no,buyer_email,create_time,pay_time,finish_time,channel_flag,is_refunded,  pay_name,seller_id,seller_name,remarks,send_message_flag ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ,Parameters:('0850dcd402e34d6b8baff46b539fa76c','201611072030078960451','201611072030078960451',0.01,1,null,0,0,'测试商品231',null,null,null,'Mon Nov 07 20:30:07 CST 2016',null,null,null,null,null,'ab06ec7658b24a229142276cf3b1343b','无名店铺','哈哈哈，尽快送货哦',null) 花费35ms 
+
+[INFO] 2016-11-07 20:31:39.289 [com.gf.ims.servlet.SaveOrderServlet.exractRspInvoke(SaveOrderServlet.java:79)]
+reqStr:{"header":{"time_stamp":"13454354","token":"test"},"body":{}}
+
+[INFO] 2016-11-07 20:31:39.340 [common.DB.JDBC.update(JDBC.java:1143)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:: insert into orders( id,order_no,user_id,total_price,type,pay_method,pay_status,status,order_info,  out_trade_no,trade_no,buyer_email,create_time,pay_time,finish_time,channel_flag,is_refunded,  pay_name,seller_id,seller_name,remarks,send_message_flag ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ,Parameters:('cc9b8dbba40145718b90d2054cdedec2','201611072031392907814','201611072031392907814',0.01,1,null,0,0,'测试商品352',null,null,null,'Mon Nov 07 20:31:39 CST 2016',null,null,null,null,null,'cc58cb660f2845c78234dde31a020820','无名店铺','哈哈哈，尽快送货哦',null) 花费48ms 
+
+[INFO] 2016-11-07 20:31:39.384 [com.gf.ims.pay.servlet.GetWxPrepayidRequestServlet.exractRspInvoke(GetWxPrepayidRequestServlet.java:74)]
+reqStr:{"header":{"time_stamp":"13454354","token":"test"},"body":{"orderNo":"201611072031392907814","appid":"wxe4219b2fbba0dd40","pay_method":"2","channel_flag":"3"}}
+
+[INFO] 2016-11-07 20:31:39.525 [common.DB.JDBC.query(JDBC.java:944)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:select * from orders where order_no=? ,Parameters:('201611072031392907814') 花费139ms 
+
+[INFO] 2016-11-07 20:31:39.560 [com.gf.ims.pay.servlet.GetWxPrepayidRequestServlet.validAndUpdateOrders(GetWxPrepayidRequestServlet.java:187)]
+判断订单是否可以支付<|>orderNo<|>结果<|>1
+
+[INFO] 2016-11-07 20:31:39.674 [common.DB.JDBC.update(JDBC.java:1143)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:: update orders set order_no=?,user_id=?,total_price=?,type=?,pay_method=?,pay_status=?,status=?,order_info=?,  out_trade_no=?,trade_no=?,buyer_email=?,create_time=?,pay_time=?,finish_time=?,channel_flag=?,is_refunded=?,  pay_name=?,seller_id=?,seller_name=?,remarks=?,send_message_flag=?  where id=? ,Parameters:('201611072031392907814','201611072031392907814',0.01,1,2,0,0,'测试商品352',null,null,null,'Mon Nov 07 20:31:39 CST 2016',null,null,3,null,null,'cc58cb660f2845c78234dde31a020820','无名店铺','哈哈哈，尽快送货哦',null,'cc9b8dbba40145718b90d2054cdedec2') 花费112ms 
+
+[INFO] 2016-11-07 20:31:39.767 [com.gf.ims.common.interceptor.MyInterceptor.preHandle(MyInterceptor.java:17)]
+执行拦截器~~
+
+[INFO] 2016-11-07 20:31:39.798 [com.gf.ims.pay.controller.MyBashController.requestParametersLog(MyBashController.java:43)]
+com.gf.ims.pay.controller.PayCenterController<|>requestMapping:/external/getWxPrepayidRequest<|>parameters:{"out_trade_no":"201611072031392907814","subject":"测试商品352","appid":"wxe4219b2fbba0dd40","total_fee":"0.01","sign":"57bd8c8c1ef6eba1704d01d329beddd6","return_url":"http://127.0.0.1:8090/ims/servlet/pay/return_url","partner_no":"kinglian","pay_method":"2","channel_flag":"3","notify_url":"http://127.0.0.1:8090/ims/servlet/pay/notify_url","body":"测试商品352","sign_type":"MD5"}
+
+[INFO] 2016-11-07 20:31:39.798 [com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequest(PayCenterController.java:85)]
+---------------getWxPrepayidRequest---------
+
+[INFO] 2016-11-07 20:31:40.255 [common.DB.JDBC.query(JDBC.java:944)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:select * from trade_partner t where t.partner_no = ? and t.status=? ,Parameters:('kinglian',1) 花费455ms 
+
+[INFO] 2016-11-07 20:31:41.085 [common.DB.JDBC.query(JDBC.java:944)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:select * from wx_pay_app_info  where appid = ? ,Parameters:('wxe4219b2fbba0dd40') 花费813ms 
+
+[INFO] 2016-11-07 20:31:41.445 [common.DB.JDBC.update(JDBC.java:1143)]
+@jdbc:mysql://127.0.0.1:3306/ims_yun?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true JDBC EXECUTE SQL:: insert into trade_order(id,pay_method,order_no,order_source_flag,partner_no,order_subject,order_body,total_fee,show_url,out_trade_no,inside_order_type,return_url,notify_url,trade_no,buyer_email,seller_email,trade_status,check_status,checker_account,create_time,trade_time,check_time,is_refunded,refund_times,left_fee,channel_flag,paymethod,defaultbank,appid)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?),Parameters:('1aca8e73305249a1a74fae26441d624d',2,'20161107203141097803',2,'kinglian','测试商品352','测试商品352',0.01,null,'201611072031392907814',null,'http://127.0.0.1:8090/ims/servlet/pay/return_url','http://127.0.0.1:8090/ims/servlet/pay/notify_url',null,null,null,0,0,null,'Mon Nov 07 20:31:41 CST 2016',null,null,0,0,0.01,3,null,null,'wxe4219b2fbba0dd40') 花费344ms 
+
+[INFO] 2016-11-07 20:31:41.446 [com.gf.ims.pay.controller.PayCenterController.createWxPayTradeOrder(PayCenterController.java:690)]
+第三方支付订单创建成功:com.gf.ims.pay.module.TradeOrder@2a186ec5
+
+[INFO] 2016-11-07 20:31:41.460 [com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequestXml(PayCenterController.java:726)]
+ 生成获取微信预付单信息请求的参数:<xml><appid>wxe4219b2fbba0dd40</appid><body>测试商品352</body><mch_id>1341529301</mch_id><nonce_str>f91e24dfe80012e2a7984afa4480a6d6</nonce_str><notify_url>http://115.28.56.254:8090/ims/pay/wx_notifyUrl.do</notify_url><out_trade_no>20161107203141097803</out_trade_no><spbill_create_ip>127.0.0.1</spbill_create_ip><total_fee>1</total_fee><trade_type>APP</trade_type><sign>7226858F696BEEEF40D222078E438846</sign></xml>
+
+[INFO] 2016-11-07 20:31:41.460 [com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequest(PayCenterController.java:118)]
+##微信统一下单接口，请求数据：<xml><appid>wxe4219b2fbba0dd40</appid><body>测试商品352</body><mch_id>1341529301</mch_id><nonce_str>f91e24dfe80012e2a7984afa4480a6d6</nonce_str><notify_url>http://115.28.56.254:8090/ims/pay/wx_notifyUrl.do</notify_url><out_trade_no>20161107203141097803</out_trade_no><spbill_create_ip>127.0.0.1</spbill_create_ip><total_fee>1</total_fee><trade_type>APP</trade_type><sign>7226858F696BEEEF40D222078E438846</sign></xml>
+
+[INFO] 2016-11-07 20:31:41.919 [com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequest(PayCenterController.java:120)]
+##微信统一下单接口，微信响应数据：<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg><appid><![CDATA[wxe4219b2fbba0dd40]]></appid><mch_id><![CDATA[1341529301]]></mch_id><nonce_str><![CDATA[oJR9srVqNJl0jeDn]]></nonce_str><sign><![CDATA[B5328C94C6396B920C514A1E71C53116]]></sign><result_code><![CDATA[SUCCESS]]></result_code><prepay_id><![CDATA[wx2016110720315815e350871f0960281275]]></prepay_id><trade_type><![CDATA[APP]]></trade_type></xml>
+
+[INFO] 2016-11-07 20:31:42.047 [com.gf.ims.pay.util.MypaySubmit.sendPostInfo(MypaySubmit.java:108)]
+服务器发送post请求<|>gateway<|>http://127.0.0.1:8090/ims/pay/external/getWxPrepayidRequest.do<|>params<|>{out_trade_no=201611072031392907814, subject=测试商品352, appid=wxe4219b2fbba0dd40, total_fee=0.01, return_url=http://127.0.0.1:8090/ims/servlet/pay/return_url, partner_no=kinglian, pay_method=2, channel_flag=3, notify_url=http://127.0.0.1:8090/ims/servlet/pay/notify_url, body=测试商品352}<|>response<|>{"package":"Sign=WXPay","appid":"wxe4219b2fbba0dd40","sign":"2EEED2EB43DE99F35FFD0C03FB1E34C7","return_msg":"","partnerid":"1341529301","prepayid":"wx2016110720315815e350871f0960281275","return_code":"SUCCESS","noncestr":"ebbdfea212e3a756a1fded7b35578525","timestamp":"1478521902"}
+
+[INFO] 2016-11-07 20:31:42.047 [com.gf.ims.pay.servlet.GetWxPrepayidRequestServlet.sendToHoriUpp(GetWxPrepayidRequestServlet.java:169)]
+调用upp获取微信快捷支付预付单信息响应：{"package":"Sign=WXPay","appid":"wxe4219b2fbba0dd40","sign":"2EEED2EB43DE99F35FFD0C03FB1E34C7","return_msg":"","partnerid":"1341529301","prepayid":"wx2016110720315815e350871f0960281275","return_code":"SUCCESS","noncestr":"ebbdfea212e3a756a1fded7b35578525","timestamp":"1478521902"}
+
+[INFO] 2016-11-07 20:31:42.048 [com.gf.ims.pay.servlet.GetWxPrepayidRequestServlet.exractRspInvoke(GetWxPrepayidRequestServlet.java:151)]
+获取微信支付预约单信息接口响应：{"result":"","reason":"","obj":{"package":"Sign=WXPay","appid":"wxe4219b2fbba0dd40","sign":"2EEED2EB43DE99F35FFD0C03FB1E34C7","partnerid":"1341529301","prepayid":"wx2016110720315815e350871f0960281275","noncestr":"ebbdfea212e3a756a1fded7b35578525","timestamp":"1478521902"}}
+

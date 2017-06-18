@@ -1,0 +1,60 @@
+
+<!--index.wxml-->
+<view class="mainBox">
+
+  <!--banner图-->
+  <view class="section section_gap">
+    <view class="section__ctn">
+      <image class="image" src="../../img/ban.png" />
+    </view>
+  </view>
+
+  <!--广告列-->
+  <view class="cardBox">
+    <view class="listBox">
+      <view class="list_hd">
+        <text class="hd_title">南粤e融</text>
+        <text class="hd_txt">新手专享</text>
+      </view>
+      <view class="list_bd">
+        <view class="line_one">
+          <text class="bd_left">预计年化收益率</text>
+          <text class="bd_right">投资期限</text>
+        </view>
+        <view>
+          <text class="bd_left cur">4.50</text>
+          <text class="bd_left">%</text>
+          <text class="bd_left cur">~</text>
+          <text class="bd_left cur">8.80</text>
+          <text class="bd_left">%</text>
+          <text class="bd_right day">天</text>
+          <text class="bd_right cur">7-15</text>
+        </view>
+      </view>
+    </view>
+    <view class="listBox">
+      <view class="list_hd">
+        <text class="hd_title">南粤e盈</text>
+        <text class="hd_txt">T+0</text>
+      </view>
+      <view class="list_bd">
+        <view class="line_one">
+          <text class="bd_left">预计年化收益率</text>
+          <text class="bd_right">投资期限</text>
+        </view>
+        <view>
+          <text class="bd_left cur">2.91</text>
+          <text class="bd_left">%</text>
+          <text class="bd_left cur">~</text>
+          <text class="bd_left cur">4.00</text>
+          <text class="bd_left">%</text>
+          <text class="bd_right day">天</text>
+          <text class="bd_right cur">7-15</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--按钮-->
+  <view class="serach_btn" bindtap="bindViewTap">查询余额</view>
+</view>

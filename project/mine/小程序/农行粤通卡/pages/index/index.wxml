@@ -1,0 +1,92 @@
+<view class="page">
+
+  <!--banner图-->
+  <image class="image" src="../../img/banner.png" bindtap="" />
+
+  <!--<view class="button-wrapper">
+    <button class="record" bindtap="bindViewTap"> 我的预约记录
+    </button>
+  </view>-->
+
+  <!--主体部分-->
+  <view class="main_content">
+    <view class="item">
+      <view class="left_name">选择区</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="sel_div">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+
+    <!--选择网点-->
+    <view class="item">
+      <view class="left_name">选择网点</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{lobby}}" class="sel_div">
+        <view class="picker">
+          {{lobby[index]}}
+        </view>
+      </picker>
+    </view>
+
+    <!--地址-->
+    <text class="adress">这里是地址这里是地址这里是地址这里是地址这里是地址这</text>
+
+    <!--预约时间-->
+    <view class="item">
+      <view class="left_name">预约时间</view>
+      <picker mode="date" value="{{date}}" start="2016-09-01" end="2017-09-01" bindchange="bindDateChange" class="sel_div datetime">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+
+    <!--姓名-->
+    <view class="item">
+      <view class="left_name">姓名</view>
+      <input placeholder="请输入姓名" class="ipt" />
+    </view>
+
+    <!--电话-->
+    <view class="item">
+      <view class="left_name">电话</view>
+      <input placeholder="请输入11位电话" class="ipt" maxlength="11" />
+    </view>
+
+    <!--车牌号-->
+    <view class="item">
+      <span class="left_name">车牌号</span> 
+      <view class="sel_div22">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{plate}}" maxlength="6">
+          <view class="picker">
+            {{plate[index]}}
+          </view>
+        </picker>
+      </view>
+      <input placeholder="" class="ipt" name="" id="" style="margin-left:10px" />
+    </view>
+
+    <!--推荐人-->
+    <view class="recommed">
+
+      <!--姓名-->
+      <view class="item">
+        <view class="left_name">推荐人</view>
+        <input placeholder="请输入推荐人姓名" class="ipt" bindinput="nameInput"/>
+      </view>
+
+      <!--电话-->
+      <view class="item">
+        <view class="left_name">电话</view>
+        <input placeholder="请输入11位电话" class="ipt" maxlength="11" bindinput="phoneInput" />
+      </view>
+    </view>
+  </view>
+
+  <!--按钮-->
+  <view class="button-wrapper">
+    <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" class="confirmBtn" hover-class="hoverBtn" bindtap="submitMsg">提交
+    </button>
+  </view>
+</view>

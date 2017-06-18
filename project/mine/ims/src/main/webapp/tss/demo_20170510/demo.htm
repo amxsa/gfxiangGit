@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<title>列表</title>
+<link rel="stylesheet" type="text/css" href="../lay/layui/css/layui.css"  />
+<script type="text/javascript" src="../lay/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../lay/layer/layer/layer.js" ></script>
+<script type="text/javascript" src="../lay/layui/layui.js" ></script>
+<script type="text/javascript">
+//省市区联动 start
+function isVal(ele){
+	if (ele!=null&&ele!=""&&ele!=undefined) {
+		return true;
+	}
+	return false;
+}
+function getJson(action,params,callback,appendId){
+	$.ajax({
+		type : "get",
+		async:false,
+		url : action,
+		data : params,
+		dataType:"jsonp",
+        jsonp: "jsoncallback",
+        jsonpCallback: "success_jsonpCallback",
+		success : function(json) {
+			if ("function"==typeof(callback)) {
+				callback(json,appendId);
+			}
+	    },error:function(data){
+	    	
+	    }
+    });
+}
+function appendData(json,appendId){
+	alert(JSON.stringify(json))
+	//alert(appendId)
+	var options="";
+	var dataList=json.areaList;
+	alert(JSON.stringify(dataList))
+	if (dataList!=undefined) {
+		for (var i = 0; i < dataList.length; i++) {
+			options+="<option value="+dataList[i].code+">"+dataList[i].name+"</option>";
+		}
+		 $form.find('select[id='+appendId+']').append(options);
+	     form.render();
+	}
+}
+var param={};
+param.body={
+		type:"2",
+		parentCode:""
+}
+param.header={
+		token:"149437838465f3558ed0a5444853a8fb",
+		time_stamp:122343
+}
+var url="http://118.190.8.134:8090//mms/servlet/getAdministrativeDivision?str=";
+function loadProvince(){
+	param.body.type="1";
+	alert(JSON.stringify(param))
+	 getJson(url+JSON.stringify(param),{},appendData,"province");
+     form.on('select(province)', function(data) {
+     	var provinceId=$('select[id=province]').val();
+     	$("#provinceCode").val(provinceId);
+     	$("select[id=city] option:gt(1)").remove();
+     	$("select[id=area] option:gt(1)").remove();
+     	$("select[id=town] option:gt(1)").remove();
+     	form.render();
+     	loadCity(provinceId);
+      })
+}
+function loadCity(provinceId){
+	param.body.type="2";
+	param.body.parentCode=provinceId;
+	getJson(url+JSON.stringify(param),{},appendData,"city");
+    form.on('select(city)', function(data) {
+	   	var cityId=$('select[id=city]').val();
+	   	$("#cityCode").val(cityId);
+	   	$("select[id=area] option:gt(1)").remove();
+	   	$("select[id=town] option:gt(1)").remove();
+	   	form.render();
+	   	loadArea(cityId);
+    })
+}
+function loadArea(cityId){
+	param.body.type="2";
+	param.body.parentCode=cityId;
+	getJson(url+JSON.stringify(param),{},appendData,"area");
+    form.on('select(area)', function(data) {
+     	var areaId=$('select[id=area]').val();
+     	$("#areaCode").val(areaId);
+     	$("select[id=town] option:gt(1)").remove();
+     	form.render();
+     	loadTown(areaId);
+    })
+}
+function loadTown(areaId){
+	param.body.type="2";
+	param.body.parentCode=areaId;
+	getJson(url+JSON.stringify(param),{},appendData,"town");
+    form.on('select(town)', function(data) {
+     	var townId=$('select[id=town]').val();
+     	$("#townCode").val(townId);
+    })
+}
+
+//省市区联动 end
+
+//页面加载 start
+function getList(pageNum,pageSize,callback){
+	var data={};
+	data.body={
+			categoryId:"146241871036d2bbc40edc9047c7bcaf",
+			areaCode:"4400100001",
+			pageSize:pageSize,
+			pageNum:pageNum
+	}
+	data.header={
+			token:"149437838465f3558ed0a5444853a8fb",
+			time_stamp:122343
+	}
+	var param=JSON.stringify(data);
+	$.ajax({
+		type : "get",
+		url : "http://118.190.8.134:8090//mms/servlet/findSuperMarketCommodity?str="+param,
+		data : {},
+		dataType:"jsonp",
+        jsonp: "jsoncallback",
+       // jsonpCallback:"success_jsonpCallback",
+		success : function(json) {
+			if ("function"==typeof(callback)) {
+				callback(json);
+			}
+	    },error:function(data){
+	    }
+    });
+}
+function loadList(json){
+	alert(JSON.stringify(json))
+	layui.use(['laypage', 'layer','element'], function(){
+		  var laypage = layui.laypage ,layer = layui.layer;
+		  var element = layui.element();
+		  laypage({
+		    cont: 'lpage',
+		    skin: '#fb771f',
+		    pages: json.pageCount, //总页数
+		    groups: 5,//连续显示分页数
+		    curr: function(){ //通过url获取当前页，也可以同上（pages）方式获取  
+            var page = json.pageNum;
+            return page;  
+        }(),   
+      /*   prev:"",//上一页   
+        next:"[]",//下一页   */
+		    jump:function(obj, first){
+			     if(!first){
+				        layer.msg('第 '+ obj.curr +' 页');
+				        getList(obj.curr,json.pageSize,loadList)
+				  }
+			}
+		  });
+	 });
+	$("tbody").empty()
+	var list=json.list;
+	if (list.length>0) {
+		var html="";
+		for (var i = 0; i < list.length; i++) {
+			html+="<tr>";
+			html+="<td><input type='checkbox' value="+list[i].id+" /></td>";
+			html+="<td class='hoverTip'>"+list[i].name+"</td>";
+			html+="<td>"+list[i].stockQuantity+"</td>";
+			html+="<td>"+list[i].currentPrice+"</td>";
+			html+="<td><image src="+list[i].thumLogo+"/>"+list[i].thumLogo+"</td>";
+			html+="<td>"+list[i].shoppingCartCount+"</td>";
+			html+="<td>"+list[i].fufen+"</td>";
+			html+="</tr>";
+		}
+		$("tbody").append(html).find(".hoverTip").mouseover(function(){
+			if (isVal($(this).text())) {
+				layer.tips($(this).text(), this ,{tips:2/*[2,'#393D49']*/} )
+			}})
+		.mouseout(function(){layer.closeAll("tips")});
+		form.render();
+	}
+	
+}
+$(function(){
+	getList(1,2,loadList);
+	/**
+	 * 全选
+	 */
+	$("#checkAll").click(function(){
+		$(":checkbox").prop("checked",this.checked)
+	})
+});
+//页面加载 end
+</script>
+
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" >
+	  <legend>
+			<span class="layui-breadcrumb" lay-separator=">>" style="margin-left: 10px;">
+			<i class="icon iconfont" style="margin-right: 5px">&#xe605;</i>
+			  <a >当前位置：同步日志</a>
+			  <a><cite>省人口系统同步日志 &nbsp;</cite></a>
+			</span>
+	  </legend>
+</fieldset>
+	<form class="layui-form" action="${basePath }/syncLog.html" method="post">
+		<input  type="hidden" name="provinceCode" id="provinceCode" value="${provinceCode }"/>
+		<input  type="hidden" name="cityCode" id="cityCode" value="${cityCode }"/>
+		<input  type="hidden" name="areaCode" id="areaCode" value="${areaCode }"/>
+		<input  type="hidden" name="townCode" id="townCode" value="${townCode }"/>
+		<div class="layui-form-item">
+			    <label class="layui-form-label">小区类型:</label>
+			    <div class="layui-input-inline">
+			    	<select name="syncLogQueryBean.areaType"  id="areaType" lay-filter="areaType">
+						<option value="">请选择小区类型</option>
+						<option value="">请选择小区类型</option>
+						<option value="1" <c:if test="${syncLogQueryBean.areaType==1}">selected='selected'</c:if>>一般小区</option>
+						<option value="2" <c:if test="${syncLogQueryBean.areaType==2}">selected='selected'</c:if>>围闭小区</option>
+					</select>
+			    </div>
+			     <label class="layui-form-label">数据类型:</label>
+			    <div class="layui-input-inline">
+			    	<select name="syncLogQueryBean.logType"  id="logType" lay-filter="logType" style="width: 250px">
+						<option value="">全部</option>
+						<option value="">全部</option>
+						<option value="1" <c:if test="${syncLogQueryBean.logType==1}">selected='selected'</c:if>>人口信息（境外）</option>
+						<option value="2" <c:if test="${syncLogQueryBean.logType==2 }">selected='selected'</c:if>>人口信息（境内）</option>
+						<option value="3" <c:if test="${syncLogQueryBean.logType==3 }">selected='selected'</c:if>>房屋信息</option>
+						<option value="4" <c:if test="${syncLogQueryBean.logType==4 }">selected='selected'</c:if>>出入记录</option>
+					</select>
+			    </div>
+			    <label class="layui-form-label">小区名称:</label>
+				<div class="layui-input-inline">
+			      <input type="text" name="syncLogQueryBean.areaName"  value="" placeholder="请输入小区名称"
+						class="layui-input" style="width: 150px; margin-left: 20px">
+			    </div>
+			    
+		   </div>
+		   <div class="layui-form-item">
+				<label class="layui-form-label">地区:</label>
+				<div class="layui-input-inline">
+					<select name="syncLogQueryBean.province"  id="province" lay-filter="province">
+						<option value="">请选择省</option>
+						<option value="">请选择省</option>
+					</select>
+				</div>
+				<div class="layui-input-inline">
+					<select name="syncLogQueryBean.city" id="city" lay-filter="city">
+						<option value="">请选择市</option>
+						<option value="">请选择市</option>
+					</select>
+				</div>
+				<div class="layui-input-inline">
+					<select name="syncLogQueryBean.area" id="area" lay-filter="area">
+						<option value="">请选择县/区</option>
+						<option value="">请选择县/区</option>
+					</select>
+				</div>
+				<div class="layui-input-inline">
+					<select name="syncLogQueryBean.town" id="town" lay-filter="town">
+						<option value="">请选择镇/街道</option>
+						<option value="">请选择镇/街道</option>
+					</select>
+				</div>
+			</div>
+			 <div class="layui-form-item">
+				<label class="layui-form-label">完成同步:</label>
+		    	<div class="layui-input-inline">
+			    	<select name="syncLogQueryBean.isSync"  id="isSync" lay-filter="isSync" >
+						<option value="">全部</option>
+						<option value="">全部</option>
+						<option value="1" <c:if test="${syncLogQueryBean.isSync=='1'}">selected='selected'</c:if>>是</option>
+						<option value="0" <c:if test="${syncLogQueryBean.isSync=='0'}">selected='selected'</c:if>>否</option>
+					</select>
+		   		 </div>
+		   		 &nbsp;&nbsp;&nbsp;
+		   		 <button class="layui-btn layui-btn-normal layui-btn-radius" type="submit" style="width: 200px">查询</button>
+		   		 <button class="layui-btn layui-btn-normal layui-btn-radius" type="button" style="width: 200px" onclick="goMail()">管理跟进邮箱</button>
+			 </div>
+	</form>
+	
+	<table class="layui-table" lay-even="" lay-skin="row" style="text-align: center;">
+		<colgroup>
+			<col width="40">
+			<col width="300">
+			<col width="100">
+			<col width="250">
+			<col width="100">
+			<col width="200">
+			<col width="250">
+			<col width="250">
+		</colgroup>
+		<thead>
+			<tr style="text-align: center;">
+				<th style="text-align: center;"><input type="checkbox"  id="checkAll"></th>
+				<th style="text-align: center;">商品名称</th>
+				<th style="text-align: center;">库存数量</th>
+				<th style="text-align: center;">现价</th>
+				<th style="text-align: center;">图片</th>
+				<th style="text-align: center;">该商品在购物车数量</th>
+				<th style="text-align: center;">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- <c:if test="${pageModel.recordCount<1||pageModel==null}">
+				<tr>
+				<td colspan="11"  style="color: red;text-align: center" align="center">根据你的输入条件，系统查询不到记录，请修改查询条件</td>
+				</tr>
+			</c:if>
+			<c:forEach items="${pageModel.data }" var="s">
+			<tr>
+				<td><input type="checkbox" value="${f.id }" name="syncIds" /></td>
+				<td align="center">${s.areaName}</td>
+				<td align="center">
+					<c:if test="${s.areaType==1}">一般小区</c:if>
+					<c:if test="${s.areaType==2}">围闭小区</c:if>
+				</td>
+				<td align="center" class="hoverTip">${s.address }</td>
+				<td align="center">
+					<c:if test="${s.dataType==1}">人口信息（境外）</c:if>
+					<c:if test="${s.dataType==2}">人口信息（境内）</c:if>
+					<c:if test="${s.dataType==3}">房屋信息</c:if>
+					<c:if test="${s.dataType==4}">出入记录</c:if>
+				</td>
+				<td align="center" class="hoverTip">
+					<c:if test="${s.propertyName!='null' }">${s.propertyName }</c:if>
+					<c:if test="${s.propertyName=='null'||s.propertyName=='' }">-</c:if>
+				</td>
+				<td align="center" class="hoverTip">${s.streetName }</td>
+				<td align="center">
+					<c:if test="${s.fininshCount!=s.totalCount }"><font color="red">${s.fininshCount }/${s.totalCount }</font></c:if>
+					<c:if test="${s.fininshCount==s.totalCount }">${s.fininshCount }/${s.totalCount }</c:if>
+				</td>
+				<td align="center">${s.updateTime }</td>
+				<td align="center">${s.syncTime }</td>
+				<td align="center">
+					<c:if test="${s.fininshCount==0&&s.totalCount!=0 }">
+						<button title="同步" class="layui-btn layui-btn-normal layui-btn-small" onclick="sync('${s.id}','${s.dataType }')"><i class="layui-icon"></i> <span>同步</span></button>
+					</c:if>
+					<c:if test="${s.fininshCount<s.totalCount&&s.fininshCount>0 }">
+						<button title="重新同步" class="layui-btn layui-btn-normal layui-btn-small" onclick="reSync('${s.id}')"><i class="layui-icon"></i> <span>重新同步</span></button>
+					</c:if>
+				</td>
+			</tr>
+			</c:forEach> -->
+		</tbody>
+	</table>
+	<!-- <fieldset >
+		<div class="mail"><div class='click'>管理跟进邮箱</div></div>
+	</fieldset> -->
+<div class="layui-input-inline">
+	<!-- <span>共 ${pageModel.pageCount }  页 ,共 ${pageModel.recordCount } 条记录, 每页显示 ${pageModel.pageSize } 条记录</span> -->
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span id="lpage" style="margin-right: 10px"></span>
+</div>
+
+<script type="text/javascript">
+	var $,form,$form;
+	layui.use(['jquery', 'form'], function(){
+		 $ = layui.jquery;
+	     form = layui.form();
+	     $form = $('form');
+	     loadProvince();
+	     //var urlist="${userRoleList}";
+	    /* var proId=$("#provinceCode").val();
+		var citId=$("#cityCode").val();
+		var areId=$("#areaCodeId").val();
+		var townId=$("#townCode").val();
+	     loadProvince();
+	     if (isVal(proId)) {
+			$("select[id=province] option[value='"+proId+"']").prop("selected",true);
+			loadCity(proId);
+		}
+	     if (isVal(citId)) {
+			$("select[id=city] option[value='"+citId+"']").prop("selected",true);
+			loadArea(citId);
+		}
+	     if (isVal(areId)) {
+			$("select[id=area] option[value='"+areId+"']").prop("selected",true);
+			loadTown(areaId);
+		}
+	     if (isVal(townId)) {
+			$("select[id=town] option[value='"+townId+"']").prop("selected",true);
+		} */
+	     
+		  //自定义验证规则
+		  form.verify({
+			  userCheckRole:function(value){
+				if (!isVal(value)) {
+					return "请选择角色类型";
+				}
+			},
+			userAccount:function(value){
+				if (value.length<5) {
+					return '帐号至少得5个字符啊';
+				}
+			},
+		    title: function(value){
+		      if(value.length < 3){
+		        return '标题至少得3个字符啊';
+		      }
+		    }
+		    ,mobile:[/^1[34578]\d{9}$/,"手机号码格式不正确"]
+		    ,content: function(value){
+		      layedit.sync(editIndex);
+		    }
+		  });
+		  form.render(); //更新全部
+		  //监听提交
+		  form.on('submit(save)', function(data){
+		   	save();
+		    return false;
+		  });
+		  form.on('checkbox(userRole)', function(data){
+			  var str="";
+		   	$(":checkbox").each(function(){
+		   		if ($(this).prop("checked")==true) {
+		   			str+=this.value+",";
+				}
+		   	});
+		   	$("#ur").val(str);
+		    return false;
+		  });
+	});
+	$(function(){
+		var str="";
+	   	$(":checkbox").each(function(){
+	   		if ($(this).prop("checked")==true) {
+	   			str+=this.value+",";
+			}
+	   	});
+	   	$("#ur").val(str);
+	})
+	</script>
+</body>
+</html>

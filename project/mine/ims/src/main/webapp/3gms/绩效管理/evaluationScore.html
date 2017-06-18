@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>考核评分</title>
+    <link rel="stylesheet" type="text/css" href="css/base_web.css" />
+    <link rel="stylesheet" type="text/css" href="css/common_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/evaluationScore.css" />
+    <!-- 引入jquery库文件 -->
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+        
+        $(function(){
+            // 点击切换页签
+            $(".tab_btn li").click(function(event) {
+                var index =$(this).index();
+                $(this).addClass('now_status').siblings('li').removeClass('now_status');
+                $(".show_tab").eq(index).addClass('show_now').siblings('.show_tab').removeClass('show_now');
+
+            });
+             // 点击三角排序
+            $("thead th").click(function(event) {
+            $(this).children('i').toggleClass('down');
+            });
+             // 新增考核窗口弹出
+            $('.addExamine').click(function(event) {
+                $('.layer').fadeIn(100);        
+                $('.layer-bg').fadeTo(100,0.5)  // 半透明
+            
+            });
+
+            // 点击关闭按钮，关闭窗口，     点击背景也关闭  
+            $('.close,.layer-bg,.layer_ft_no,.layer_ft_yes').click(function(event) {
+                $('.layer,.layer-bg').hide();   
+   
+            });
+
+            
+        })
+       
+    </script>
+   
+  
+</head>
+<body>
+<div class="wrap_main" >
+    <div class="crumb">
+        <em>岗位管理</em><i>></i><em>考核评分</em>
+    </div>
+    <div class="wrap_main_bd">
+    
+    <div class="tab_content">
+        <ul class="tab_btn">
+            <li title="我的评分表" class="now_status">我的评分表</li>
+            <li title="待评分表">待评分表</li>
+         </ul>
+        <!-- 核心tab区域 -->
+        <div class="main_center">
+             <div class="show_tab show_now">
+                 <div class="commonTable_content">
+                 <!-- 表格上方按钮 -->
+                   <div class="table_btn_box" >
+                    <div class="table_btn addExamine">新增考核</div>
+                    </div>
+                    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th>网点<i class="down"></i></th>
+                                <th>岗位<i class="down"></i></th>
+                                <th>姓名<i class="down"></i></th>     
+                                <th>考核内容<i class="down"></i></th>     
+                                <th>定性/定量总评分<i class="down"></i></th>
+                                <th>操作<i class="down"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>恒裕海湾分理处</td>
+                            <td>客户经理</td>
+                            <td>超级管理员</td>    
+                            <td>2016年06月月评</td>    
+                            <td>正在考核/正在考核</td>    
+                            <td><em  class="edit">编辑</em><em  class="see">查看</em><em class="dele">删除</em></td>
+                        </tbody>
+                        
+                    </table>
+                </div>
+             </div>
+             <!-- 流程 -->
+            <div class="show_tab">
+                <div class="commonTable_content">
+                    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th>网点<i class="down"></i></th>
+                                <th>岗位<i class="down"></i></th>
+                                <th>姓名<i class="down"></i></th>     
+                                <th>员工号<i class="down"></i></th>     
+                                <th>考核内容<i class="down"></i></th>
+                                <th>操作<i class="down"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>恒裕海湾分理处</td>
+                            <td>客户经理</td>
+                            <td>超级管理员</td>    
+                            <td>12133</td>    
+                            <td>销量</td>    
+                            <td><em  class="edit">编辑</em><em  class="see">查看</em><em class="dele">删除</em></td>
+                        </tbody>
+                        
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+    </div>
+</div>
+<!-- 模态窗口 -->
+<div class="layer">
+    <div class="layer_hd">
+        <p>新建个人考核表</p>
+        <span class="close"></span>
+    </div>
+    <div class="layer_bd">
+        <div class="layer_bd_content">
+        <ul>
+            <li class="form_box">
+                <span class="form_title">所属网点:</span>
+                <select name="" id="" class="choseBusiness">
+                        <option value="请选择">请选择</option>
+                        <option value="对公业务">对公业务</option>
+                        <option value="对私业务 ">对私业务 </option>
+                </select> 
+            </li>
+            
+            <li class="form_box">
+                <span class="form_title">岗位:</span>
+                <span class="show_txt">客户经理</span>
+            </li>
+            <li class="form_box">
+                <span class="form_title">考核类型:</span>
+                <input type="text" placeholder="" class="form_input" />
+            </li>
+            <li class="form_box">
+                <span class="form_title">考核时间:</span>
+                    <input name="orderDate" id="orderDate" readonly="readonly" type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate check_time"  value="">  
+            </li>
+            
+        </ul>
+     
+        </div>
+    </div>
+    <div class="layer_ft">
+        <div class="layer_ft_yes">保存</div> 
+        <div class="layer_ft_no">取消</div>
+      
+    </div>
+</div>
+<div class="layer-bg"></div>  
+    
+</body>
+</html>

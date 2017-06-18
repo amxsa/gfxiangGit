@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<flownodes>
+    <flownode name="agreeTHZCK" isSameAsCurrentDept="false" roles="" propertyStatus="YTH" actualPosition="BZKZ" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='TH' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    
+     <flownode name="agreeBMZCK" isSameAsCurrentDept="false" roles="" propertyStatus="YBM" actualPosition="BZKZ" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='BM' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    
+    <flownode name="agreeFHZCK" isSameAsCurrentDept="false" roles="" propertyStatus="YFH" actualPosition="BZKZ" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='FH' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="disagreeZCK" isSameAsCurrentDept="false" roles="" propertyStatus="YRZCK" actualPosition="ZCK" applicationStatus="F">
+        <conditionExpression>status=='N' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+</flownodes>

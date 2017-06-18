@@ -1,0 +1,78 @@
+[INFO] 2016-11-02 09:26:52.460 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-11-02 09:26:52.463 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-11-02 09:26:52.464 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-11-02 09:26:52.545 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-11-02 09:26:52.548 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Wed Nov 02 09:26:52 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-02 09:26:52.548 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-11-02 09:26:53.275 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/external/getWxPrepayidRequest]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequest(int,java.lang.String,java.lang.String,double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+
+[INFO] 2016-11-02 09:26:53.276 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/external/getWxPayOrderStatus]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.getWxPayOrderStatus(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+
+[INFO] 2016-11-02 09:26:53.277 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/base/goURL/{folder1}/{folder2}/{file}]}" onto public java.lang.String com.gf.ims.web.acion.BaseAction.goURL(java.lang.String,java.lang.String,java.lang.String)
+
+[INFO] 2016-11-02 09:26:53.278 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/test/test]}" onto public java.lang.Object com.gf.ims.web.acion.TestAction.Test()
+
+[INFO] 2016-11-02 09:26:53.370 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Wed Nov 02 09:26:52 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-02 09:26:53.530 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Wed Nov 02 09:26:52 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-02 09:26:53.724 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 1179 ms
+
+[INFO] 2016-11-02 09:32:20.299 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:24)]
+-----------------容器开始初始化-----------------
+
+[INFO] 2016-11-02 09:32:20.302 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:31)]
+获取spring的容器成功！
+
+[INFO] 2016-11-02 09:32:20.304 [com.gf.ims.common.listener.GlobalListener.contextInitialized(GlobalListener.java:34)]
+*****************容器完成初始化*****************
+
+[INFO] 2016-11-02 09:32:20.382 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)]
+FrameworkServlet 'mvc': initialization started
+
+[INFO] 2016-11-02 09:32:20.385 [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:581)]
+Refreshing WebApplicationContext for namespace 'mvc-servlet': startup date [Wed Nov 02 09:32:20 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-02 09:32:20.387 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]
+Loading XML bean definitions from class path resource [com/gf/ims/resources/spring-mvc.xml]
+
+[INFO] 2016-11-02 09:32:20.956 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/external/getWxPrepayidRequest]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.getWxPrepayidRequest(int,java.lang.String,java.lang.String,double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+
+[INFO] 2016-11-02 09:32:20.957 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/pay/external/getWxPayOrderStatus]}" onto public java.lang.String com.gf.ims.pay.controller.PayCenterController.getWxPayOrderStatus(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+
+[INFO] 2016-11-02 09:32:20.958 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/base/goURL/{folder1}/{folder2}/{file}]}" onto public java.lang.String com.gf.ims.web.acion.BaseAction.goURL(java.lang.String,java.lang.String,java.lang.String)
+
+[INFO] 2016-11-02 09:32:20.959 [org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)]
+Mapped "{[/test/test]}" onto public java.lang.Object com.gf.ims.web.acion.TestAction.Test()
+
+[INFO] 2016-11-02 09:32:21.054 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Wed Nov 02 09:32:20 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-02 09:32:21.124 [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)]
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'mvc-servlet': startup date [Wed Nov 02 09:32:20 CST 2016]; parent: Root WebApplicationContext
+
+[INFO] 2016-11-02 09:32:21.308 [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)]
+FrameworkServlet 'mvc': initialization completed in 926 ms
+

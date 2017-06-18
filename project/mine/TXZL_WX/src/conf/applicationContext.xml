@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="propertyConfiger"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:conf/db95.properties</value>
+		</property>
+	</bean>
+	<!-- Database -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+
+		<property name="driverClass">
+			<value>${db95.driverClassName}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${db95.url}</value>
+		</property>
+		<property name="user">
+			<value>${db95.user}</value>
+		</property>
+		<property name="password">
+			<value>${db95.password}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>${db95.initialPoolSize}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${db95.minPoolSize}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${db95.maxPoolSize}</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>${db95.acquireIncrement}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${db95.maxIdleTime}</value>
+		</property>
+		<property name="maxStatements">
+			<value>${db95.maxStatements}</value>
+		</property>
+		<property name="autoCommitOnClose">
+			<value>${db95.autoCommitOnClose}</value>
+		</property>
+	</bean>
+	<bean id="jdbc" class="cn.cellcom.common.DB.JDBC" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="cp" />
+		</constructor-arg>
+	</bean>
+	<bean id="cp" class="cn.cellcom.common.DB.ConnConf" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="r" />
+		</constructor-arg>
+		
+	</bean>
+	<bean id="r" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg index="0">
+			<value>/conf/db95.properties</value>
+		</constructor-arg>
+	</bean>
+</beans>

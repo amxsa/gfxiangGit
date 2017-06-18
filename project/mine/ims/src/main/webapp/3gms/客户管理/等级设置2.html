@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>客户管理--等级设置</title>
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="等级设置2.css" />
+		<!-- 引入jquery库文件 -->
+		<script src="../js/jquery-2.1.0.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				// 点击切换页签
+				$(".tab_btn li").click(function(event) {
+					var index = $(this).index();
+					$(this).addClass('now_status').siblings('li').removeClass('now_status');
+                    $(".show_tab").eq(index).addClass('show_now').siblings('.show_tab').removeClass('show_now');
+				});
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<div class="crumb">
+				<em>客户管理</em><i>></i><em>等级设置</em>
+			</div>
+			<div class="wrap_main_bd">
+				<!-- 查找模块开始 -->
+				<div class="serach_box">
+					<div class="serach_in">
+						<span class="find_title">客户类型</span>
+						<!-- select框 -->
+						<select name="" id="">
+							<option value="请选择">个人客户</option>
+							<option value="选择一">单位客户</option>
+						</select>
+					</div>
+
+				</div>
+				<!-- 查找模块结束 -->
+				<div class="tab_content">
+					<ul class="tab_btn">
+						<li class="now_status">普通VIP</li>
+						<li>黄金VIP</li>
+						<li>铂金VIP</li>
+						<li>钻石VIP</li>
+
+					</ul>
+					<style>
+						
+					</style>
+					<!-- 核心tab区域 -->
+					<div class="main_center">
+						<!--普通Vip-->
+						<div class="show_tab show_now">
+							<!--标准等级设置开始-->
+							<div class="message_box">
+								<div class="message_box_title">
+									<span>标准等级设置</span>
+								</div>
+								<div class="message_box_content clearfix">
+									<div>
+										<p class="boldfont">单位/企业</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+
+									</div>
+									<div>
+										<p class="boldfont">个人</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>普通Vip</em></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--标准等级设置结束-->
+   
+						</div>
+                        <!--黄金VIP-->                     
+                        <div class="show_tab">
+                        	<!--标准等级设置开始-->
+							<div class="message_box">
+								<div class="message_box_title">
+									<span>标准等级设置</span>
+								</div>
+								<div class="message_box_content clearfix">
+									<div>
+										<p class="boldfont">单位/企业</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+
+									</div>
+									<div>
+										<p class="boldfont">个人</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>黄金VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--标准等级设置结束-->
+							
+                        	
+                        </div>
+                       <!--铂金VIP-->
+                        <div class="show_tab">
+                        	<!--标准等级设置开始-->
+							<div class="message_box">
+								<div class="message_box_title">
+									<span>标准等级设置</span>
+								</div>
+								<div class="message_box_content clearfix">
+									<div>
+										<p class="boldfont">单位/企业</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+
+									</div>
+									<div>
+										<p class="boldfont">个人</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--标准等级设置结束-->
+							
+                        	
+                        </div>
+                        <!--钻石VIP-->
+                        <div class="show_tab">
+                        	<!--标准等级设置开始-->
+							<div class="message_box">
+								<div class="message_box_title">
+									<span>标准等级设置</span>
+								</div>
+								<div class="message_box_content clearfix">
+									<div>
+										<p class="boldfont">单位/企业</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>钻石VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>钻石VIP</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+
+									</div>
+									<div>
+										<p class="boldfont">个人</p>
+										<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>刷卡消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月均pos消费</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>代发工资户</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--标准等级设置结束-->
+							
+                        	
+                        </div>
+                        
+                        <!--个性化等级设置开始-->
+						<div class="message_box">
+								<div class="message_box_title">
+									<span>个性化等级设置</span>
+									<span>普通VIP</span>
+								</div>
+								<div class="message_box_content clearfix">
+									<div class="serach_in">
+											<div class=""><span>月末存款余额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>贷款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>卡号段</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>月日均存款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>季度日均存款额</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+										<div class="serach_in">
+											<div class=""><span>卡类型</span></div>
+											<div class=""><em>nnnn</em></div>
+										</div>
+
+									<div class="setCondition clearfix" style="width: 100%; overflow: hidden;">
+										<div class="setCondition_title">条件设置</div>
+										<div class="serach_in center_list clearfix">
+											<div class=""><span>月末存款余额</span></div>
+											<div class="">			
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最小值" />
+											    <div class="min_line"></div>
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最大值" />
+											    <div class="table_btn">编辑</div>
+											
+											</div>
+										</div>
+										<div class="serach_in center_list clearfix">
+											<div class=""><span>贷款额</span></div>
+											<div class="">			
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最小值" />
+											    <div class="min_line"></div>
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最大值" />
+											    <div class="table_btn">编辑</div>
+											
+											</div>
+										</div>
+										<div class="serach_in center_list clearfix">
+											<div class=""><span>月日均存款额</span></div>
+											<div class="">			
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最小值" />
+											    <div class="min_line"></div>
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最大值" />
+											    <div class="table_btn">编辑</div>
+											
+											</div>
+										</div>
+										<div class="serach_in center_list clearfix">
+											<div class=""><span>月末存款余额</span></div>
+											<div class="">			
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最小值" />
+											    <div class="min_line"></div>
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最大值" />
+											    <div class="table_btn">编辑</div>
+											
+											</div>
+										</div>
+										<div class="serach_in center_list clearfix">
+											<div class=""><span>季度日均存款额</span></div>
+											<div class="">			
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最小值" />
+											    <div class="min_line"></div>
+											    <input type="text" name="" id="" value="" class="common_input" placeholder="最大值" />
+											    <div class="table_btn">编辑</div>
+											
+											</div>
+										</div>
+										
+										<div class="center_list clearfix">
+											<ul>
+												<li class="serach_in clearfix">
+													<div class=""><span>卡号段</span></div>
+													<div class="">			
+											   			<input type="text" name="" id="" value="" class="common_input width180" placeholder="最小值" />
+											  			<div class="min_line"></div>
+											    		<input type="text" name="" id="" value="" class="common_input width180" placeholder="最大值" />
+											   			<div class="table_btn">编辑</div>	
+											   		
+													</div>
+
+												</li>
+												<style>
+													body .width180{
+														width: 190px;
+														padding-right: 5px;
+													}
+												</style>
+												<li class="serach_in clearfix">
+													<div class=""><span>卡号段</span></div>
+													<div class="">			
+											   			<input type="text" name="" id="" value="" class="common_input width180" placeholder="最小值" />
+											  			<div class="min_line"></div>
+											    		<input type="text" name="" id="" value="" class="common_input width180" placeholder="最大值" />
+											   			<div class="table_btn">编辑</div>
+											   			
+														<div class="table_btn margin5">删除</div>
+													</div>
+
+												</li>
+											</ul>
+											<div class="table_btn" style="margin-left: 120px;">添加</div>
+
+										</div>
+										<div class="center_list clearfix" style="border-bottom: 0;">
+											<p>卡类型</p>
+											<ul class="checkboxs">
+												<li>
+													<input type="checkbox" name="" id="" value="" />IC单位卡
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />IC公共账号卡
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />IC单位卡
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />IC单位卡
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />IC单位卡
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />IC单位卡
+												</li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						<!--个性化等级设置结束-->
+
+
+                        
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+  	
+  	<!-- <import resource="dao/applicationContext-dao-system.xml" /> -->
+  	
+    <bean id="propertyConfigurer"
+    	  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">
+    	  <property name="locations">
+    	  	<list>
+    	  		<value>classpath:/com/gf/ims/resources/global.properties</value>
+    	  	</list>
+    	  </property>
+    </bean>
+
+    <!-- JDBC数据源定义,使用c3p0 连接池 --> 
+    <bean id="jdbcDataSource"
+    	class="com.mchange.v2.c3p0.ComboPooledDataSource"
+    	destroy-method="close">
+    	<property name="driverClass" value="${jdbc.driverClassName}" />
+    	<property name="jdbcUrl" value="${jdbc.url}" />
+    	<property name="user" value="${jdbc.username}" />
+    	<property name="password" value="${jdbc.password}" />
+    	<property name="initialPoolSize" value="${cpool.minPoolSize}" />
+    	<property name="minPoolSize" value="${cpool.minPoolSize}" />
+    	<property name="maxPoolSize" value="${cpool.maxPoolSize}" />
+    	<property name="acquireIncrement" value="${cpool.acquireIncrement}" />
+    	<property name="maxIdleTime" value="${cpool.maxIdleTime}" />
+    	<property name="idleConnectionTestPeriod" value="${cpool.idleConnectionTestPeriod}" />
+    	<property name="testConnectionOnCheckin" value="${cpool.testConnectionOnCheckin}"></property>
+    	<property name="preferredTestQuery" value="${cpool.preferredTestQuery}"></property>
+    </bean>
+    
+    <bean id="lobHandler" lazy-init="true"
+		  class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
+	
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="jdbcDataSource" />
+		</property>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="jdbcDataSource" />
+		<property name="configLocation" value="classpath:com/gf/ims/resources/myBatis-config.xml" />
+		<property name="mapperLocations" value="classpath:com/gf/ims/mapper/*.xml"></property>
+	</bean>
+    
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="jdbcDataSource" />
+	</bean>
+	
+	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*"  propagation="REQUIRED" read-only="false" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="mybatisBussinessService"	expression="execution(public * com.gf.ims.service.*.*(..))" />
+		<aop:advisor pointcut-ref="mybatisBussinessService"	advice-ref="advice" />
+	</aop:config>
+
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>		
+	</bean>	
+	
+	<context:component-scan base-package="com.gf.ims">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>	
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"/> -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<property name="basePackage" value="com.gf.ims.mapper"/>
+	</bean>
+	
+	<bean id="jdbc" class="common.DB.JDBC" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="cp" />
+		</constructor-arg>
+	</bean>
+	<bean id="cp" class="common.DB.ConnConf" scope="prototype">
+		<constructor-arg index="0">
+			<ref bean="r" />
+		</constructor-arg>
+	</bean>
+	<bean id="r" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg index="0">
+			<value>/com/gf/ims/resources/global.properties</value>
+		</constructor-arg>
+	</bean>
+	
+</beans>  

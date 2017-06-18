@@ -1,0 +1,20 @@
+@charset "utf-8";
+#main #minpt {
+}
+#tab-01 {
+	position: relative;
+}
+
+#main #main-tab #info li {
+	margin-right: 5px;
+	position: relative;
+}
+#main-tablist a{
+	line-height: 20px;
+	color: #0b83ab;
+}
+
+#main-tablist a:hover{
+	color: #d0491a;
+	line-height: 20px;
+}

@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="cust">
+    <text class="welcome_txt">尊敬的<text class="name">xx</text>先生/女士，您的账户余额如下：</text>
+  </view>
+  <view class="mainbox">
+    <view class="box">
+      <view class="box_hd">
+        <image class="image" src="../../img/logo.png" />
+      </view>
+      <view class="box_bd">
+        <text>****</text>
+        <text>****</text>
+        <text>****</text>
+        <text>0202</text>
+      </view>
+      <view class="box_ft">
+        <text class="money_txt">账户余额</text>
+        <text>￥2008.00</text>
+      </view>
+    </view>
+  </view>
+
+  <!--卡二-->
+  <view class="mainbox">
+  <view class="box">
+    <view class="box_hd">
+      <image class="image" src="../../img/logo.png" />
+    </view>
+    <view class="box_bd">
+      <text>****</text>
+      <text>****</text>
+      <text>****</text>
+      <text>8989</text>
+    </view>
+    <view class="box_ft">
+      <text class="money_txt">账户余额</text>
+      <text>￥3456.00</text>
+    </view>
+  </view>
+  </view>
+</view>

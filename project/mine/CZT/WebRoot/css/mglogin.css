@@ -1,0 +1,53 @@
+BODY {
+	FONT-SIZE: 9pt
+}
+TD {
+	FONT-SIZE: 9pt
+}
+.white {
+	COLOR: white
+}
+A:hover {
+	COLOR: red; TEXT-DECORATION: none
+}
+A:link {
+	TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+}
+.line20px {
+	FONT-FAMILY: "宋体"; FONT-SIZE: 12px; LINE-HEIGHT: 30px
+}
+.line18px {
+	FONT-FAMILY: "宋体"; FONT-SIZE: 12px; LINE-HEIGHT: 20px
+}
+.black {
+	COLOR: black
+}
+.En {
+	FONT-FAMILY: "Tahoma", "Arial", "宋体"; FONT-SIZE: 11px
+}
+.EnBlack {
+	COLOR: black; FONT-FAMILY: "tahoma", "arial", "宋体"; FONT-SIZE: 11px
+}
+.Big {
+	COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 25px
+}
+INPUT
+{
+    BORDER-BOTTOM-COLOR: #cccccc;
+    BORDER-BOTTOM-WIDTH: 1px;
+    BORDER-LEFT-COLOR: #cccccc;
+    BORDER-LEFT-WIDTH: 1px;
+    BORDER-RIGHT-COLOR: #cccccc;
+    BORDER-RIGHT-WIDTH: 1px;
+    BORDER-TOP-COLOR: #cccccc;
+    BORDER-TOP-WIDTH: 1px;
+    FONT-SIZE: 9pt;
+    HEIGHT: 18px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 1px;
+    PADDING-RIGHT: 1px;
+    PADDING-TOP: 1px
+}

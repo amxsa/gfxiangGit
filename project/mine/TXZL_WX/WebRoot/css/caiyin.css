@@ -1,0 +1,118 @@
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;}
+body,input,textarea,select,button,table,div{font-size:95%;line-height:100%;font-family:'microsoft yahei';}
+html,body{height:100%;}
+html{font-size:95%;overflow-y:scroll;-webkit-text-size-adjust:none;-ms-text-size-adjust:100%;}
+body{font-size:100%;color:#555;}
+ul,ol,li{list-style:none;}
+input[type="button"],input[type='submit']{cursor:pointer;}
+img{border:0;max-width:100%;}
+em,i{font-style:normal;}
+:focus{outline:none;}
+.clear{clear:both;*zoom:1;}
+.clear:after{display:block;clear:both;height:0;}
+a:link,a:visited{color:#555;text-decoration:none;outline:none;star:expression(this.onFocus=this.blur());}
+a:hover{color:#3679D2;text-decoration:none}
+a:active{color:#555;text-decoration:none}
+a.red:link,a.red:visited,a.red:hover,a.red:active{color:#FF0000;}
+a.blue:link,a.blue:visited,a.blue:hover,a.blue:active{color:#0066FF;}
+table{border-collapse:collapse;}
+
+/*布局样式*/
+.top{height:40px;background:#3399ff;overflow:hidden;zoom:1;margin:0 auto;padding:0 10px;position:relative;}
+.top .back{position:absolute;left:10px;top:9px;cursor:pointer;}
+.top h2{width:50%;height:40px;line-height:40px;float:left;font-size:16px;font-weight:400;color:#fff;position:absolute;left:30px;top:0;}
+.top span{position:absolute;right:10px;top:7px;}
+.top span a{margin:0 5px 0 10px;}
+.copyright{width:100%;text-align:center;height:30px;}
+.copyright p{margin:0 auto;line-height:30px;font-size:90%;}
+
+.box{background:#fff;}
+
+.caiy01{background:#3399ff;padding:20px;overflow:hidden;zoom:1;clear:both;text-align:left;}
+.caiy01 h2{width:40px;height:40px;float:left;margin-right:10px;}
+.caiy01 h2 img{width:40px;height:40px;border-radius:40px;vertical-align:middle;}
+.caiy01 p{padding:0;margin:0;font-size:95%;line-height:150%;color:#fff;vertical-align:middle;}
+.caiy01 p img{width:35px;height:35px;border-radius:35px;vertical-align:middle;margin-right:8px;}
+.caiy01 em,.caiy02 em{margin:0 3px;font-family:Arial;color:#fff;}
+.caiy02{padding:10px 20px;}
+.caiy02 p{font-size:110%;padding:5px 0 15px 40px;line-height:20px;background:url(../images/wechat/user1y.png) no-repeat 0 0;color:#888;margin-bottom:10px;padding-bottom:10px;}
+.caiy02 span{display:inline-block;word-wrap:break-word;}
+.caiy02 h2{line-height:22px;padding:5px 10px;background:#fafafa;vertical-align:middle;border-radius:5px;color:#333;margin:0 auto;font-size:110%;}
+.delcx{text-align:center;margin:0 auto;padding:10px;clear:both;}
+.delcx a{display:block;width:40%;margin:10px auto 0;border-radius:20px;line-height:22px;color:#ff9d33;font-size:105%;text-align:center;border:1px solid #ff9d33;cursor:pointer;background:#fff;padding:4px 0;}
+.delcx a:focus{background:#f1f1f1;border:1px solid #ff9d33;color:#ff9d33;}
+
+.cy_cont{padding:10px;text-align:center;}
+.cy_cont h2{font-size:120%;color:#85c2ff;text-align:left;padding-left:2%;margin-bottom:6px;}
+.cy_cont p textarea{width:94%;min-height:100px;line-height:30px;padding:0 1%;margin:0 auto 5px;background:#fcfcfc;border:1px solid #dedfe0;vertical-align:middle;border-radius:5px;color:#000;font-size:115%;box-shadow:none;}
+.cy_cont p textarea:focus{border:1px solid #00AFFF;background:#fafafa;}
+.cy_cont p.ts{font-family:Arial;padding:0 2%;font-size:110%;color:#bcbcbc;text-align:left;}
+.cy_cont p.ts em{color:#ff5a00;}
+
+.fenx{text-align:center;line-height:22px;font-size:110%;overflow:hidden;zoom:1;}
+.fenx input{margin-right:5px;}
+.close_fw{width:70%;margin:60px auto 5px;border-bottom:1px solid #a9a9a9;position:relative;}
+.close_fw span{width:100%;position:absolute;left:0;font-size:100%;bottom:-7px;color:#bcbcbc;text-align:center;}
+.close_fw em{background:#fff;padding:0 3px;}
+.bbut1{text-align:center;margin:0 auto;padding:10px;clear:both;}
+.bbut1 a{display:block;width:90%;margin:10px auto;border-radius:20px;line-height:30px;color:#fff;font-size:115%;text-align:center;border:none;cursor:pointer;background:#3399ff;padding:5px 0;}
+.bbut1 a:focus{background:#278ef5;}
+.bbut1a{text-align:center;margin:0 auto;padding:20px;clear:both;}
+.bbut1a a{display:block;width:90%;margin:10px auto;border-radius:20px;line-height:30px;color:#fff;font-size:115%;text-align:center;border:none;cursor:pointer;background:#ff9d33;padding:5px 0;}
+.bbut1a a:focus{background:#fd8a2e;}
+
+.my_cy{font-size:110%;padding:15px 10px;border-bottom:1px solid #dedfe0;margin-bottom:12px;text-align:center;line-height:140%;}
+
+.box2{background:#fcfcfc;}
+.fs_box{background:#fff;border-top:1px solid #d2d2d2;border-bottom:1px solid #d2d2d2;margin-bottom:10px;padding:15px 10px;overflow:hidden;zoom:1;}
+.fs_lt{width:70%;float:left;}
+.fs_rt{width:30%;float:right;}
+.fs_rt a{display:block;width:83px;height:30px;float:right;margin-top:8px;}
+.fs_rt a.add,.fs_rt a.del{height:34px;}
+.fs_rt a.on{background:url(../images/wechat/onoff.png) no-repeat 0 -30px;}
+.fs_rt a.off{background:url(../images/wechat/onoff.png) no-repeat;}
+
+.fs_lt h3{min-height:50px;margin-bottom:10px;background:#fcfcfc;border:1px solid #dedfe0;border-radius:8px;padding:6px 10px;}
+.fs_lt h3 img{vertical-align:middle;margin-left:6px;}
+.fs_lt em{color:#00AFFF;}
+
+.err{padding:30px 0 20px;}
+.err p{text-align:center;}
+.err img{margin-bottom:15px;}
+.err h3{font-size:130%;line-height:150%;margin-bottom:10px;color:#FF3300;text-align:center;}
+.err h4{font-size:130%;line-height:150%;margin-bottom:10px;color:#00A2EC;text-align:center;}
+.err p{font-size:100%;line-height:160%;margin-bottom:5px;}
+.bbut3{text-align:center;margin:20px auto 10px;padding-bottom:20px;clear:both;}
+.bbut3 a{display:block;width:90%;margin:0 auto;border-radius:20px;line-height:40px;color:#fff;font-size:110%;text-align:center;border:none;cursor:pointer;background:#FFB400;}
+.bbut3 a:hover{background:#FFA200;}
+.bbut4{text-align:center;margin:0 auto;padding:10px;clear:both; border-top:1px solid #ebebeb;}
+.bbut4 a{display:inline-block;margin:0 5px;padding:0 8%;border-radius:20px;line-height:30px;color:#fff;font-size:100%;text-align:center;border:none;cursor:pointer;background:#FFB400;}
+.bbut4 a:hover{background:#FFA200;}
+
+
+/*弹窗*/
+.mask{background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);position:fixed;width:100%;height:100%;z-index:2000;top:0;right:0;}
+.mask_box{background:#fff;width:80%;margin:auto;position:relative;max-height:700px;top:30%;border-radius:5px;padding-bottom:10px;}
+.mask_box h2{font-size:120%;font-weight:400;line-height:30px;text-align:center;background:#f4f4f4;border-radius:5px 5px 0 0;color:#0080ff;}
+.mask_box .content{padding:15px 10px 10px;max-height:350px;text-align:left;overflow:auto;}
+.mask_box .content p{font-size:110%;}
+.mask_box .content p em{color:#FF0000;font-size:100%;}
+.cy_box{width:90%;margin:0 auto 10px;background:#fcfcfc;border:1px solid #dedfe0;padding:10px;border-radius:6px;font-size:110%;}
+.cy_box2{text-align:center;}
+.cy_box2 textarea{width:90%;margin:0 auto;background:#fcfcfc;border:1px solid #dedfe0;padding:10px;border-radius:6px;font-size:120%;}
+.cy_box2 textarea:focus{border:1px solid #00AFFF;background:#fafafa;}
+.bbut2{text-align:center;margin:0 auto;padding:10px;clear:both;}
+.bbut2 a{display:inline-block;margin:0 5px;padding:0 10%;border-radius:15px;line-height:30px;color:#fff;font-size:110%;text-align:center;border:1px solid #3399ff;cursor:pointer;background:#3399ff;}
+.bbut2 a:hover{background:#278ef5;}
+.bbut2 a.b1{display:inline-block;margin:0 5px;padding:0 10%;border-radius:15px;line-height:30px;color:#3399ff;font-size:100%;text-align:center;border:1px solid #3399ff;cursor:pointer;background:#fcfcfc;}
+.bbut2 a.b1:hover{background:#f4f4f4;color:#278ef5;}
+.tctime{text-align:center;}
+.tctime p{font-size:110%;line-height:200%;margin-bottom:15px;}
+.tctime p select{margin:0 3px;}
+.cf{text-align:center;line-height:22px;font-size:110%;overflow:hidden;zoom:1;}
+.cf input{margin-right:5px;}
+/* max-width */@media screen and (max-width:321px) {.cy_cont p textarea{width:96%;padding:0 1%;}
+.caiy01 p{font-size:85%;}}
+/* min-width & max-width */@media screen and (min-width:321px) and (max-width:380px) {.caiy01 p{font-size:90%;}}
+/* min-width & max-width */@media screen and (min-width:380px) and (max-width:440px) {}
+/* min-width */@media screen and (min-width:1024px){} 

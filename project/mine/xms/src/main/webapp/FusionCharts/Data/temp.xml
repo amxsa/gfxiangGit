@@ -1,0 +1,6 @@
+<chart caption='体温统计表' baseFontSize='12'  xAxisName='时间' yAxisName='体温(摄氏)'  rotateYAxisName='0'
+ showValues='0' alternateHGridColor='CCCCCC' alternateHGridAlpha='20' chartRightMargin="35"bgColor='FFFFFF,99CCFF' bgAngle='270' bgAlpha='50,50'
+divLineColor='FCB541' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='FCB541'>
+<set label='' value='' />
+
+</chart> 

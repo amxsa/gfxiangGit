@@ -1,0 +1,27 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.vo.ApplicationVO" tableName="t_application">
+	 <columnMapList>
+	    <ids>
+			<id name="id" property="id" identify="true"/>
+	    </ids>
+	    <column name="apply_basis" property="applyBasis"/>
+	    <column name="account" property="account"/>
+	    <column name="procedure_code" property="dpResult.procedure.code"/>
+	    <column name="procedure_description" property="dpResult.procedure.description"/>
+	    <column name="disposal_code" property="dpResult.disposal.code"/>
+	    <column name="disposal_description" property="dpResult.disposal.description"/>
+	    <column name="application_name" property="applicationName"/>
+	    <column name="case_id" property="caseId"/>
+	    <column name="department_id" property="departmentId"/>
+	    <column name="save_date_type" property="saveDateType"/>
+	    <column name="expiration_date" property="expirationDate"/>
+	    <column name="plan_storage_date" property="planStorageDate"/>
+	    <column name="deliver_type" property="deliverType"/>
+	    <column name="target_storehouse" property="targetStorehouse"/>
+	    <column name="parent_id" property="parentId"/>
+	    <column name="leadDepartment_id" property="leadDepartmentId"/>
+	    <column name="assistDepartment_id" property="assistDepartmentId"/>
+	    <column name="application_no" property="applicationNo"/>
+	    <column name="plan_start_date" property="planStartDate"/>
+	    <column name="duration" property="duration"/>
+	 </columnMapList>
+</classAndTable>

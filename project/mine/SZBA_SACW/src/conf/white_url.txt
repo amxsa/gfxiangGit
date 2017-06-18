@@ -1,0 +1,7 @@
+/login.jsp
+/image.jsp
+/timeout.jsp
+/countDays.jsp
+/online.jsp
+/account/login.do
+/account/logout.do

@@ -1,0 +1,99 @@
+/*投票选项盒子*/
+
+.voteselect_box {
+	border-top: 1px solid #D9E0F2;
+	padding-top: 20px;
+	margin-bottom: 30px;
+}
+
+.voteselect_box> div:nth-child(1) {
+	margin-bottom: 20px;
+}
+
+.voteselect_box input[type="radio"] {
+	margin-right: 5px;
+}
+
+.voteselect_box .input_box label {
+	width: 120px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.voteselect_box .add_voteimg {
+	margin-top: 10px;
+	margin-left: 144px;
+	display: none;
+}
+
+.voteselect_box .add_votetext {
+	margin-top: 10px;
+	margin-left: 144px;
+}
+
+
+/*投票文字选项*/
+
+.votetext_list label {
+	display: inline-block;
+	text-align: right;
+	width: 120px;
+	margin-right: 20px;
+}
+
+.votetext_list li {
+	margin-bottom: 10px;
+}
+
+.votetext_box input {
+	width: 720px;
+	margin-right: 25px;
+}
+
+
+/*投票图片选项*/
+
+.voteimg_list {
+	display: none;
+}
+
+.voteimg_box label {
+	display: inline-block;
+	text-align: right;
+	width: 120px;
+	vertical-align: top;
+	margin-right: 20px;
+}
+
+.voteimg_box .voteimg_right {
+	display: inline-block;
+}
+
+.voteimg_box .img_box {
+	padding: 0;
+	width: 92px;
+	float: left;
+}
+
+.voteimg_box .img_box img {
+	width: 90px;
+	height: 90px;
+}
+
+.voteimg_content {
+	float: left;
+	height: 80px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.voteimg_content .import_btn {
+	margin-bottom: 10px;
+	vertical-align: top
+}
+
+.voteimg_content textarea {
+	display: block;
+	width: 500px;
+	height: 50px;
+}

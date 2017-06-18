@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flownodes>
+<flownode name="连线名称1" 
+	isSameAsCurrentDept="false" 
+	roles="1,2,3" 
+	propertyStatus="YRZCK" 
+	actualPosition="ZCK"
+	applicationStatus="">
+	<conditionExpression><![CDATA[outcome=='Y'&&status=='ZXK']]></conditionExpression>
+</flownode>
+<flownode name="连线名称2" 
+	isSameAsCurrentDept="true" 
+	roles="1,2,3" 
+	propertyStatus="YRZCK" 
+	actualPosition="ZCK"
+	applicationStatus="">
+	<conditionExpression><![CDATA[outcome=='Y'&&status=='ZXK']]></conditionExpression>
+</flownode>
+	 
+</flownodes>

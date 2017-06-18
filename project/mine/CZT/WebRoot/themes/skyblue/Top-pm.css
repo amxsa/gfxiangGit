@@ -1,0 +1,23 @@
+.carousel-component { 
+	position:relative;
+	overflow:hidden;   /* causes the clipping */
+	/* component turns it on when first item is rendered */
+	
+}
+.carousel-component ul.carousel-list { 
+	width:10000px;
+	position:relative;
+	z-index:1; 
+}
+
+.carousel-component .carousel-list li {
+	float:left;
+	list-style:none;
+	overflow:hidden;
+}
+
+.carousel-component .carousel-clip-region { 
+	overflow:hidden; /* Secret to the clipping */
+	margin:0px auto;
+	position:relative; 
+}

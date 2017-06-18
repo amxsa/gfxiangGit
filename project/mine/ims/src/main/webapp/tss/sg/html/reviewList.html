@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end --> 
+    <title>列表</title>
+    <link rel="stylesheet" type="text/css" href="css/bath.css" />
+    <link rel="stylesheet" type="text/css" href="css/reviewList.css" />
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="js/loadData.js" type="text/javascript"></script>
+    <script src="js/loadObject.js" type="text/javascript"></script>
+    <script src="js/getJson.js" type="text/javascript"></script>
+    <script src="js/check.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){                 
+            loadList();   //加载列表 
+            // 数据开始
+            function verify() {
+            //提交获取结果
+            ajaxSg.sg_ajaxClick({ url:'/XiaoITest/xiaoi'});
+            //获取单个实体
+            sg_loadObject('/XiaoITest/xiaoi',{data:'id'});
+            }
+       });
+       function getItemHtml(row){
+                var temp ='';
+                 temp+='<li onclick="javascript:location.href=\'informationReade.html\'">';
+                temp+='<span class="title_p">'+row.status+'</span>';
+                temp+='<i>'+row.text+'</i>';
+                temp+='<em class="time">'+row.data+' '+row.time+'</em>';
+                temp+='</li>';
+                return temp;
+            }
+            function genItems(data) {
+                var rows = data.rows;
+                var c = "";
+                for ( var i = 0; i < rows.length; i++) {  
+                    c += getItemHtml(rows[i]);
+                }
+                $("#undo").html(c);
+            }
+            function loadList() {
+           
+                $(".undo_bd").remove();
+                var d = {
+                    };
+                //获取列表
+                //var s =sg_getList("xxxxxx", "[{}]");
+                var s={"rows":[{"status":"审核","text":"有新客户提交贷款申请申请申请","data":"4/5","time":"11:30"},{"status":"待抢","text":"有新客户提交贷款申请","data":"2/5","time":"1:30"}]};
+                genItems(s);
+                
+                
+            };
+
+    </script>
+    </head>
+    <body>
+    <!-- 列表 -->
+    <div class="box">
+            <div class="box_hd main_pd">
+                <span>待办事项</span>
+                <i>(10)</i>
+                <select name="" id="" class="chose_type">
+                    <option value="生日">生日</option>
+                    <option value="审查">审查</option>
+                    <option value="日期">日期</option>
+                </select>
+            </div>
+            <div class="box_bd main_pd" >
+            <ul id="undo">
+               <!--  <li>
+                    <span class="title_p">审核</span>
+                    <i>有新客户提交贷款申请申请申请</i>
+                    <em class="time">4/5 11:30</em>
+                </li>    -->
+            </ul>
+            </div> 
+    </div>
+    
+    </body>
+</html>

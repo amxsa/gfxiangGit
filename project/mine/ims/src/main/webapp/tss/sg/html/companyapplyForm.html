@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- 设置苹果工具栏颜色 -->
+<meta name="format-detection" content="telephone=no, email=no" />
+<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- 微软的老式浏览器 -->
+<meta name="MobileOptimized" content="320">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<!-- UC强制全屏 -->
+<meta name="full-screen" content="yes">
+<!-- QQ强制全屏 -->
+<meta name="x5-fullscreen" content="true">
+<!-- UC应用模式 -->
+<meta name="browsermode" content="application">
+<!-- QQ应用模式 -->
+<meta name="x5-page-mode" content="app">
+<!-- windows phone 点击无高光 -->
+<meta name="msapplication-tap-highlight" content="no">
+<!-- 适应移动端end -->
+<title>企业申请页面</title>
+<link rel="stylesheet" type="text/css" href="css/bath.css" />
+<link rel="stylesheet" type="text/css" href="css/companyapplyForm.css" />
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/mobiscroll.js" type="text/javascript"></script>
+<script src="js/time.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/loadData.js" type="text/javascript"></script>
+<script src="js/loadObject.js" type="text/javascript"></script>
+<script src="js/getJson.js" type="text/javascript"></script>
+<script src="js/check.js" type="text/javascript"></script>
+<link href="css/mobiscroll.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript">
+    //判断是否是空、未定义
+	function isCondition(param){
+		if (param==""||param==undefined||param==null) {
+			return false;
+		}
+		return true;
+	}
+   
+    $(function(){
+        // 点击确定按钮的表单验证
+	   $('.confirm_btn').click(function(event) {
+         if ($("#bakMsg").prop("checked")==false){
+                return false;
+         }
+         var companyName = $("#companyName").val();
+     	 if(!isCondition(companyName)){
+     		msgBox("请输入企业名称",function(){});
+     		return;
+     	 }
+         var applyMoney = $("#applyMoney").val();
+        if(applyMoney==""||!applyMoney.match("^[0-9]{1,10}$")){
+            msgBox("请输入贷款金额",function(){});
+            return;
+        }
+          var appDate = $("#appDate").val();
+         if(!isCondition(appDate)){
+            msgBox("请输入预期时间",function(){});
+            return;
+         }
+          var regFunds = $("#regFunds").val();
+        if(regFunds==""||!regFunds.match("^[0-9]{1,10}$")){
+            msgBox("请输入注册资金",function(){});
+            return;
+        }
+         var societyCode = $("#societyCode").val();
+         if(isCondition(societyCode)){
+            msgBox("请输入社会信用代码",function(){});
+            return;
+         }
+         var companyName = $("#companyName").val();
+         if(!isCondition(companyName)){
+            msgBox("请输入企业名称",function(){});
+            return;
+         }
+         var phone=$("#phone").val();
+     	 if(phone==""){
+            msgBox("必须输入手机号码",function(){
+            });
+            return false;  
+            }else{
+            if(isNaN(phone)){
+                msgBox("手机号码必须填数字",function(){
+                });
+                return false;
+            }else{
+                if(phone.length!=11){
+                    msgBox("手机号码格式不正确",function(){
+                    });
+                    return false;   
+                }
+            }
+        }
+         var contacts=$("#contacts").val();
+         if(!isCondition(contacts)){
+            msgBox("请输入联系人",function(){});
+            return;
+         }
+         $('.layer').fadeIn(100);        
+         $('.layer-bg').fadeTo(100,0.5)  // 半透明
+         $("#main-wrapper").hide();
+		});
+    
+        });
+    </script>
+</head>
+<body>
+	<div id="main-wrapper">
+		<div class="main_content">
+			<!-- 表单    -->
+			<form action="">
+				<div class="form_text">
+					<!-- 每一个表单 -->
+					<div class="text-fill">
+						<!-- 企业名称 -->
+						<div class="item">
+							<span class="left_name">企业名称</span> <input type="text"
+								placeholder="企业名称" class="ipt" name="companyName"
+								id="companyName" sg_json="*" />
+						</div>
+						<!-- 贷款类型 -->
+						<div class="item">
+							<span class="left_name">贷款类型</span>
+							<div class="sel_div">
+								<select name="loanType" id="loanType" sg_json="*">
+									<option value=0>个人贷款</option>
+									<option value=1>企业贷款</option>
+								</select>
+							</div>
+						</div>
+						<!-- 贷款金额 -->
+						<div class="item">
+							<span class="left_name">贷款金额</span> <input type="text"
+								placeholder="贷款金额" class="ipt" name="applyMoney" id="applyMoney" />
+						</div>
+						<!-- 预期时间 -->
+						<div class="item">
+							<span class="left_name">预期时间</span>
+							<div class="sel_div">
+								<input placeholder="请选择时间" class="" readonly="readonly" name="appDate"
+									id="appDate" type="text" sg_json="*">
+							</div>
+						</div>
+						<!-- 企业类型 -->
+						<div class="item">
+							<span class="left_name">企业类型</span>
+							<div class="sel_div">
+								<select name="companyType" id="companyType" sg_json="*">
+									<option value="类型一">广州</option>
+								</select>
+							</div>
+						</div>
+						<!-- 注册资金 -->
+						<div class="item">
+							<span class="left_name">注册资金</span> <input type="text"
+								placeholder="注册资金" class="ipt" name="regFunds" id="regFunds"
+								sg_json="*" />
+						</div>
+						<!-- 统一社会信用代码 -->
+						<div class="item">
+							<span class="left_name">统一社会信用代码</span> <input type="text"
+								placeholder="统一社会信用代码" class="ipt" name="societyCode"
+								id="societyCode" sg_json="*" />
+						</div>
+						<!-- 注册地 -->
+						<div class="item">
+                            <span class="left_name">注册地</span> <input type="text"
+                                placeholder="注册地" class="ipt" name="regPlace" id="regPlace" sg_json="*" />
+                        </div>
+						<!-- 联系人 -->
+						<div class="item">
+							<span class="left_name">联系人</span> <input type="text"
+								placeholder="联系人" class="ipt" name="contacts" id="contacts"
+								sg_json="*" />
+						</div>
+						<!-- 电话 -->
+						<div class="item">
+							<span class="left_name">电话</span> <input type="text"
+								placeholder="电话" class="ipt" name="phone" id="phone" sg_json="*" maxlength="11" />
+						</div>
+
+						<div class="item pd">
+							<div class="check_box">
+								<input type="checkbox" id="bakMsg" />
+							</div>
+							<div class="item_right">
+								<p class="txt">
+									本人已阅读并同意<em onclick="javascript:location.href='bankMsg.html'">《XX银行信贷业务电子征信协议》</em>
+								</p>
+
+							</div>
+						</div>
+						<div class="confirm_btn">提交申请</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- 模态窗口 -->
+	<div class="layer">
+		<p>申请成功，请等待核查</p>
+	</div>
+	<div class="layer-bg"></div>
+</body>
+</html>

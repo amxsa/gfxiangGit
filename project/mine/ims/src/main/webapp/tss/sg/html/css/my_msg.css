@@ -1,0 +1,31 @@
+body,html{width: 100%;height: 100%;background: #f1f1f1;}
+.box{border-bottom: 1px solid #d7d7d7;background: #fff;margin-bottom: 10px;box-shadow: 1px 1px 2px #D8D5D5;}
+.main_pd{padding: 10px 2.5%;box-sizing: border-box;}
+
+.thanks_box{border-bottom: 1px solid #b5b5b5;}
+.top_p{padding-top: 15px;padding-bottom: 10px;}
+.top_p em{color: #1b1b1b;font-size: 18px;}
+.details_p {text-indent: 2em;padding-bottom: 15px;line-height: 24px;}
+/*客户经理资料模块*/
+.pd{padding: 13px 0;}
+.item_left{width: 60px;height: 60px;/*margin-left:0.4rem;*/}
+.item_left img{border-radius: 5px;width: 60px;height: 60px;}
+.position{color: #797979;}
+.item_right p{color: #252525;}
+.item_right em{color: #252525;}
+/*星星*/
+.star_in{width:18px;height:18px;background: url(../img/star.png) no-repeat; display: inline-block;cursor: pointer;background-position: 0 -32px;    vertical-align: top;background-size:100% auto;}
+.phone_num{font-size: 15px;color: #252525;padding-bottom: 25px;position: relative;}
+.call{display: inline-block;width: 40px;height: 40px;background: url(../img/call.png) no-repeat center center;background-size:100% auto;vertical-align: middle;}
+
+.mark{font-size: 15px;color: #252525;height: 40px;line-height: 40px;}
+
+/*确认按钮*/
+.confirm_btn{width: 100%;height: 40px;line-height: 40px;background:#fc9100;text-align: center;color: #fff;border-radius: 5px;margin-top: 10px;margin-bottom: 10px;}
+.big_box{text-align: center;padding-top: 10px;}
+.my_p{border-radius: 100px;width: 80px;height: 80px;}
+.name{font-size: 16px;}
+.time_p{font-size: 16px;padding: 4px 0;}
+.time_p em{color: #ff6600;}
+
+.color_change{background: #d7d7d7;}

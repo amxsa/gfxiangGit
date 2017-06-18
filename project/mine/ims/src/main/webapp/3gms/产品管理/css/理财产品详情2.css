@@ -1,0 +1,204 @@
+input[type='checkbox'] {
+	margin-right: 5px;
+}
+
+.content_left {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.content_right {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.serach_in {
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.content_left .serach_in>div:nth-child(1) {
+	width: 100px;
+}
+
+.content_right .serach_in>div:nth-child(1) {
+	width: 200px;
+}
+
+.serach_in>div:nth-child(1) {
+	text-align: right;
+	float: left;
+	width: 100px;
+	padding-right: 20px;
+}
+
+.serach_in>div:nth-child(2) {
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.serach_in input[type='checkbox']:nth-child(1) {
+	margin-left: 0;
+}
+
+.serach_in input[type='checkbox'] {
+	margin-left: 15px;
+}
+
+
+/*模拟框*/
+
+.message_block .serach_in>div:nth-child(1) {
+	width: 100px;
+	padding-right: 8px;
+}
+
+.layer_bd_content {
+	padding-left: 40px;
+	padding-bottom: 58px;
+}
+
+.message_block {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.message_block> div {
+	display: block;
+	float: left;
+	width: 50%;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.message_block> p {
+	font-weight: bold;
+}
+
+.message_block .textarea_conter {
+	width: 95%;
+	position: relative;
+}
+
+.textarea_conter span {
+	padding-right: 8px;
+}
+
+.textarea_conter textarea {
+	width: 88%;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 0 0 transparent;
+}
+
+.day_num {
+	width: 50px;
+	height: 34px;
+	line-height: 34px;
+	border: solid 1px #d9e0f2;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #717d98;
+	font-family: "微软雅黑";
+	background-color: #fff;
+	padding-left: 4px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+
+/*添加备注消息*/
+
+.remarks {
+	width: 100%;
+	display: block;
+	float: left;
+	border-top: 1px solid #CCCCCC;
+	margin-top: 10px;
+}
+
+
+
+/*.remarks .content_list li {
+	margin-bottom: 10px;
+	overflow: hidden;
+	display: block;
+}*/
+
+.remarks .content_list input {
+	/*display: block;*/
+	/*float: left;*/
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+/*.remarks .content_list .table_btn{
+	margin-left: 20px;
+}*/
+
+/*.min_line {
+	width: 30px;
+	height: 17px;
+	border-bottom: solid 1px #d9e0f2;
+	vertical-align: top;
+	margin: 0 2px;
+	float: left;
+	display: inline-block;
+}*/
+
+/*.close {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	background: url(../../img/icon-close.png) no-repeat center center;
+	cursor: pointer;
+	vertical-align: middle;
+}*/
+
+/*.content_btn {
+	margin-left: 150px;
+}*/
+
+/*.content_btn>div {
+	margin-right: 20px;
+	margin-top: 20px;
+}*/
+
+/*计算天数*/
+.count-day {
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.serach_in i{
+	color: red;
+}
+.border-one input,
+.border-one select,
+.border-one .count-day,.serach_in i {
+	display: none;
+}
+
+
+
+
+
+
+/*销售情况*/
+
+.salesCondition .serach_in {
+	margin-right: 0;
+	display: inline-block;
+}
+
+.salesCondition .serach_in>div:nth-child(1) {
+	width: 100px;
+	text-align: right;
+	padding-right: 15px;
+}
+
+.ems em {
+	text-decoration: underline;
+	margin-right: 10px;
+}

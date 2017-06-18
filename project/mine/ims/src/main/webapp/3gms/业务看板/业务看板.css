@@ -1,0 +1,20 @@
+.chart-main .pie_box {
+	width: 33.3333%;
+	box-sizing: border-box;
+	border-right: 1px solid #CCCCCC;
+	height: 370px;
+	display: block;
+	float: left;
+	text-align: center;
+	margin-top: -20px;
+}
+
+.chart-main div:nth-child(3) {
+	border: 0;
+}
+
+.chart-main .pie_box .pie_chart {
+	width: 100%;
+	margin: 20px 0 10px;
+	height: 300px;
+}

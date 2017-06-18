@@ -1,0 +1,6 @@
+[
+	{"id":1,"parentId":0,"name":"西乡所","checked":"N"},
+	{"id":2,"parentId":1,"name":"张三","checked":"N", "account":"1001"},
+	{"id":3,"parentId":1,"name":"李四","checked":"N", "account":"1002"},
+	{"id":4,"parentId":1,"name":"王五","checked":"N", "account":"1003"}
+]

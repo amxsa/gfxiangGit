@@ -1,0 +1,344 @@
+/*大框架的整体设置*/
+
+.wrap_menu {
+	border: 1px solid #d9e1ee;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	padding: 20px;
+}
+
+.menu_one {}
+
+.menu_one> li,
+.menu_two> li,
+.menu_three> li {
+	box-sizing: border-box;
+}
+.menu_two,.menu_three{
+	display: none;
+}
+.menu_one .item{
+	padding-left: 36px;
+}
+.menu_two .item{
+	padding-left: 68px;
+	
+}
+.menu_three .item{
+	padding-left: 100px;
+}
+
+
+.item{
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #d9e1ee;
+	border-bottom: 0;
+	padding-right: 10px;
+}
+
+
+
+
+/*大框架的整体设置结束*/
+
+
+/*头部的两个列内容*/
+
+.top_list {
+	margin-bottom: 20px;
+}
+
+.top_list li {
+	border: 1px solid #d9e1ee;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	width: 49%;
+	padding: 0 0 0 45px;
+	box-sizing: border-box;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.top_list li:nth-child(1) {
+	float: left;
+	background: url(../img/icon-attention.png) no-repeat 20px 10px #FFFFFF;
+	background-size: 16px 16px;
+}
+
+.top_list li:nth-child(2) {
+	float: right;
+	background: url(../img/icon-hint.png) no-repeat 20px 10px #FFFFFF;
+	background-size: 16px 16px;
+}
+.top_list li>div{
+	display: inline-block;
+	width: 100px;
+}
+.top_list .menu_right li{
+	border: none;
+}
+.top_list .menu_right .edit_item{
+	background: url(../img/icon-edit.png) no-repeat center center;
+	background-size: 18px 18px;
+}
+
+
+/*头部的两个列内容结束*/
+
+
+/*图标注释模块*/
+.icon_detail {
+	background-color: #F7F9FF;
+	padding-left: 30px;
+	margin-bottom: 20px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.icon_detail li {
+	display: inline-block;
+	height: 45px;
+	box-sizing: border-box;
+	line-height: 45px;
+	padding-left: 30px;
+	padding-right: 60px;
+}
+
+.icon_detail li:nth-child(1) {
+	background: url(../img/icon-imgtext.png) no-repeat 5px 14px;
+	background-size: 16px 18px;
+}
+
+.icon_detail li:nth-child(2) {
+	background: url(../img/icon-text.png) no-repeat 5px 14px;
+	background-size: 16px 18px;
+}
+
+.icon_detail li:nth-child(3) {
+	background: url(../img/icon-data.png) no-repeat 2px 14px;
+	background-size: 18px 16px;
+}
+
+.icon_detail li:nth-child(4) {
+	background: url(../img/icon-process.png) no-repeat 0 14px;
+	background-size: 22px 14px;
+}
+
+.icon_detail li:nth-child(5) {
+	background: url(../img/icon-prize.png) no-repeat 5px 12px;
+	background-size: 18px 18px;
+}
+
+.icon_detail li:nth-child(6) {
+	background: url(../img/icon-issue.png) no-repeat 5px 14px;
+	background-size: 16px 18px;
+}
+.icon_detail li:nth-child(7) {
+	background: url(../img/icon-card.png) no-repeat 5px 12px;
+	background-size: 18px 18px;
+}
+
+
+/*图标注释模块结束*/
+
+
+/*菜单架构样式*/
+
+
+/*主菜单*/
+.menu_title {
+	border: 1px solid #d9e1ee;
+	height: 40px;
+	line-height: 40px;
+	padding-right: 10px;
+	padding-left: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	border-bottom: 0;
+	padding-top: 0;
+}
+
+
+/*主菜单的左边部分*/
+.menu_left {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+
+.menu_left li {
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+.menu_left li.item_state {
+	width: 46px;
+	
+}
+
+.menu_left li.item_num {
+	background-color: #E5EEFE;
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	margin-right: 10px;
+	line-height: 20px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.menu_left li.item_icon {
+	width: 20px;
+}
+/*菜单的左边部分结束*/
+
+
+/*菜单的右边*/
+
+.menu_right {
+	float: right;
+	height: 40px;
+}
+
+.menu_right li {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	cursor: pointer;
+}
+/*菜单的右边部分结束*/
+
+
+/*菜单右边的图标*/
+/*添加*/
+.menu_right li:nth-child(1) {
+	background: url(../img/icon-add.png) no-repeat center center;
+	background-size: 18px 18px;
+}
+/*编辑*/
+.menu_right li:nth-child(2) {
+	background: url(../img/icon-edit.png) no-repeat center center;
+	background-size: 18px 18px;
+}
+/*删除*/
+.menu_right li:nth-child(3) {
+	background: url(../img/icon-delete.png) no-repeat center center;
+	background-size: 16px 18px;
+}
+
+
+/*菜单左边的图表样式*/
+/*菜单状态展开收起的2个类*/
+.item_state_open {
+	background: url(../img/icon-menuopen.png) no-repeat center center;
+	background-size: 16px 16px;
+}
+/*菜单收起状态*/
+.item_state_close {
+	background: url(../img/icon-menuclose.png) no-repeat center center;
+	background-size: 16px 16px;
+}
+
+
+/*主菜单图标*/
+.menu_text .menu_title .menu_left .item_icon {
+	background: url(../img/icon-menu.png) no-repeat left center;
+	background-size: 16px 16px;
+}
+
+/*纯文本图标*/
+.menu_text .menu_left .item_icon {
+	background: url(../img/icon-text.png) no-repeat left center;
+	background-size: 16px 18px;
+}
+
+
+/*图文消息图标*/
+
+.menu_imgtext .menu_left .item_icon {
+	background: url(../img/icon-imgtext.png) no-repeat left center;
+	background-size: 14px 16px;
+}
+
+
+/*流程图标*/
+
+.menu_process .menu_left .item_icon {
+	background: url(../img/icon-process.png) no-repeat left center;
+	background-size: 20px 14px;
+}
+
+
+/*抽奖活动图标*/
+
+.menu_activity .menu_left .item_icon {
+	background: url(../img/icon-prize.png) no-repeat left center;
+	background-size: 16px 16px;
+}
+
+
+/*问卷调查图标*/
+
+.menu_question .menu_left .item_icon {
+	background: url(../img/icon-issue.png) no-repeat left center;
+	background-size: 16px 18px;
+}
+
+
+/*投票图标*/
+
+.menu_vote .menu_left .item_icon {
+	background: url(../img/icon-data.png) no-repeat left center;
+	background-size: 18px 18px;
+}
+/*卡券图标*/
+.menu_card .menu_left .item_icon {
+	background: url(../img/icon-card.png) no-repeat left center;
+	background-size: 16px 16px;
+}
+
+
+
+/*除了纯文本，其他的回复类型的添加按钮，下拉按钮均隐藏，回复类型为纯文本的下拉按钮隐藏*/
+.menu_vote .menu_right li:nth-child(1),
+.menu_question .menu_right li:nth-child(1),
+.menu_imgtext .menu_right li:nth-child(1),
+.menu_process .menu_right li:nth-child(1),
+.menu_activity .menu_right li:nth-child(1),
+.menu_card .menu_right li:nth-child(1) {
+	display: none;
+}
+.menu_zero > li:last-child{
+	border-bottom: 1px solid #d9e1ee;
+	margin-bottom: 10px;
+}
+/*主菜单的数字按钮隐藏*/
+.menu_title .menu_left .item_num {
+	display: none;
+}
+/*第三级菜单的添加按钮，下拉按钮均隐藏*/
+.menu_three .menu_right li:nth-child(1) {
+	display: none;
+}
+
+
+/*hasitem  当li有子菜单时，所特有的类，该li的删除按钮隐藏*/
+.hasitem>div .menu_right li:nth-child(3) {
+	display: none;
+}
+/*hasitem  当li有子菜单时，所特有的类，该li的下拉按钮显示*/
+.hasitem>div .menu_right li.childmenu_control {
+	display: inline-block;
+}
+
+/*参与活动后提示语*/

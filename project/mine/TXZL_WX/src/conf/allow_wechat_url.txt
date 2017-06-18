@@ -1,0 +1,15 @@
+/user/bindWechat/checkBind.do
+/user/bindWechat/bind.do
+/user/bindWechat/deleteBind.do
+/user/sms/sendSms.do
+/user/sms/sendOrderSms.do
+/user/register/register.do
+/user/busHandle/
+/user/activity/
+/user/call/
+/user/account/
+/wechat/bindWechat.jsp
+/user/index.jsp
+/user/order.jsp
+/user/register.jsp
+/colorprinting/colorPrintIndex.jsp

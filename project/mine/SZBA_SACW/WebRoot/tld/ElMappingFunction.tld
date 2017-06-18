@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee      http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<!-- 定义函数版本 -->
+	<tlib-version>1.0</tlib-version>
+	<!-- 定义函数名称 -->
+	<short-name>mapping</short-name>
+	<!-- 定义函数 -->
+	<function>
+		<name>mappingProNo</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingProNo(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<!-- 定义第一个函数：reverse -->
+		<name>mappingProType</name>
+		<!-- 定义函数处理类 -->
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<!-- 定义函数的对应方法 -->
+		<function-signature>java.lang.String mappingProType(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingProStatus</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingProStatus(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingProOrigin</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingProOrigin(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingAccountID</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingAccountID(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingAccountNameById</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingAccountNameById(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingDepartmentNameById</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingDepartmentNameById(java.lang.Long)</function-signature>
+	</function>
+	<function>
+		<name>mappingProSaveMethod</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingProSaveMethod(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingDepartmentNameByAccount</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingDepartmentNameByAccount(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingApplicationType</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingApplicationType(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingApplicationStatus</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingApplicationStatus(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>mappingDamageStatus</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String mappingDamageStatus(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>isOnlyContainRole</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.Boolean isOnlyContainRole(java.util.List, java.lang.String)</function-signature>
+	</function>
+	
+	<function>
+		<name>generateProSaveMethodSelect</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generateProSaveMethodSelect()</function-signature>
+	</function>
+	<function>
+		<name>generatePropertyStatusKeySelect</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generatePropertyStatusKeySelect()</function-signature>
+	</function>
+	
+	<function>
+		<name>generateActualPositionSelect</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generateActualPositionSelect()</function-signature>
+	</function>
+	<function>
+		<name>generateDisposalKeySelect</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generateDisposalKeySelect(java.lang.String)</function-signature>
+	</function>
+	
+	<function>
+		<name>generateUUID</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generateUUID()</function-signature>
+	</function>
+	
+	<function>
+		<name>generateDamageStatusSelect</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generateDamageStatusSelect()</function-signature>
+	</function>
+	<function>
+		<name>generateApplicationTitle</name>
+		<function-class>cn.cellcom.szba.common.elutils.ElMappingFunction</function-class>
+		<function-signature>java.lang.String generateApplicationTitle(java.lang.String)</function-signature>
+	</function>
+	
+</taglib>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+ <beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:jaxws="http://cxf.apache.org/jaxws"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd 
+    http://cxf.apache.org/jaxws 
+    http://cxf.apache.org/schemas/jaxws.xsd">
+    <import resource="classpath:META-INF/cxf/cxf.xml" />  
+
+	<!--APP关联住房记录 webservice-->
+    <!-- <bean id="ws_iAppRelatedService" class="com.hlit.vdcs.webservice.impl.IAppRelatedRecordImpl">
+        <property name="appRelatedService"  ref="appRelatedService"/>
+    </bean>
+    ws访问点
+    <jaxws:endpoint id="ws_iAppRelatedService_ep" implementor="#ws_iAppRelatedService" address="/appRelatedService" /> -->
+    
+</beans>

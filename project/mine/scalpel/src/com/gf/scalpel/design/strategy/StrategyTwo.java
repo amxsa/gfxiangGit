@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.gf.scalpel.design.strategy;
+
+/**
+ * @author gfxiang
+ * @time 2017年5月2日 下午4:46:56
+ *	@StrategyTwo
+ */
+public class StrategyTwo implements IStrategy {
+
+	/* (non-Javadoc)
+	 * @see com.gf.scalpel.design.strategy.IStrategy#run()
+	 */
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("执行策略二");
+	}
+
+}

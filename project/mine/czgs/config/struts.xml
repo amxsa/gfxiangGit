@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.action.extension" value="action" />
+	<!-- 全局 -->
+	<package name="base-default" extends="struts-default" namespace="/">
+		<!-- 定制返回结果处理类型 -->
+		<result-types>
+			<result-type name="sys-error" class="hcho.core.action.SysResultAction"></result-type>
+		</result-types>
+		<!-- 全局结果 -->
+		<global-results>
+			<result name="error" type="sys-error"></result>
+			<result name="sysException">/WEB-INF/jsp/error.jsp</result>
+			<result name="input">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+		<!-- 全局异常匹配 -->
+		<global-exception-mappings>
+			<exception-mapping result="sysException" exception="hcho/core/exception/SysException"></exception-mapping>
+			<exception-mapping result="input" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+		
+	</package>
+	
+	
+	<include file="hcho/test/conf/test-struts.xml"></include>
+	<include file="hcho/nsfw/user/conf/user-struts.xml"></include>
+	<include file="hcho/nsfw/role/conf/role-struts.xml"></include>
+	<include file="hcho/home/conf/home-struts.xml"></include>
+	<include file="hcho/nsfw/home/conf/home-struts.xml"></include>
+	<include file="hcho/login/conf/login-struts.xml"></include>
+	<include file="hcho/nsfw/info/conf/info-struts.xml"></include>
+	<include file="hcho/nsfw/complain/conf/complain-struts.xml"></include>
+	<include file="hcho/nsfw/reserve/conf/reserve-struts.xml"></include>
+</struts>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jlit.xms.mapper.TestCommodityMapper" >
+  <resultMap id="commodityBaseResultMap" type="com.jlit.xms.model.TestCommodity" >
+    <id column="id" property="id" />
+    <result column="name" property="name"  />
+    <result column="logo" property="logo"  />
+    <result column="current_price" property="currentPrice"  />
+    <result column="category_id" property="categoryId" />
+  </resultMap>
+  <select id="selectPageList" parameterType="pageData"	resultMap="commodityBaseResultMap">
+		select * from test_commodity
+		<where>
+			<if test="paramEntity.name!=null"> and name like #{paramEntity.name} </if>
+			<if test="paramEntity.categoryId!=null"> and category_id like #{paramEntity.categoryId} </if>
+		</where>
+		limit #{start},#{rows}
+	</select>
+	<select id="getById" parameterType="string" resultMap="commodityBaseResultMap">
+		select * from test_commodity where id=#{commodityId}
+	</select>
+	<insert id="insert" parameterType="testCommodity" >
+	    insert into test_commodity (id, name,logo,current_price,category_id)
+	    values (#{id}, #{name}, #{logo},#{currentPrice},#{categoryId} )
+ 	 </insert>
+</mapper>

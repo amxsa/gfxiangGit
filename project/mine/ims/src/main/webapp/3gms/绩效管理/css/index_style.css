@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+/* css 初始化 */
+/* 1.清除浏览器默认样式 */ 
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input{margin:0;padding:0;font-family: "微软雅黑";}
+/* 2.针对性处理 */
+*{padding: 0;margin: 0;}
+ol,ul{ list-style:none;}
+textarea{ resize:none;}
+img{ border:none; display:block;/*img底部空白*/}
+input,area{ outline:none;border:0 none;}        /* 谷歌浏览器表单元素外框 */
+em,i{font-style:normal;}
+
+header{padding: 20px 0;}
+.index_wrap{margin: 0 auto;width: 1000px;position: relative;}
+h1,h1 img{display: inline-block;}
+.sg_name{font-size: 30px;color: #1db7ff;font-family: "微软雅黑";vertical-align: top;border-left: 1px solid #1db7ff;padding-left: 10px;margin-left: 10px;}
+.content{width: 100%;height: 475px;background: url(../img/index_bg.jpg) no-repeat center;background-size:1920px auto;}
+.logo_area{width: 340px;height: 360px;background:rgba(98,99,102,0.5);position: absolute;right: 0;top: 45px;padding: 30px 20px 0;box-sizing: border-box;color: #fff;}
+.left_pic{position: absolute;left: 0;top:75px;}
+.massage{width: 100%;height: 40px;margin-top: 30px;}
+.icon1{float: left;width: 40px;height: 40px;background: url(../img/index_icon1.png) no-repeat center;background-color: rgba(252,252,252,0.3);border-radius: 3px 0 0 3px;}
+.icon2{float: left;width: 40px;height: 40px;background: url(../img/index_icon2.png) no-repeat center;background-color: rgba(252,252,252,0.3);border-radius: 3px 0 0 3px;}
+.massage input{width: 260px;height: 40px;background: rgba(252,252,252,0.3);display: inline-block;font-size: 18px;color: #fff;border-radius: 0 3px 3px 0;cursor: pointer;}
+.login_btn{width: 100%;height: 40px;text-align: center;line-height: 40px;background: #1db7ff;margin-top: 80px;border-radius: 3px;cursor: pointer;}
+/*底部*/
+footer{text-align: center;}
+footer p{text-align: center;padding-top: 20px;color: #716F6F;font-size: 12px;}
+footer p em{padding: 0 20px;}

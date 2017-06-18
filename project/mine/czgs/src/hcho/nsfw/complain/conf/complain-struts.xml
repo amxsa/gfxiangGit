@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.action.extension" value="action" />
+	
+   
+     <package name="complain-package" extends="base-default,json-default" namespace="/nsfw">
+     	<action name="complain_*" class="hcho.nsfw.complain.action.ComplainAction" method="{1}">
+     		<result name="{1}">/WEB-INF/jsp/nsfw/complain/{1}.jsp</result>
+     		<result name="list" type="redirectAction">
+     			<param name="actionName">complain_listUI</param>
+     			<param name="complain.compTitle">${strTitle}</param>
+     			<param name="complain.state">${strState}</param>
+     			<param name="startTime">${startTime}</param>
+     			<param name="endTime">${endTime}</param>
+     			<param name="encode">true</param>
+     		</result>
+     		<result name="statisticData" type="json" >
+     			<param name="root">statisticDataMap</param>
+     		</result>
+     	</action>
+     </package> 
+
+</struts>

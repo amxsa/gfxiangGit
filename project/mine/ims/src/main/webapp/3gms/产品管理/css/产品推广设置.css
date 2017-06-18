@@ -1,0 +1,52 @@
+.layer_bd_content {
+	padding-left: 40px;
+	padding-bottom: 58px;
+}
+
+.message_block {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.message_block> div {
+	display: inline-block;
+	width: 45%;
+	margin-bottom: 10px;
+}
+
+.message_block> p {
+	font-weight: bold;
+}
+
+.message_block .textarea_conter {
+	width: 95%;
+	position: relative;
+}
+
+.textarea_conter span {
+	position: absolute;
+	left: 0;
+	top: -1px;
+}
+
+.textarea_conter textarea {
+	margin: 0 0 0 80px;
+	width: 75%;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 0 0 transparent;
+}
+
+.day_num {
+	width: 50px;
+	height: 34px;
+	line-height: 34px;
+	border: solid 1px #d9e0f2;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #717d98;
+	font-family: "微软雅黑";
+	background-color: #fff;
+	padding-left: 4px;
+	box-sizing: border-box;
+	font-size: 14px;
+}

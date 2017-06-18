@@ -1,0 +1,135 @@
+/*#dzlx {
+	margin-left: 8px;
+	margin-right: 40px;
+}
+#sf {
+	margin-left: 65px;
+	margin-right: 65px;
+}
+#cd {
+	margin-right: 80px;
+	margin-left: 50px;
+	letter-spacing: 5px;
+}
+#yb {
+	letter-spacing: 5px;
+	margin-left: 85px;
+}
+#cz {
+	float: right;
+	margin-right: 10px;
+	overflow: visible;
+}*/
+/*
+#ny-1  a{
+	background-image: url(../images/images3/images/nystyle1-l.gif);
+	background-repeat: no-repeat;
+	display: block;
+	height: 26px;
+	width: 131px;
+	margin-right: 5px;
+	line-height: 26px;
+	text-align: center;
+	color: #ce0606;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+#ny-1  a:hover{
+	background-image: url(../images/images3/images/nystyle1-h.gif);
+	background-repeat: no-repeat;
+}*/
+/*
+#ny-2  a:hover{
+	background-image: url(../images/images3/images/nystyle2-h.gif);
+	background-repeat: no-repeat;
+}
+#ny-2  a{
+	background-image: url(../images/images3/images/nystyle2-l.gif);
+	background-repeat: no-repeat;
+	display: block;
+	height: 26px;
+	width: 131px;
+	line-height: 26px;
+	text-align: center;
+	color: #88771a;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-right: 2px;
+	float: left;
+	position: relative;
+}*/
+/*
+.tabline {
+	background-image: url(../images/images3/images/tabline.gif);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+*/
+/*
+#tabny-l a {
+	color: #888d91;
+	background-image: url(../images/images3/images/tabny-1.gif);
+	background-repeat: no-repeat;
+	display: block;
+	height: 20px;
+	width: 73px;
+	margin-left: 10px;
+	line-height: 22px;
+	text-align: center;
+}
+#tabny-r a {
+	color: #888d91;
+	background-image: url(../images/images3/images/tabny-1.gif);
+	background-repeat: no-repeat;
+	background-position: -1px 0px;
+	display: block;
+	height: 20px;
+	width: 72px;
+	line-height: 22px;
+	text-align: center;
+	
+}
+
+#tabny-l a:hover {
+	color: #888d91;
+	background-image: url(../images/images3/images/tabny-2.gif);
+	background-repeat: no-repeat;
+}
+#tabny-r a:hover {
+	color: #888d91;
+	background-image: url(../images/images3/images/tabny-2.gif);
+	background-repeat: no-repeat;
+	background-position: -1px 0px;
+}
+*/
+
+.email{
+	float: left;
+	margin-bottom: 5px;
+	width: 345px;
+}
+#kd{
+	float: left;
+	width: 70px;
+	margin-top: 10px;
+	position: relative;
+}
+.phone {
+	float: left;
+	margin-bottom: 5px;
+	width: 345px;
+}
+.phone-1 {
+	margin-bottom: 8px;
+	clear: both;
+	display: none;
+	float: left;
+}
+/*添加删除按钮组*/
+
+.edit2 {
+	height: 22px;
+	width: 84px;
+	position: relative;
+	float: left;
+}

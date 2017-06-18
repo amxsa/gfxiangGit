@@ -1,0 +1,56 @@
+<!-- 文件上传servlet -->
+	<servlet>
+	    <servlet-name>imagesUploadServlet</servlet-name>
+	    <servlet-class>com.gf.ims.file.servlet.ImagesUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>imagesUploadServlet</servlet-name>
+	    <url-pattern>/imagesUpload</url-pattern>
+	</servlet-mapping>
+	<!-- 文件上传servlet end -->
+	<!-- 文件上传servlet -->
+	<servlet>
+	    <servlet-name>filesUploadServlet</servlet-name>
+	    <servlet-class>com.gf.ims.file.servlet.FilesUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>filesUploadServlet</servlet-name>
+	    <url-pattern>/filesUpload</url-pattern>
+	</servlet-mapping>
+	<!-- 文件上传servlet end -->
+    <!-- 文件上传servlet,不修改文件名 -->
+	<servlet>
+	    <servlet-name>filesUploadNoRenameServlet</servlet-name>
+	    <servlet-class>com.gf.ims.file.servlet.FilesUploadNoRenameServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>filesUploadNoRenameServlet</servlet-name>
+	    <url-pattern>/filesUploadNoRename</url-pattern>
+	</servlet-mapping>
+	<!-- 文件上传servlet end -->
+	<!-- 图片验证码上传servlet start-->
+	<servlet>
+	    <servlet-name>validateCodePicUploadServlet</servlet-name>
+	    <servlet-class>com.gf.ims.file.servlet.ValidateCodePicUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>validateCodePicUploadServlet</servlet-name>
+	    <url-pattern>/validateCodePicUpload</url-pattern>
+	</servlet-mapping>
+	<!-- 图片验证码上传servlet end-->
+	<!-- 初始化并生成文件存放的目录Servlet start -->
+	<servlet>
+	    <servlet-name>InitFileDiretoryServlet</servlet-name>
+	    <servlet-class>com.gf.ims.file.servlet.InitFileDiretoryServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 初始化并生成文件存放的目录Servlet end -->
+	<!-- 生成一个二维码图片并返回图片的访问链接 start-->
+	<servlet>
+	    <servlet-name>genBarCodeServlet</servlet-name>
+	    <servlet-class>com.gf.ims.file.servlet.GenBarCodeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>genBarCodeServlet</servlet-name>
+	    <url-pattern>/genBarCode</url-pattern>
+	</servlet-mapping>

@@ -1,0 +1,83 @@
+.setparam .input_box label {
+	width: 100px;
+}
+
+
+/*调查问券题目*/
+
+.question_box {
+	border-top: 1px solid #D9E0F2;
+	padding-top: 20px;
+	margin-bottom: 30px;
+}
+
+.question_box> div:nth-child(1) {
+	margin-bottom: 20px;
+}
+
+.question_list {}
+
+.question_list>li {
+	margin: 0;
+}
+
+.question_list>li>label {
+	display: inline-block;
+	width: 55px;
+	text-align: right;
+	vertical-align: top;
+	line-height: 35px;
+	margin-right: 20px;
+}
+
+.question_list>li .question_content {
+	display: inline-block;
+	width: 800px;
+	min-width: 700px;
+}
+
+.question_content .input_box {
+	display: inline-block;
+	width: 300px;
+}
+
+.question_content .input_box label {
+	display: inline-block;
+	text-align: left;
+}
+
+.question_content .input_box input[type="radio"] {
+	margin-right: 5px;
+}
+
+.item_box> label {
+	margin-right: 10px;
+}
+
+.input600 {
+	width: 600px;
+}
+
+.answer_box {
+	margin-left: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.answer_box li {
+	float: left;
+	margin-bottom: 10px;
+	width: 25%;
+}
+
+.answer_box li label {
+	margin-right: 10px;
+}
+
+.marginleft20 {
+	margin-left: 20px;
+}
+
+.add_question {
+	margin-left: 113px;
+}

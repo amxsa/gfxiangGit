@@ -1,0 +1,14 @@
+﻿<classAndTable classFullName="cn.cellcom.szba.domain.TAppProTransLog" tableName="t_app_pro_trans_log">
+	 <columnMapList>
+	    <ids>
+			<id name="id" property="id" identify="true"/>
+	    </ids>
+	    <column name="application_id" property="applicationId"/>
+	    <column name="property_id" property="propertyId"/>
+	    <column name="property_status" property="propertyStatus"/>
+	    <column name="actual_position" property="actualPosition"/>
+	    <column name="create_time" property="createTime"/>
+	    <column name="account" property="account"/>
+	   
+	 </columnMapList>
+</classAndTable>

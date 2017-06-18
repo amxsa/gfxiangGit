@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<flownodes>
+    <flownode name="agreeTHBRK" isSameAsCurrentDept="false" roles="" propertyStatus="YTH" actualPosition="BZKZ" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='TH' &amp;&amp; oriActualPosition=='BAMJ'</conditionExpression>
+    </flownode>
+    <flownode name="agreeTHZCK" isSameAsCurrentDept="true" roles="3" propertyStatus="DTH" actualPosition="ZCK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='TH' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeTHZXK" isSameAsCurrentDept="false" roles="9" propertyStatus="SQTH" actualPosition="ZXK" applicationStatus="N">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='TH' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+<!-- 变卖 -->
+    <flownode name="agreeBMBRK" isSameAsCurrentDept="false" roles="" propertyStatus="YBM" actualPosition="BZKZ" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='BM' &amp;&amp; oriActualPosition=='BAMJ'</conditionExpression>
+    </flownode>
+    <flownode name="agreeBMZCK" isSameAsCurrentDept="true" roles="3" propertyStatus="DBM" actualPosition="ZCK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='BM' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeBMZXK" isSameAsCurrentDept="false" roles="9" propertyStatus="SQBM" actualPosition="ZXK" applicationStatus="N">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='BM' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+    
+    <flownode name="agreeMSZCK" isSameAsCurrentDept="false" roles="" propertyStatus="YMS" actualPosition="ZCK" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='MS' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeMSZXK" isSameAsCurrentDept="false" roles="" propertyStatus="YMS" actualPosition="ZXK" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='MS' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+    <flownode name="agreePMZCK" isSameAsCurrentDept="false" roles="" propertyStatus="DPM" actualPosition="ZCK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='PM' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreePMZXK" isSameAsCurrentDept="false" roles="" propertyStatus="DPM" actualPosition="ZXK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='PM' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeFHBRK" isSameAsCurrentDept="false" roles="" propertyStatus="YFH" actualPosition="BAMJ" applicationStatus="S">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='FH' &amp;&amp; oriActualPosition=='BAMJ'</conditionExpression>
+    </flownode>
+    <flownode name="agreeFHZCK" isSameAsCurrentDept="true" roles="7" propertyStatus="DFH" actualPosition="ZCK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='FH' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeFHZXK" isSameAsCurrentDept="false" roles="9" propertyStatus="SQFH" actualPosition="ZXK" applicationStatus="N">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='FH' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeXHZCK" isSameAsCurrentDept="false" roles="" propertyStatus="DXH" actualPosition="ZCK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='XH' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeXHZXK" isSameAsCurrentDept="false" roles="" propertyStatus="DXH" actualPosition="ZXK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='XH' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeSJGKZCK" isSameAsCurrentDept="false" roles="" propertyStatus="DSJGK" actualPosition="ZCK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='SJGK' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="agreeSJGKZXK" isSameAsCurrentDept="false" roles="" propertyStatus="DSJGK" actualPosition="ZXK" applicationStatus="Y">
+        <conditionExpression>status=='Y' &amp;&amp; disposalKey=='SJGK' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+    <flownode name="disagreeBAMJ" isSameAsCurrentDept="false" roles="" propertyStatus="YDJ" actualPosition="BAMJ" applicationStatus="F">
+        <conditionExpression>status=='N' &amp;&amp; oriActualPosition=='BAMJ'</conditionExpression>
+    </flownode>
+    <flownode name="disagreeZCK" isSameAsCurrentDept="false" roles="" propertyStatus="YRZCK" actualPosition="ZCK" applicationStatus="F">
+        <conditionExpression>status=='N' &amp;&amp; oriActualPosition=='ZCK'</conditionExpression>
+    </flownode>
+    <flownode name="disagreeZXK" isSameAsCurrentDept="false" roles="" propertyStatus="YRZXK" actualPosition="BAMJ" applicationStatus="F">
+        <conditionExpression>status=='N' &amp;&amp; oriActualPosition=='ZXK'</conditionExpression>
+    </flownode>
+</flownodes>

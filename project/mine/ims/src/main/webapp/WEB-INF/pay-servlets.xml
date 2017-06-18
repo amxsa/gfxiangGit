@@ -1,0 +1,32 @@
+<servlet>
+	<servlet-name>saveOrderServlet</servlet-name>
+	<servlet-class>
+		com.gf.ims.servlet.SaveOrderServlet
+	</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>saveOrderServlet</servlet-name>
+	<url-pattern>/servlet/saveOrder</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>GetWxPrepayidRequestServlet</servlet-name>
+	<servlet-class>
+		com.gf.ims.pay.servlet.GetWxPrepayidRequestServlet
+	</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>GetWxPrepayidRequestServlet</servlet-name>
+	<url-pattern>/servlet/getWxPrepayidRequest</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>GetWxPayOrderStatusServlet</servlet-name>
+	<servlet-class>
+		com.gf.ims.pay.servlet.GetWxPayOrderStatusServlet
+	</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>GetWxPayOrderStatusServlet</servlet-name>
+	<url-pattern>/servlet/getWxPayOrderStatus</url-pattern>
+</servlet-mapping>

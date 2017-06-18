@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<!-- 可以查询全部财物的角色 -->
+	<util:list id="rolesQueryAll" list-class="java.util.ArrayList">
+		<value>FZK</value>
+		<value>XTGLY</value>
+	</util:list>
+	
+	<!-- 查询财物的时候需要根据部门信息查询的角色 -->
+	<util:list id="rolesQueryByDept" list-class="java.util.ArrayList">
+		<value>BADWLD</value>
+	</util:list>
+	
+	<!-- 允许进行财物处置的财物状态 -->
+	<util:list id="handlerProperties" list-class="java.util.ArrayList">
+		<value>YDJ</value>		
+		<value>ZCK</value>		
+		<value>ZXK</value>		
+		<value>ZCK_DY</value>		
+		<value>ZXK_DY</value>		
+	</util:list>
+	 
+	<!-- 允许进行财物修改的财物状态 -->
+	<util:list id="editProperties" list-class="java.util.ArrayList">
+		<value>YDJ</value>		
+	</util:list>
+	
+	<util:map id="proViewNameGroup1" map-class="java.util.HashMap">
+		<entry key="registerPropertyList" value="财物登记"></entry>
+		<entry key="applyDestoryPropertyList" value="销毁申请"></entry>
+		<entry key="remoteDistinPropertyList" value="远程识证"></entry>
+		<entry key="disposalPropertyList" value="案结登记"></entry>
+		<entry key="propertyList" value="案件关联"></entry>
+		<entry key="hisTracePropertyList" value="财物轨迹"></entry>
+		<entry key="registerDestoryPropertyList" value="销毁登记"></entry>
+		
+		<entry key="applyReimbursePropertyList" value="发还申请"></entry>
+		<entry key="applyReturnPropertyList" value="退还申请"></entry>
+		<entry key="applyInvokePropertyList" value="调用申请"></entry>
+		<entry key="applyAuctionPropertyList" value="拍卖申请"></entry>
+		<entry key="applyConfiscatePropertyList" value="没收申请"></entry>
+		<entry key="inStateTreasuryPropertyList" value="应入国库"></entry>
+	</util:map>
+	<util:map id="proViewNameGroup2" map-class="java.util.HashMap">
+		<entry key="applyInPropertyList" value="入库申请"></entry>
+		<entry key="applyOutPropertyList" value="出库申请"></entry>
+		<entry key="0xxx00001" value="销毁实施"></entry>
+	</util:map>
+	<util:map id="proViewNameGroup3" map-class="java.util.HashMap">
+		<entry key="applyInvokeOutPropertyList" value="调用申请"></entry>
+		<entry key="applyInvokeIntoPropertyList" value="调用归还"></entry>
+		<entry key="applyMovePropertyList" value="移库申请"></entry>
+		<entry key="applyHandlePropertyList" value="处置申请"></entry>
+		<entry key="handleResultPropertyList" value="处置登记"></entry>
+		<entry key="inventoryPropertyList" value="库存管理"></entry>
+	</util:map>
+	<util:map id="proViewNameGroup4" map-class="java.util.HashMap">
+		<entry key="countOutPropertyList" value="出库统计"></entry>
+	</util:map>
+	<util:map id="proViewNameGroup5" map-class="java.util.HashMap">
+	    <entry key="countAllPropertyList" value="财务统计"></entry>
+	</util:map>
+	<util:map id="proViewNameGroup6" map-class="java.util.HashMap">
+	    <entry key="countInPropertyList" value="出库统计"></entry>
+	</util:map>
+	
+	<util:map id="proOperateType" map-class="java.util.HashMap">
+		<entry key="/property/queryDetailById.do" value="查看"></entry>
+		<entry key="/property/addData.do" value="登记"></entry>
+		<entry key="/property/updateData.do" value="修改"></entry>
+		<entry key="/property/delete.do" value="删除"></entry>
+		<entry key="PROCEDURE001" value="申请入暂存库"></entry>
+		<entry key="PROCEDURE002" value="申请移库"></entry>
+		<entry key="PROCEDURE003" value="申请处置"></entry>
+		
+		<entry key="PROCEDURE004" value="申请调用出暂存库"></entry>
+		<entry key="PROCEDURE005" value="申请调用出中心库"></entry>
+		<entry key="PROCEDURE006" value="申请归还暂存库"></entry>
+		<entry key="PROCEDURE007" value="申请归还中心库"></entry>
+		<entry key="PROCEDURE008" value="申请入中心库"></entry>
+		<entry key="PROCEDURE009" value="申请销毁"></entry>
+		<entry key="PROCEDURE010" value="申请销毁"></entry>
+		<entry key="PROCEDURE011" value="申请销毁"></entry>
+	</util:map>
+	
+</beans>

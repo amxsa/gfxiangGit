@@ -1,0 +1,41 @@
+.right_centent{height: 1000px;}
+.centent_r_btm{padding: 0 15px;box-sizing: border-box;}
+input{height: 24px;border: 1px solid #bfbfbf;cursor: pointer;}
+.Wdate{padding-left: 10px;box-sizing: border-box;}
+.search{border:0;}
+.search_box{display: inline-block;vertical-align: middle;}
+.ipt_box{width: 262px;height: 26px;border: 1px solid #bfbfbf;display: inline-block;padding-left: 10px;vertical-align: top;margin-right: 10px;}
+.ipt_box input{width: 230px;height: 26px;float: left;}
+.search_btn{width:30px ;height: 26px;background: url(../images/icon-search.png) no-repeat center center;float: left;border-left: 1px solid #bfbfbf;cursor:pointer;}
+.centent_hd{margin: 10px 0;}
+.centent_hd .soso{width: 120px;height: 24px;border: 1px solid #bfbfbf;margin-right: 10px;}
+.cancer_time{width: 140px;padding: 12px 0 12px 10px;}
+.find{width: 65px;height: 24px;border: 1px solid #bfbfbf;text-align: center;line-height: 24px;display: inline-block;cursor: pointer;margin-left: 20px;border-radius: 4px;}
+.export{width: 80px;height: 24px;border: 1px solid #bfbfbf;text-align: center;line-height: 24px;float: right;cursor: pointer;background:#6ca109;border-radius: 4px;color: #fff;}
+.centent_bd{margin-top: 20px;/*border: 1px solid #bfbfbf;border-bottom: 0;*/box-sizing: border-box;display: none;}
+.main_box {margin-top: 30px;}
+.main_box ul.tab_top{overflow: hidden;}
+.main_box ul.tab_top li{float: left;
+    width: 223px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    background: #5e96eb;;
+    margin-right: 20px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    cursor: pointer;}
+body .main_box ul.tab_top li.now{    box-shadow: 5px 5px 5px #666;}
+.current{display: block;}
+.first_ul li{position: relative;}
+
+body th i{display: inline-block;width: 10px;height: 10px;background: url(../images/sort_desc.png) no-repeat center center;cursor: pointer;padding-left: 4px;}
+i.down{display: inline-block;width: 10px;height: 10px;background: url(../images/sort_asc.png) no-repeat center center;cursor: pointer;padding-left: 4px;}
+td i{width: 30px;height: 30px;background: url(../images/see.png) no-repeat center center;
+    display: inline-block;
+    background-size: 100% auto;}
+td em{width: 30px;height: 30px;background: url(../images/pai.png) no-repeat 0 0;
+    display: inline-block;
+    background-size: 100% auto;margin-left: 10px;}
+

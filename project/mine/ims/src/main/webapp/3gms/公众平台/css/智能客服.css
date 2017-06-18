@@ -1,0 +1,75 @@
+/*页面样式*/
+
+
+/*弹出框*/
+
+.layer {
+	height: 400px;
+}
+
+.layer_hd,
+.layer_ft {
+	position: static;
+}
+
+.layer_bd {
+	padding: 20px 0 0;
+}
+
+.layer_bd_content {
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+
+
+/*弹出框的左边部分样式*/
+
+.layer_left,
+.layer_right {
+	float: left;
+	box-sizing: border-box;
+	width: 50%;
+}
+
+.layer_bd_content .serach_in {
+	margin-bottom: 15px;
+}
+
+.layer_bd_content .serach_in>span {
+	/*background-color: palegoldenrod;*/
+	width: 60px;
+	text-align: right;
+}
+
+.select_box {
+	margin-left: 75px;
+	margin-right: 20px;
+}
+
+.select_box .select_in {
+	display: none;
+	border: solid 1px #d9e0f2;
+	min-height: 150px;
+	overflow: hidden;
+}
+.select_box .select_in .commonPage{
+	margin-bottom: 15px;
+}
+
+
+
+.radio_box {
+	padding-top: 5px;
+}
+
+.radio_box li {
+	float: left;
+	min-width: 25%;
+	box-sizing: border-box;
+	padding: 5px 0 5px 8px;
+	vertical-align: top;
+}
+
+.radio_box li input {
+	margin-right: 5px;
+}

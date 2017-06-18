@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>产品管理--产品信息管理--新增贷款产品</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base_web.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/dialog.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/message_box.css" />
+		<link rel="stylesheet" type="text/css" href="理财产品详情3.css" />
+		<!--<link rel="stylesheet" type="text/css" href="产品信息详情样式1.0.css"/>-->
+		<!-- 引入jquery库文件 -->
+		<script src="../../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<script src="../../js/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.serach_in i{
+				display: inline-block;
+			}
+			.message_box_content .serach_in >div:nth-child(1){
+				width: 100px;
+			}
+		</style>
+		
+		<script>
+			$(function() {
+
+				//点击添加备注信息事件
+				$("#addRemarks").on("click", function() {
+					//创建一个li
+					var lis = document.createElement("li");
+					lis.innerHTML = '' +
+						'<input type="text" name="" id="" value="" class="common_input"  placeholder="请填写信息名称" />' +
+						'<input type="text" name="" id="" value="" class="common_input"  placeholder="请填写信息名称" />' +
+						'<div class="table_btn">删除</div>' +
+						'<div class="table_btn">保存</div>';
+					document.getElementById("content_list").appendChild(lis);
+					//显示保存备注信息按钮
+					$("#saveRemarks").show();
+				})
+
+				//点击保存备注信息按钮事件
+				$("#saveRemarks").on("click", function() {
+
+				})
+
+				//点击编辑条件按钮事件
+				$("#editCondition").on("click", function() {
+						$(".layer-bg").show();
+						$("#setPush").show();
+					})
+					//点击弹出框的取消按钮
+				$("#cancelSetPush").on("click", function() {
+						$(".layer-bg").hide();
+						$("#setPush").hide();
+					})
+					//点击弹出框的保存按钮
+				$("#saveSetPush").on("click", function() {
+					$(".layer-bg").hide();
+					$("#setPush").hide();
+				})
+
+				$(".close").on("click", function() {
+					$(".layer-bg").hide();
+					$("#setPush").hide();
+				})
+				$(".back").on("click",function(){
+					window.history.back();
+				})
+
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<div class="crumb">
+				<em>产品管理</em><i>></i><em>产品信息管理</em><i>></i><em>新增贷款产品</em>
+			</div>
+			<div class="wrap_main_bd">
+				<div class="common_btn back">返回</div>
+
+				<div class="message_box">
+					<div class="message_box_title">
+						<span>新增贷款产品信息详情</span>
+						<div>
+							<div class="table_btn" id="saveMessage" >保存</div>
+							<!--<div class="table_btn" id="cancelMessage" style="display: none;">取消</div>
+							<div class="table_btn" id="editMessage">编辑</div>-->
+						</div>
+					</div>
+					
+					<div class="message_box_content clearfix">
+						<div class="boldfont">基本信息</div>
+						<div class="content_left ">
+							<div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>产品名称</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+									
+								</div>
+							</div>
+							<div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>产品号</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+									
+								</div>
+							</div>
+							<div class="serach_in clearfix">
+								<div class="">
+									<i>*</i>
+									<span>适用客户</span>
+								</div>
+								<div class="">
+									<input type="checkbox" name="" id="" value="" />对私客户
+									<input type="checkbox" name="" id="" value="" />对公客户
+									<input type="checkbox" name="" id="" value="" />同业客户
+								</div>
+							</div>
+							<div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>币种</span>
+								</div>
+								<div class="">
+									<select name="" id="">
+										<option value="">人民币</option>
+										<option value="">nnnnn</option>
+									</select>
+								</div>
+							</div>
+					        <div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>办理方式</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</div>
+							
+					
+						</div>
+						<div class="content_right">
+							<div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>存款期限(年)</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+
+							</div>
+							<div class="serach_in">
+								<div class="">	
+									<i>*</i>
+									<span>起点金额</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</div>
+							<div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>存款利息</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+								</div>
+							</div>
+							<div class="serach_in">
+								<div class="">
+									<i>*</i>
+									<span>产品优势</span>
+								</div>
+								<div class="">
+									<input type="text" name="" id="" value="" class="common_input" />
+									
+								</div>
+							</div>
+							
+						</div>
+
+						<!--备注信息-->
+						<div class="remarks">
+							<div class="boldfont">备注信息</div>
+
+							<div class="remarks-content">
+								<ul class="content_list" id="content_list">
+									<li>
+										<span>备注标题</span>
+										<span>备注内容</span>
+									</li>
+									<!--<li>
+										<input type="text" name="" id="" value="" class="common_input"  placeholder="请填写信息名称" maxlength="10" />
+										<input type="text" name="" id="" value="" class="common_input" placeholder="请填写信息内容" maxlength="30" />
+										<div class="table_btn">删除</div>
+										<div class="table_btn">编辑</div>
+									</li>-->
+								</ul>
+
+								<div class="content_btn">
+									<div class="table_btn" id="addRemarks">添加备注</div>
+									<!--<div class="common_btn" id="saveRemarks" style="display:none">保存</div>-->
+								</div>
+
+							</div>
+
+						</div>
+
+						<!--备注信息结束-->
+
+					</div>
+				</div>
+
+			
+			</div>
+		</div>
+
+		<!--模拟窗口---对话框-->
+		<div class="layer_dialog">
+			<div class="dialog_hd">
+				<p></p>
+				<span class="close"></span>
+			</div>
+			<div class="dialog_bd">
+				<div class="dialog_bd_content">
+					请完整填写备注
+				</div>
+			</div>
+			<div class="dialog_ft">
+				<!--<div class="layer_ft_no">取消</div>-->
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<div class="layer-bg" style="background-color:rgba(0,0,0,0.5);"></div>
+
+	</body>
+
+</html>

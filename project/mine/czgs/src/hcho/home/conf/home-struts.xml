@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.action.extension" value="action" />
+	
+   
+     <package name="home-package" extends="struts-default" namespace="/sys">
+     	<action name="home_*" class="hcho.home.action.HomeAction" method="{1}">
+     		<result name="home">/WEB-INF/jsp/home/home.jsp</result>
+     		<result name="{1}">/WEB-INF/jsp/home/{1}.jsp</result>
+     	</action>
+     </package> 
+     <package name="homeJson-package" extends="json-default,struts-default" namespace="/sys">
+     	<action name="homeJson_getUserJson" class="hcho.home.action.HomeAction" method="getUserJson">
+			<result name="success" type="json">
+				<param name="root">return_map</param>
+			</result>     		
+     	</action>
+     </package> 
+
+</struts>

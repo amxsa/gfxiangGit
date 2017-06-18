@@ -1,0 +1,184 @@
+
+
+/*右边模块除面包屑的下部分第二大盒子*/
+.wrap_main_bd{width: 100%;background: #f8f9fe;padding: 20px 20px 70px;box-sizing: border-box;overflow: hidden;}
+/*页签模块tab_content==========*/
+/*页签头部*/
+.tab_btn{overflow: hidden;}
+.tab_btn li{float: left;font-size: 14px;display: inline-block;margin-right: 5px;width: 95px;height: 49px;line-height: 49px;border: 1px solid #d8e1f2;border-bottom:0 none;text-align: center;border-radius: 3px 3px 0 0;font-size: 14px; overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;padding: 0 10px;background: #e5ecfc;cursor: pointer;}
+body .now_status{color: #3bc1ff;background:#fff;width: 95px;height: 49px;border-bottom: 0 none;}
+/*页签内容区域*/
+.main_center{width: 100%;border: 1px solid #d8e1f2;background: #fff;margin-top: -1px;padding: 20px;box-sizing: border-box;overflow: hidden;}
+.serach_box{margin-bottom: 30px;}
+/* 切换页签 */
+.show_tab{display:none;}
+body .show_now{display:block;}
+
+
+/* 模态窗口 */
+.layer{width: 800px;height: 500px;background:#fff;position: fixed;left:50%;top:50%;margin-left: -400px;margin-top: -250px;z-index:2; display:none;}
+
+.layer_hd{position: absolute;left: 0;top: 0;height: 40px;line-height: 40px;background: #e5ecfc;width: 100%;}
+.layer_hd p{padding-left: 10px;font-size: 16px;width: 100%;}
+.layer .close{width: 40px;height: 40px;position: absolute;right:0;top:0;background: url(../img/icon-close.png) no-repeat center center;cursor: pointer;}
+.layer-bg{width:100%;height:100%;background: #000; position: fixed;left: 0; top: 0; display:none;z-index:1;}
+.layer_bd{width: 100%;height: 100%;background: #fff;overflow: auto;padding: 50px 0;box-sizing: border-box;}
+
+.layer_ft{width: 100%;background: #fff;position: absolute;left: 0;bottom: 0;text-align: center;line-height: 60px;}
+.layer_ft_no,.layer_ft_yes{padding: 0 25px;height: 32px;line-height: 32px;text-align: center;cursor:pointer;border-radius: 4px;   display: inline-block;margin: 0 20px;box-sizing: border-box;}
+.layer_ft_no{border: 1px solid #d8e1f2;}
+.layer_ft_yes{background: #1db7ff;color: #fff;}
+
+
+
+.layer_bd_content{padding: 30px 20px;box-sizing: border-box;}
+.layer_bd_content p{margin: 10px 0;}
+.layer_bd_content p span{width: 84px;display: inline-block;text-align: right;}
+.layer_bd_content p em{padding-left: 20px;}
+/*模态框样式结束*/
+
+/*字体加粗，一般用于小标题*/
+.boldfont{
+	font-weight: bold;
+}
+
+/*有标题的模块框*/
+.message_box {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+	margin-top: 20px;
+	border: solid 1px #d9e0f2;
+	border-radius: 3px;
+	color: #717d98;
+	font-family: Microsoft YaHei;
+	background-color: #fff;
+	font-size: 14px;
+}
+/**.message_box_title*/
+.message_box_hd {
+	color: #1db7ff;
+	border-bottom: 1px solid #d9e0f2;
+	padding-bottom: 3px;
+	position: relative;
+}
+/*.message_box_title span**/
+.message_box_hd span {
+	height: 34px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #1db7ff;
+}
+/**.message_box_title>div*/
+.message_box_hd >div {
+	position: absolute;
+	right: 0;
+	top: -13px;
+}
+/*.message_box_content**/
+.message_box_bd {
+	box-sizing: border-box;
+	padding: 20px;
+	line-height: 35px;
+	overflow: hidden;
+}
+/*有标题的模块框样式结束*/
+
+/*图表框*/
+
+.wrap_chart {}
+
+.wrap_chart .chart-box{
+	margin-bottom: 10px;
+}
+.width49_left {
+	display: block;
+	float: left;
+	width: 49%;
+}
+
+.width49_right {
+	display: block;
+	float: right;
+	width: 49%;
+}
+
+.chart-box {
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 3px #d8e1f2;
+	-moz-box-shadow: 0 0 3px #d8e1f2;
+	box-shadow: 0 0 3px #d8e1f2;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	
+	border: 1px solid #d8e1f2;
+	position: relative;
+}
+
+.chart-box .chart-tit {
+	box-sizing: border-box;
+	background-color: #f6f6f6;
+	width: 100%;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #d8e1f2;
+	padding-left: 10px;
+	color: #717d98;
+}
+
+.chart-box .chart-tit>span {
+	color: #717d98;
+}
+
+.chart-box .chart-main {
+	margin: 20px 0 0;
+	width: 100%;
+	height: 350px;
+	box-sizing:border-box;
+	
+	line-height:30px;
+	
+}
+
+.chart-box .chart-tit-control {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	display: inline-block;
+}
+
+.chart-tit-control div {
+	margin-left: 10px;
+	background-color: #FFFFFF;
+}
+/*图表框结束*/
+
+/*导入按钮*/
+.import_btn {
+	/*border: 1px solid red;*/
+	width: 120px;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.import_btn input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 34px;
+	border: 1px solid green;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.import_btn .table_btn {
+	margin: 0;
+}
+/*导入按钮结束*/
+
+

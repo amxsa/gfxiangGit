@@ -1,0 +1,196 @@
+﻿//个人贷款申请填写资料页面
+"ptPersonCust":{
+"custName":"李辉",
+"custSex":"男",
+"idCardNumber":"775867525353535331",
+"typeName":"房贷",   //贷款类型表中贷款类型名称
+"applyMoney":"5000",//业务申请表中申请金额，单位万元
+"house":"无",   //“资产”无该字段，需要添加
+"monthIncome":"25000",
+"phone":"18978948487",
+"profession":"职员"
+"tbUser":{
+"userName":"张玉吉",
+"password":"123321"
+}
+
+//客户经理工作台
+"ptManagerLog":{
+"userPhoto":"",
+"score":"5",
+"userName":"张玉吉",
+"pidName":"大堂经理",//职位名称，关联TB_POSITION表name
+"managerType":"贷款核查",//事件类型表中时间类型字段
+"messageReg":"有新客户提交贷款申请",
+"status":"0",
+"createDate":"7/7 10:25 2016"     //业务申请单表中获取
+}
+
+//抢单页面
+"grabList":{
+"typeName":"房贷",  
+"applyMoney":"5000",
+"phone":"18978948487",
+"createDate":"7/7 10:25 2016"  //业务申请单表中获取
+}
+
+//待办事项列表页面,业务申请单表中获取
+"reviewList":{
+"managerType":"贷款核查",
+"status":"0",
+"messageReg":"有新客户提交贷款申请",
+"createDate":"7/7 10:25 2016" 
+}
+
+//贷款核查列表页面（处理中）
+var str1="LoansList1":[
+{
+"custName":"李辉1",
+"applyStatus":"等待资料审核",
+"createDate":"7/7 10:25 2016",
+"status":"0"    //经理事项表PT_MANAGER_LOG中获取
+},{
+"custName":"李辉2",
+"applyStatus":"等待资料审核",
+"createDate":"7/7 10:25 2016",
+"status":"1"    //经理事项表PT_MANAGER_LOG中获取
+},{
+"custName":"李辉3",
+"applyStatus":"等待资料审核",
+"createDate":"7/7 10:25 2016",
+"status":"2"    //经理事项表PT_MANAGER_LOG中获取
+},{
+"custName":"李辉4",
+"applyStatus":"等待资料审核",
+"createDate":"7/7 10:25 2016",
+"status":"0"    //经理事项表PT_MANAGER_LOG中获取
+},{
+"custName":"李辉5",
+"applyStatus":"等待资料审核",
+"createDate":"7/7 10:25 2016",
+"status":"1"    //经理事项表PT_MANAGER_LOG中获取
+}
+]
+
+//贷款核查列表页面（已完成）
+"LoansList2":{
+	"custName":"童姗姗",
+	"phone":"18978948487",
+	"status":"2",
+}
+
+//贷款资料核查(资料审查)
+"ptApplyBusiness1":{
+"clientType":"个人",
+"custName":"李辉",
+"typeName":"房贷",  
+"applyMoney":"5000",
+"phone":"18978948487",
+"idCardNumber":"775867525353535331",
+"profession":"职员",
+"house":"无",  //资产,
+"monthIncome":"25000",
+"returnMessage":"您好！因时间紧急，请尽快审核，谢谢！",//需补充该字段在业务申请表中
+"checkDataInfo":"资料齐全，都为真实材料",
+"andInfo":"该客户信用良好",
+"applyStatus":"3"    //材料审核通过
+}
+
+//贷款资料核查(现场审查)
+"ptApplyBusiness2":{
+"clientType":"个人",
+"custName":"李辉",
+"typeName":"房贷",  
+"applyMoney":"5000",
+"phone":"18978948487",
+"idCardNumber":"775867525353535331",
+"profession":"职员",
+"house":"无",  //资产,
+"monthIncome":"25000",
+"returnMessage":"您好！因时间紧急，请尽快审核，谢谢！",//需补充该字段在业务申请表中
+"checkPlace":"广州市番禺区",
+"checkPic":"",    //现场审核图片
+"checkTime":"2016-07-07",
+"veriman":"覃佐瑞",  //业务申请表PT_APPLY_BUSINESS中没有该字段
+"checkOfflineInfo":"现场审核完成，符合贷款申请"
+"applyStatus":"4"    //现场审核通过
+
+}
+
+//待回访客户列表
+"ptRevisit1":{
+"custName":"李辉",
+"phone":"18978948487",
+"visitStatus":"贷款执行中"
+}
+
+//回访客户更新界面
+"ptRevisit2":{
+"clientType":"个人",
+"custName":"李辉",
+"typeName":"房贷",  
+"applyMoney":"5000",
+"phone":"18978948487",
+"idCardNumber":"775867525353535331",
+"visitType":"电话回访",
+"visitTime":"2016-07-07",
+"visitReson":"已完成贷款后客户回访",
+"veriman":"张玉吉"
+}
+
+
+//我的客户列表
+"myPtPersonCust1":{
+"custName":"李辉",
+"phone":"18978948487",
+}
+
+//客户信息查看
+"myPtPersonCust2":{
+"clientType":"个人",
+"custName":"李辉",
+"typeName":"房贷",  
+"applyMoney":"5000",
+"phone":"18978948487",
+"idCardNumber":"775867525353535331",
+ //缺少开户时间，当月存款，当月贷款，当月理财
+}
+
+//VIP预约列表界面
+"ptLagerAmountOrder1":{
+"orderStatus":"1",
+"custName":"高斌",
+"phone":"18978948487"
+}
+
+//vip预约受理页面
+"ptLagerAmountOrder2":{
+"clientType":"0",
+"nickName":"gao",
+"phone":"18978948487",
+"orderDate":"2016-07-07",
+"orderStatus":"1",
+"amount":"5000"
+}
+
+//客户评分页面
+"ptManagerScore":{
+"custName":"高斌", //客户姓名
+"actualName":"张玉吉",
+"userPhoto":"",
+"lobbyNo":"市区农信",
+"score":"5"
+}
+
+//客户贷款申请被处理页面
+"askSuccess":{
+"actualName":"张玉吉",
+"userPhoto":"",
+"lobbyNo":"市区农信",
+"returnMessage":您好！因时间紧急，请尽快审核，谢谢！"
+}
+
+
+
+
+

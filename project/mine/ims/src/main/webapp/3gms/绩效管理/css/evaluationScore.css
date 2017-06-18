@@ -1,0 +1,33 @@
+/*冲掉公众样式，此处为小弹框*/
+.layer{width: 500px;margin-left: -250px;}
+/*弹出层内容样式*/
+
+.form_box{margin: 10px 0;}
+.form_input{width:250px;height:34px;line-height:34px;border: solid 1px #d9e0f2;cursor: pointer;border-radius:3px;color: #717d98;font-family: "微软雅黑";background-color: #fff;padding-left: 4px;box-sizing: border-box;font-size: 14px;
+}
+/*直接显示文字*/
+.show_txt{height: 34px;line-height: 34px;}
+/*选择框*/
+.choseBusiness{ width: 250px;
+    height: 34px;
+    line-height: 34px;
+    border: solid 1px #d9e0f2;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #717d98;
+    font-family: "微软雅黑";
+    background-color: #fff;
+    padding-left: 4px;
+    box-sizing: border-box;
+    font-size: 14px;}
+.form_title{height: 34px;line-height: 34px;min-width: 116px;text-align: right;display: inline-block;margin-right: 20px;}
+/*文本框*/
+.area_content{width:250px;height:200px;line-height:34px;border: solid 1px #d9e0f2;border-radius:3px;color: #717d98;font-family: "微软雅黑";background-color: #fff;padding-left: 4px;box-sizing: border-box;font-size: 14px;}
+/*时间控件*/
+body .check_time{width: 250px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #d9e0f2;
+    background: url(../img/data.png) no-repeat right center #fff;
+    color: #717d98;
+    vertical-align: top;padding-left: 4px;box-sizing: border-box;}

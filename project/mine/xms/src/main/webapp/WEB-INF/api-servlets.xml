@@ -1,0 +1,14 @@
+<!-- 测试事务 start -->
+<servlet>
+	<servlet-name>testTransaction</servlet-name>
+	<servlet-class>
+		com.jlit.xms.api.servlet.TestServlet
+	</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>testTransaction</servlet-name>
+	<url-pattern>/servlet/testTransaction</url-pattern>
+</servlet-mapping>
+
+
+

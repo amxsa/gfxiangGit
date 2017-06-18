@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>推广营销--流程管理</title>
+		<!-- 引入整个平台公共样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/base_web.css" />
+		<!-- 引入本文件的样式文件 -->
+		<link rel="stylesheet" type="text/css" href="../css/common_style.css" />
+		<link rel="stylesheet" type="text/css" href="css/流程管理.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/抽奖活动模板.css" />-->
+
+		<!-- 引入jquery库文件 -->
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<!-- 引入时间插件文件 -->
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				rank()
+				//添加流程
+				$(".add_process").on("click",function(){
+					var $lis = $("<li></li>")
+					$lis.html('<div class="col">'+
+								</div><div class="process_num">1</div>'+
+								'<div class="input_box">'+
+								'<label>步骤<span class="label_num"></span></label>'+
+								'<select name="" id="">'+
+								'<option value="">请选择</option>'+
+								'<option value="推送流程">推送流程</option></select>'+
+								'<select name="" id="">'+
+								'<option value="">请选择</option>'+
+								'<option value="账户查询">账户查询</option>'+
+								'<option value="设备管理">设备管理</option></select>'+
+								'<div class="table_btn delete_process">删除流程</div></div>')
+					$(".process_list").append($lis);
+					rank()
+				})
+				//保存流程
+				$(".save_process").on("click",function(){
+					var $trs = $("<tr></tr>");
+					$trs.html('<td>'+
+							'<span>wifi服务</span>'+
+							'<span>对公填单</span>'+
+							'<span>贷款申请</span>'+
+							'</td>'+
+							'<td>'+
+							'<em class="edit_td">编辑</em>'+
+							'<em class="delet_td">删除</em>'+
+							'</td>')
+					$(".process_table tbody").append($trs)
+					
+				})
+				//删除列表流程
+				$(".process_list").on("click",".delete_process",function(){
+					$(this).parent().parent().remove();
+					rank()
+				})
+				
+				
+				//取消编辑
+				$(".close_edit").on("click",function(){
+					window.location.reload();
+				})
+				
+				//删除表格流程
+				$(".process_table").on("click",".delet_td",function(){
+					$(this).parent().parent().remove();
+				})
+				
+			})
+			function rank(){
+				//流程排序
+				$(".process_list >li").each(function(){
+					$(this).children(".process_num").text($(this).index()+1)
+					$(this).find(".label_num").text($(this).index()+1)
+				})
+			}
+		</script>
+		
+		
+		<style>
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap_main">
+			<!-- 面包屑开始 -->
+			<div class="crumb">
+				<em>推广营销</em>
+				<i>></i>
+				<em>流程管理</em>
+			</div>
+			<!-- 面包屑结束 -->
+			<!-- 面包屑下部分开始 -->
+			<div class="wrap_main_bd">
+				<!--流程管理-->
+				<div class="message_box">
+					<div class="message_box_hd">
+						<span>流程管理</span>
+					</div>
+					<div class="message_box_bd">
+						<!-- 查找模块开始 -->
+						<div class="serach_box">
+							<!-- 时间控件 -->
+							<div class="serach_in">
+								<span class="find_title">有效期</span>
+								<input readonly="readonly" type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate chose_time" value="">
+								<span>至</span>
+								<input readonly="readonly" type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate chose_time" value="">
+							</div>
+
+							<!-- select部分 -->
+							<div class="serach_in">
+								<span class="find_title">推送次数</span>
+								<select name="" id="">
+									<option value="请选择">请选择</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>
+
+						</div>
+						<ul class="process_list">
+							<li>
+								<div class="process_num">1</div>
+								<div class="input_box" >
+									<label>步骤<span class="label_num">10</span></label>
+									<select name="" id="" style="margin-left: -4px;">
+										<option value="">请选择</option>
+										<option value="推送流程">推送流程</option>
+									</select>
+									<select name="" id="" style="margin-left: -4px;">
+										<option value="">请选择</option>
+										<option value="账户查询">账户查询</option>
+										<option value="设备管理">设备管理</option>
+									</select>
+								
+								</div>
+							</li>
+						</ul>
+						<!-- 查找模块结束 -->
+						<div class="btn_list">
+							<div class="table_btn add_process">新增步骤</div>
+							<div class="table_btn close_edit">取消编辑</div>
+							<div class="table_btn save_process">保存流程</div>
+						</div>
+					</div>
+				</div>
+				<!--流程列表-->
+				<div class="message_box">
+					<div class="message_box_hd">
+						<span>流程列表</span>
+					</div>
+					<div class="message_box_bd">
+						<!-- 表格区 -->
+						<div class="commonTable_content">
+							<table class="process_table" width="100%" border="1" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th>流程</th>
+										<th width="100">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<span>wifi服务</span>
+											<span>对公填单</span>
+											<span>贷款申请</span>
+										</td>
+										<td>
+											<em class="edit_td">编辑</em>
+											<em class="delet_td">删除</em>
+										</td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--添加奖项-->
+		<!-- 添加奖项弹框-->
+		<div class="layer layer_addprize">
+			<div class="layer_hd">
+				<p>添加奖项</p>
+				<span class="close"></span>
+			</div>
+			<div class="layer_bd">
+				<div class="layer_bd_content ">
+					<div class="layer_topbox clearfix">
+						<div class="input_box prize_rank">
+							<label>奖品等级：</label>
+							<select name="">
+								<option value="">请选择</option>
+								<option value="一等奖">一等奖</option>
+								<option value="二等奖">二等奖</option>
+								<option value="三等奖">三等奖</option>
+							</select>
+							<span>奖品等级不能重复</span>
+							<em>一等奖</em>
+						</div>
+						<div class="input_box prize_probability">
+							<label>中奖率：</label>
+							<input type="text" name="" id="" value="" class="min_input" style="margin: 0;" />
+							<span>‰</span>
+							<em>100</em>
+						</div>
+						<div class="input_box prize_provider">
+							<label>奖品供应商：</label>
+							<select name="">
+								<option value="" selected>请选择</option>
+								<option value="供应商一">供应商一</option>
+								<option value="供应商二">供应商二</option>
+							</select>
+							<em>供应商1</em>
+						</div>
+						<div class="input_box prize_name">
+							<label>奖品名称：</label>
+							<select name="">
+								<option value="" selected>请选择</option>
+								<option value="雨伞1">雨伞1</option>
+								<option value="雨伞2">雨伞2</option>
+							</select>
+							<em>精美伞一把</em>
+						</div>
+						<div class="input_box prize_num_box" style="width: 100%;">
+							<label>奖品数量：</label>
+							<input type="text" name="" id="" value="" class="common_input" />
+							<span>当前可关联数量为<span class="prize_num">0</span>，请及时补充奖品数量</span>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="layer_ft">
+				<div class="layer_ft_no">关闭</div>
+				<div class="layer_ft_yes">确定</div>
+			</div>
+		</div>
+		<!--添加奖项弹框-->
+
+		<div class="layer-bg" style="display: none;"></div>
+
+	</body>
+
+</html>
